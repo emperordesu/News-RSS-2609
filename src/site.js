@@ -40,6 +40,48 @@ ${summaryHtml}
 </a>`;
 }
 
+const DIRECTION_ARROW = { up: '▲', down: '▼', flat: '－' };
+
+function renderStockCard(stock) {
+  const arrow = DIRECTION_ARROW[stock.direction] || '－';
+  const changeAbs = Math.abs(stock.change).toLocaleString('ko-KR');
+  const percentAbs = Math.abs(stock.percent).toFixed(2);
+  const statusLabel = stock.isMarketClosed ? '전일 종가 기준' : stock.status ? '장중' : '';
+
+  return `<div class="stock-card stock-${stock.direction}">
+<div class="stock-head">
+<span class="stock-name">${escapeHtml(stock.name)}</span>
+<span class="stock-code">${escapeHtml(stock.code)}</span>
+</div>
+<div class="stock-price">${stock.price.toLocaleString('ko-KR')}<span class="stock-won">원</span></div>
+<div class="stock-change">${arrow} ${changeAbs} (${percentAbs}%)</div>
+${statusLabel ? `<div class="stock-status">${escapeHtml(statusLabel)}</div>` : ''}
+</div>`;
+}
+
+// 히어로 바로 아래에 배치되는 현대차/기아/현대모비스 시세 위젯. 데이터가 없으면 렌더링하지 않는다.
+function renderMarketWidget(stocks) {
+  if (!stocks || stocks.length === 0) return '';
+
+  const updatedAt = stocks
+    .map((s) => s.updatedAt)
+    .filter(Boolean)
+    .sort()
+    .pop();
+  const updatedLabel = updatedAt
+    ? new Date(updatedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+    : '';
+
+  return `<section class="market-widget" aria-label="현대차·기아·현대모비스 시세">
+<div class="market-inner">
+<p class="eyebrow"><span class="dot"></span>오늘의 시황${updatedLabel ? ` · ${escapeHtml(updatedLabel)} 갱신` : ''}</p>
+<div class="stock-grid">
+${stocks.map((s) => renderStockCard(s)).join('\n')}
+</div>
+</div>
+</section>`;
+}
+
 function groupFeedsByCountry() {
   const order = [];
   const map = new Map();
@@ -103,12 +145,13 @@ ${sorted.map((item) => renderCard(item)).join('\n')}
   return { sourceNav, sections };
 }
 
-function generateSite(items) {
+function generateSite(items, stocks = []) {
   if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
 
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
   const briefing = buildBriefing(items);
   const { sourceNav, sections } = renderSections(items);
+  const marketWidget = renderMarketWidget(stocks);
 
   const html = `<!doctype html>
 <html lang="ko">
@@ -245,6 +288,52 @@ function generateSite(items) {
 
   .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
   .btn-outline:hover { background: var(--ink); color: var(--canvas); }
+
+  .market-widget { padding: 0 24px 56px; }
+
+  .market-inner { max-width: 1100px; margin: 0 auto; }
+
+  .stock-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .stock-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
+    border: 1.5px solid transparent;
+  }
+
+  .stock-card.stock-up { border-color: rgba(194, 59, 59, 0.35); }
+  .stock-card.stock-down { border-color: rgba(47, 95, 168, 0.3); }
+
+  .stock-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .stock-name { font-size: 15px; font-weight: 700; }
+  .stock-code { font-size: 12px; color: var(--muted); }
+
+  .stock-price {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .stock-price .stock-won { font-size: 15px; font-weight: 500; color: var(--ink-soft); margin-left: 2px; }
+
+  .stock-change { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .stock-up .stock-change { color: #C23B3B; }
+  .stock-down .stock-change { color: #2F5FA8; }
+
+  .stock-status { margin-top: 10px; font-size: 12px; color: var(--muted); }
 
   .source-nav {
     display: flex;
@@ -383,6 +472,8 @@ function generateSite(items) {
     .hero { padding: 64px 20px 48px; }
     .hero h1 { font-size: 34px; }
     .hero-paragraph { font-size: 15px; }
+    .market-widget { padding: 0 20px 40px; }
+    .stock-grid { grid-template-columns: 1fr; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
     .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
@@ -421,6 +512,8 @@ function generateSite(items) {
       </div>
     </div>
   </section>
+
+${marketWidget}
 
 ${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">

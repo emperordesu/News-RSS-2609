@@ -1,0 +1,38 @@
+[
+  {
+    "code": "005380",
+    "name": "현대차",
+    "market": "코스피",
+    "price": 383500,
+    "change": 0,
+    "percent": 0,
+    "direction": "flat",
+    "status": "2026년 09월 04일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-05T07:52:17.399Z"
+  },
+  {
+    "code": "000270",
+    "name": "기아",
+    "market": "코스피",
+    "price": 126500,
+    "change": -900,
+    "percent": -0.71,
+    "direction": "down",
+    "status": "2026년 09월 04일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-05T07:52:17.395Z"
+  },
+  {
+    "code": "012330",
+    "name": "현대모비스",
+    "market": "코스피",
+    "price": 422000,
+    "change": -1500,
+    "percent": -0.35,
+    "direction": "down",
+    "status": "2026년 09월 04일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-05T07:52:17.417Z"
+  }
+]

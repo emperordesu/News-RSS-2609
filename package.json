@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "collect": "node scripts/collect.js",
+    "collect-stocks": "node scripts/collect-stocks.js",
     "summary": "node scripts/summary.js"
   },
   "dependencies": {

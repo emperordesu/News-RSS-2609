@@ -3,6 +3,7 @@ const { fetchAllFeeds } = require('../src/rss');
 const { addNewItems, loadAll } = require('../src/store');
 const { generateSite } = require('../src/site');
 const { filterItems } = require('../src/filter');
+const { loadStocks } = require('../src/stockStore');
 
 async function main() {
   console.log(`[수집 시작] ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`);
@@ -20,7 +21,7 @@ async function main() {
     }
   }
 
-  generateSite(loadAll());
+  generateSite(loadAll(), loadStocks());
   console.log('docs/index.html 갱신 완료');
 }
 

@@ -134,6 +134,52 @@
   .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
   .btn-outline:hover { background: var(--ink); color: var(--canvas); }
 
+  .market-widget { padding: 0 24px 56px; }
+
+  .market-inner { max-width: 1100px; margin: 0 auto; }
+
+  .stock-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .stock-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
+    border: 1.5px solid transparent;
+  }
+
+  .stock-card.stock-up { border-color: rgba(194, 59, 59, 0.35); }
+  .stock-card.stock-down { border-color: rgba(47, 95, 168, 0.3); }
+
+  .stock-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .stock-name { font-size: 15px; font-weight: 700; }
+  .stock-code { font-size: 12px; color: var(--muted); }
+
+  .stock-price {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .stock-price .stock-won { font-size: 15px; font-weight: 500; color: var(--ink-soft); margin-left: 2px; }
+
+  .stock-change { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .stock-up .stock-change { color: #C23B3B; }
+  .stock-down .stock-change { color: #2F5FA8; }
+
+  .stock-status { margin-top: 10px; font-size: 12px; color: var(--muted); }
+
   .source-nav {
     display: flex;
     gap: 12px;
@@ -271,6 +317,8 @@
     .hero { padding: 64px 20px 48px; }
     .hero h1 { font-size: 34px; }
     .hero-paragraph { font-size: 15px; }
+    .market-widget { padding: 0 20px 40px; }
+    .stock-grid { grid-template-columns: 1fr; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
     .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
@@ -302,13 +350,48 @@
       <p class="eyebrow"><span class="dot"></span>2026.09.05 브리핑</p>
       <h1>현대차·기아, 최근 24시간 14건의 소식</h1>
       <p class="hero-paragraph">최신 소식은 '현대차그룹, 석유 심장부 오만에 최초 수소버스 투입... 중동 전동화 공략' 외 13건이며, 'EV', '투입', '신차' 키워드가 자주 언급되고 있습니다.</p>
-      <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: 2026. 9. 5. 오후 4:45:01 · 2시간마다 자동 갱신</p>
+      <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: 2026. 9. 5. 오후 4:52:17 · 2시간마다 자동 갱신</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
         <a class="btn btn-outline" href="#source-nav">국가별 보기</a>
       </div>
     </div>
   </section>
+
+<section class="market-widget" aria-label="현대차·기아·현대모비스 시세">
+<div class="market-inner">
+<p class="eyebrow"><span class="dot"></span>오늘의 시황 · 2026. 9. 5. 오후 4:52:17 갱신</p>
+<div class="stock-grid">
+<div class="stock-card stock-flat">
+<div class="stock-head">
+<span class="stock-name">현대차</span>
+<span class="stock-code">005380</span>
+</div>
+<div class="stock-price">383,500<span class="stock-won">원</span></div>
+<div class="stock-change">－ 0 (0.00%)</div>
+<div class="stock-status">전일 종가 기준</div>
+</div>
+<div class="stock-card stock-down">
+<div class="stock-head">
+<span class="stock-name">기아</span>
+<span class="stock-code">000270</span>
+</div>
+<div class="stock-price">126,500<span class="stock-won">원</span></div>
+<div class="stock-change">▼ 900 (0.71%)</div>
+<div class="stock-status">전일 종가 기준</div>
+</div>
+<div class="stock-card stock-down">
+<div class="stock-head">
+<span class="stock-name">현대모비스</span>
+<span class="stock-code">012330</span>
+</div>
+<div class="stock-price">422,000<span class="stock-won">원</span></div>
+<div class="stock-change">▼ 1,500 (0.35%)</div>
+<div class="stock-status">전일 종가 기준</div>
+</div>
+</div>
+</div>
+</section>
 
   <nav class="source-nav" id="source-nav">
 <a href="#section-1">한국</a>
