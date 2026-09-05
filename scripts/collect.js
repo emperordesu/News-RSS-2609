@@ -2,12 +2,14 @@ const { FEEDS } = require('../src/config');
 const { fetchAllFeeds } = require('../src/rss');
 const { addNewItems, loadAll } = require('../src/store');
 const { generateSite } = require('../src/site');
+const { filterItems } = require('../src/filter');
 
 async function main() {
   console.log(`[수집 시작] ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`);
 
   const fetched = await fetchAllFeeds(FEEDS);
-  const added = addNewItems(fetched);
+  const filtered = filterItems(fetched);
+  const added = addNewItems(filtered);
 
   if (added.length === 0) {
     console.log('새 뉴스가 없습니다.');

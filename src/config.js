@@ -9,4 +9,17 @@ const FEEDS = [
 // 데이터 파일에 보관할 기간 (일)
 const RETENTION_DAYS = 7;
 
-module.exports = { FEEDS, RETENTION_DAYS };
+// 제목에 아래 키워드 중 하나라도 포함된 기사만 수집한다 (대소문자 구분 없음)
+const KEYWORDS = [
+  '현대차그룹',
+  '현대자동차',
+  '현대차',
+  '기아자동차',
+  '기아차',
+  '기아',
+  'Hyundai',
+  'Kia',
+  'HMG',
+];
+
+module.exports = { FEEDS, RETENTION_DAYS, KEYWORDS };
