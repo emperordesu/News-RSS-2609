@@ -1,28 +1,28 @@
 const { KEYWORDS } = require('./config');
 
-const STOPWORDS = new Set(
-  [
-    ...KEYWORDS,
-    '및',
-    '관련',
-    '위해',
-    '대한',
-    '에서',
-    '으로',
-    '한다',
-    '했다',
-    '있다',
-    '기자',
-    '종합',
-    '것으로',
-    '대해',
-    '통해',
-    '오늘',
-    '최근',
-    '발표',
-    '이번',
-  ].map((w) => w.toLowerCase())
-);
+const STOPWORDS_LIST = [
+  ...KEYWORDS,
+  '및',
+  '관련',
+  '위해',
+  '대한',
+  '에서',
+  '으로',
+  '한다',
+  '했다',
+  '있다',
+  '기자',
+  '종합',
+  '것으로',
+  '대해',
+  '통해',
+  '오늘',
+  '최근',
+  '발표',
+  '이번',
+];
+
+const STOPWORDS = new Set(STOPWORDS_LIST.map((w) => w.toLowerCase()));
 
 const PUNCTUATION_RE = /[[\]()'"“”‘’…!?.,·]/g;
 
@@ -88,4 +88,4 @@ function buildBriefing(items) {
   };
 }
 
-module.exports = { buildBriefing };
+module.exports = { buildBriefing, STOPWORDS_LIST };

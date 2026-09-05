@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { FEEDS } = require('./config');
-const { buildBriefing } = require('./briefing');
+const { buildBriefing, STOPWORDS_LIST } = require('./briefing');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 
@@ -27,7 +27,9 @@ function renderCard(item) {
     ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy" onerror="this.remove()">`
     : '';
 
-  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">
+  const pubdate = item.pubDate || item.fetchedAt || '';
+
+  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" data-pubdate="${escapeHtml(pubdate)}">
 <div class="thumb" style="background:${item.color}">
 <span class="thumb-fallback">${escapeHtml(item.initials)}</span>
 ${imgHtml}
@@ -54,7 +56,7 @@ function renderStockCard(stock) {
 <span class="stock-code">${escapeHtml(stock.code)}</span>
 </div>
 <div class="stock-price">${stock.price.toLocaleString('ko-KR')}<span class="stock-won">원</span></div>
-<div class="stock-change">${arrow} ${changeAbs} (${percentAbs}%)</div>
+<div class="stock-change">${arrow} ${changeAbs} <span class="stock-percent">(${percentAbs}%)</span></div>
 ${statusLabel ? `<div class="stock-status">${escapeHtml(statusLabel)}</div>` : ''}
 </div>`;
 }
@@ -176,6 +178,7 @@ function generateSite(items, stocks = []) {
   }
 
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
 
   body {
     margin: 0;
@@ -204,40 +207,50 @@ function generateSite(items, stocks = []) {
   }
 
   .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
+  .logo img { display: block; height: 22px; width: auto; }
 
-  .menu { display: flex; gap: 28px; }
-  .menu a { text-decoration: none; font-weight: 500; font-size: 14px; color: var(--ink-soft); }
-  .menu a:hover { color: var(--accent); }
-
-  .cta-pill {
-    background: var(--ink);
-    color: var(--canvas);
-    padding: 10px 22px;
+  .period-filter {
+    display: inline-flex;
+    background: var(--canvas);
+    border: 1px solid var(--border);
     border-radius: 999px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: opacity 0.15s ease;
+    padding: 3px;
+    gap: 2px;
   }
-  .cta-pill:hover { opacity: 0.82; }
+
+  .period-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .period-btn:hover { color: var(--accent); }
+  .period-btn.active { background: var(--ink); color: var(--canvas); }
+  .period-btn.active:hover { color: var(--canvas); }
 
   .hero {
     position: relative;
     overflow: hidden;
-    padding: 96px 24px 72px;
+    padding: 68px 24px 50px;
   }
 
   .hero-decor { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
   .hero-decor circle { fill: none; stroke: var(--accent); opacity: 0.16; }
 
-  .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .hero-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
 
   .eyebrow {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 20px;
+    margin: 0 0 14px;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 700;
@@ -254,19 +267,29 @@ function generateSite(items, stocks = []) {
   }
 
   .hero h1 {
-    font-size: 52px;
+    font-size: clamp(22px, 3vw, 34px);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     letter-spacing: -0.02em;
-    margin: 0 0 20px;
+    margin: 0 0 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hero-paragraph {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 450;
+    line-height: 1.65;
     color: var(--ink-soft);
-    max-width: 560px;
-    margin: 0 0 36px;
+    max-width: 580px;
+    margin: 0 0 10px;
+  }
+
+  .hero-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 24px;
   }
 
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -296,44 +319,42 @@ function generateSite(items, stocks = []) {
   .stock-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 12px;
   }
 
   .stock-card {
+    font-family: -apple-system, BlinkMacSystemFont, "system-ui", "Segoe UI", "Malgun Gothic", sans-serif;
     background: var(--surface);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
-    border: 1.5px solid transparent;
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
   }
-
-  .stock-card.stock-up { border-color: rgba(194, 59, 59, 0.35); }
-  .stock-card.stock-down { border-color: rgba(47, 95, 168, 0.3); }
 
   .stock-head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
   }
 
-  .stock-name { font-size: 15px; font-weight: 700; }
-  .stock-code { font-size: 12px; color: var(--muted); }
+  .stock-name { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+  .stock-code { font-size: 11px; color: var(--muted); }
 
   .stock-price {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 650;
     letter-spacing: -0.01em;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
   }
-  .stock-price .stock-won { font-size: 15px; font-weight: 500; color: var(--ink-soft); margin-left: 2px; }
+  .stock-price .stock-won { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
 
-  .stock-change { font-size: 14px; font-weight: 600; color: var(--muted); }
-  .stock-up .stock-change { color: #C23B3B; }
-  .stock-down .stock-change { color: #2F5FA8; }
+  .stock-change { font-size: 12.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+  .stock-change .stock-percent { font-weight: 500; }
+  .stock-up .stock-change { color: #B3554F; }
+  .stock-down .stock-change { color: #3E6DA6; }
 
-  .stock-status { margin-top: 10px; font-size: 12px; color: var(--muted); }
+  .stock-status { margin-top: 6px; font-size: 10.5px; color: var(--muted); }
 
   .source-nav {
     display: flex;
@@ -468,10 +489,9 @@ function generateSite(items, stocks = []) {
   }
 
   @media (max-width: 767px) {
-    .menu { display: none; }
-    .hero { padding: 64px 20px 48px; }
-    .hero h1 { font-size: 34px; }
-    .hero-paragraph { font-size: 15px; }
+    .topbar-inner { flex-wrap: wrap; gap: 10px; }
+    .hero { padding: 44px 20px 36px; }
+    .hero h1 { white-space: normal; font-size: clamp(20px, 6vw, 26px); }
     .market-widget { padding: 0 20px 40px; }
     .stock-grid { grid-template-columns: 1fr; }
     .section-heading h2 { font-size: 24px; }
@@ -484,12 +504,11 @@ function generateSite(items, stocks = []) {
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">현대차·기아 뉴스</div>
-    <nav class="menu">
-      <a href="#briefing">오늘의 요약</a>
-      <a href="#sections">전체 기사</a>
-      <a href="#source-nav">국가별</a>
-    </nav>
-    <a class="cta-pill" href="https://github.com/emperordesu/News-RSS-2609" target="_blank" rel="noopener">GitHub</a>
+    <div class="period-filter" role="group" aria-label="기간 필터">
+      <button type="button" class="period-btn active" data-period="24h">24시간</button>
+      <button type="button" class="period-btn" data-period="7d">7일</button>
+      <button type="button" class="period-btn" data-period="30d">30일</button>
+    </div>
   </div>
 </header>
 
@@ -502,13 +521,12 @@ function generateSite(items, stocks = []) {
       </svg>
     </div>
     <div class="hero-inner">
-      <p class="eyebrow"><span class="dot"></span>${escapeHtml(briefing.eyebrow)}</p>
-      <h1>${escapeHtml(briefing.headline)}</h1>
-      <p class="hero-paragraph">${escapeHtml(briefing.paragraph)}</p>
-      <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신</p>
+      <p class="eyebrow" id="hero-eyebrow"><span class="dot"></span>${escapeHtml(briefing.eyebrow)}</p>
+      <h1 id="hero-headline">${escapeHtml(briefing.headline)}</h1>
+      <p class="hero-paragraph" id="hero-paragraph">${escapeHtml(briefing.paragraph)}</p>
+      <p class="hero-meta">마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
-        <a class="btn btn-outline" href="#source-nav">국가별 보기</a>
       </div>
     </div>
   </section>
@@ -517,12 +535,116 @@ ${marketWidget}
 
 ${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">
-${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;">현재 표시할 뉴스가 없습니다.</p>\n'}  </div>
+${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;">현재 표시할 뉴스가 없습니다.</p>\n'}  <p id="no-results" class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;" hidden>선택한 기간에는 표시할 뉴스가 없습니다.</p>
+  </div>
 </main>
 
 <footer class="site-footer">
   <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
 </footer>
+<script>
+(function () {
+  var STOPWORDS = new Set(${JSON.stringify(STOPWORDS_LIST.map((w) => w.toLowerCase()))});
+  var PERIODS = {
+    '24h': { ms: 24 * 60 * 60 * 1000, label: '24시간' },
+    '7d': { ms: 7 * 24 * 60 * 60 * 1000, label: '7일' },
+    '30d': { ms: 30 * 24 * 60 * 60 * 1000, label: '30일' }
+  };
+  var PUNCTUATION_RE = /[[\\]()'"“”‘’…!?.,·]/g;
+
+  function tokenize(title) {
+    return (title || '')
+      .replace(PUNCTUATION_RE, ' ')
+      .split(/\\s+/)
+      .map(function (t) { return t.trim(); })
+      .filter(function (t) { return t.length >= 2; });
+  }
+
+  function topKeywords(titles, limit) {
+    var freq = {};
+    titles.slice(0, 30).forEach(function (title) {
+      tokenize(title).forEach(function (token) {
+        var key = token.toLowerCase();
+        if (STOPWORDS.has(key)) return;
+        freq[token] = (freq[token] || 0) + 1;
+      });
+    });
+    return Object.keys(freq)
+      .sort(function (a, b) { return freq[b] - freq[a]; })
+      .slice(0, limit || 3);
+  }
+
+  function buildBriefing(cards, periodLabel) {
+    if (cards.length === 0) {
+      return { headline: '해당 기간에는 소식이 없습니다', paragraph: '다른 기간을 선택해 보세요.' };
+    }
+    var sorted = cards.slice().sort(function (a, b) { return b.time - a.time; });
+    var latest = sorted[0];
+    var keywords = topKeywords(sorted.map(function (c) { return c.title; }));
+    var otherCount = sorted.length - 1;
+    var paragraph = keywords.length > 0
+      ? "최신 소식은 '" + latest.title + "'" + (otherCount > 0 ? ' 외 ' + otherCount + '건' : '') + "이며, '" + keywords.join("', '") + "' 키워드가 자주 언급되고 있습니다."
+      : "최신 소식은 '" + latest.title + "' 입니다.";
+    return {
+      headline: '현대차·기아, 최근 ' + periodLabel + ' ' + sorted.length + '건의 소식',
+      paragraph: paragraph
+    };
+  }
+
+  function applyFilter(periodKey) {
+    var period = PERIODS[periodKey];
+    if (!period) return;
+    var cutoff = Date.now() - period.ms;
+    var visibleCards = [];
+
+    document.querySelectorAll('.article-card').forEach(function (card) {
+      var t = new Date(card.getAttribute('data-pubdate')).getTime();
+      var visible = !isNaN(t) && t >= cutoff;
+      card.hidden = !visible;
+      if (visible) {
+        var h3 = card.querySelector('h3');
+        visibleCards.push({ title: h3 ? h3.textContent : '', time: t });
+      }
+    });
+
+    document.querySelectorAll('.source-section').forEach(function (section) {
+      section.hidden = !section.querySelector('.article-card:not([hidden])');
+    });
+
+    var anyNavLinkVisible = false;
+    document.querySelectorAll('.source-nav a').forEach(function (a) {
+      var id = (a.getAttribute('href') || '').replace('#', '');
+      var section = id ? document.getElementById(id) : null;
+      var show = !!section && !section.hidden;
+      a.hidden = !show;
+      if (show) anyNavLinkVisible = true;
+    });
+    var sourceNavEl = document.getElementById('source-nav');
+    if (sourceNavEl) sourceNavEl.hidden = !anyNavLinkVisible;
+
+    var noResults = document.getElementById('no-results');
+    if (noResults) {
+      noResults.hidden = !!document.querySelector('.source-section:not([hidden])');
+    }
+
+    var briefing = buildBriefing(visibleCards, period.label);
+    var headlineEl = document.getElementById('hero-headline');
+    var paragraphEl = document.getElementById('hero-paragraph');
+    if (headlineEl) headlineEl.textContent = briefing.headline;
+    if (paragraphEl) paragraphEl.textContent = briefing.paragraph;
+
+    document.querySelectorAll('.period-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-period') === periodKey);
+    });
+  }
+
+  document.querySelectorAll('.period-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { applyFilter(btn.getAttribute('data-period')); });
+  });
+
+  applyFilter('24h');
+})();
+</script>
 </body>
 </html>
 `;
