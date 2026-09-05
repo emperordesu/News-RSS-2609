@@ -3,60 +3,369 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>자동차 뉴스 모음</title>
+<title>현대차·기아 뉴스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: light dark; }
-  body { font-family: -apple-system, "Malgun Gothic", sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; line-height: 1.5; }
-  h1 { font-size: 1.4rem; margin-bottom: 4px; }
-  .updated { color: #888; font-size: 0.85rem; margin-bottom: 24px; }
-  section { margin-bottom: 28px; }
-  h2 { font-size: 1.1rem; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
-  .count { font-weight: normal; color: #888; font-size: 0.85rem; }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  li a { text-decoration: none; color: inherit; font-weight: 500; }
-  li a:hover { text-decoration: underline; }
-  li time { color: #999; font-size: 0.8rem; white-space: nowrap; }
+  :root {
+    --canvas: #F3F0EE;
+    --lifted: #FCFBFA;
+    --white: #FFFFFF;
+    --ink: #141413;
+    --slate: #696969;
+    --dust: #D1CDC7;
+    --signal-orange: #CF4500;
+    --light-orange: #F37338;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, "Malgun Gothic", sans-serif;
+    font-weight: 450;
+    line-height: 1.4;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 96px; }
+
+  .nav-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--white);
+    border-radius: 999px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
+    padding: 16px 32px;
+    margin: 24px 0 64px;
+  }
+
+  .brand {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.32px;
+    white-space: nowrap;
+  }
+
+  .updated-pill {
+    color: var(--slate);
+    font-size: 13px;
+    font-weight: 450;
+    text-align: right;
+  }
+
+  .hero { padding: 0 0 64px; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.56px;
+    color: var(--ink);
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--signal-orange);
+    flex-shrink: 0;
+  }
+
+  .eyebrow .count {
+    font-weight: 450;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--slate);
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1.28px;
+    margin: 0 0 24px;
+  }
+
+  .hero .sub {
+    font-size: 16px;
+    font-weight: 450;
+    color: var(--slate);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .source-block { margin-bottom: 64px; }
+
+  .card-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .news-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--lifted);
+    border-radius: 24px;
+    padding: 24px 28px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .news-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 24px 48px 0px;
+    transform: translateY(-2px);
+  }
+
+  .card-text h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    margin: 0 0 8px;
+  }
+
+  .card-text time {
+    font-size: 13px;
+    font-weight: 450;
+    color: var(--slate);
+  }
+
+  .satellite {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--canvas);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: transform 0.2s ease;
+  }
+
+  .news-card:hover .satellite { transform: translateX(3px); }
+
+  .empty {
+    background: var(--lifted);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    color: var(--slate);
+  }
+
+  .site-footer {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 40px;
+    padding: 48px 40px;
+    margin-top: 64px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 450;
+  }
+
+  .site-footer a {
+    color: var(--light-orange);
+    text-decoration: none;
+  }
+
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 767px) {
+    .page { padding: 0 16px 64px; }
+    .nav-pill { flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px 24px; border-radius: 24px; }
+    .hero h1 { font-size: 40px; letter-spacing: -0.8px; }
+    .news-card { padding: 20px; }
+    .card-text h3 { font-size: 17px; }
+    .satellite { width: 40px; height: 40px; font-size: 16px; }
+  }
 </style>
 </head>
 <body>
-<h1>자동차 뉴스 모음</h1>
-<div class="updated">마지막 업데이트: 2026. 9. 5. 오후 4:09:43 (2시간마다 자동 갱신)</div>
-<section>
-<h2>모터그래프 <span class="count">6건</span></h2>
-<ul>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44456" target="_blank" rel="noopener">현대차, 전시장 방문상담 예약 서비스 도입</a><time>2026. 9. 4. 오후 5:24:00</time></li>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44457" target="_blank" rel="noopener">현대차그룹, 경찰버스에 실내 온도 낮춰주는 ‘나노 쿨링 필름’ 시범 적용</a><time>2026. 9. 4. 오후 5:22:53</time></li>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44419" target="_blank" rel="noopener">현대차가 트럭 고객 위해 준비한 운휴 손실 지원 서비스, 트레이드인 프로그램</a><time>2026. 9. 1. 오후 5:07:33</time></li>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44411" target="_blank" rel="noopener">대형 전동화 PBV, 더 기아 PV7 티저 공개</a><time>2026. 8. 31. 오후 5:04:11</time></li>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44410" target="_blank" rel="noopener">현대자동차, 모바일 레이싱 게임 '레이싱 마스터' 협업 e스포츠 대회 개최</a><time>2026. 8. 31. 오후 5:01:54</time></li>
-<li><a href="https://www.motorgraph.com/news/articleView.html?idxno=44415" target="_blank" rel="noopener">[AD] 기아 김형수 선임 오토컨설턴트, 4천대 판매 ‘그랜드 마스터’ 등극</a><time>2026. 8. 31. 오후 4:49:17</time></li>
-</ul>
+<div class="page">
+  <header class="nav-pill">
+    <div class="brand">현대차·기아 뉴스</div>
+    <div class="updated-pill">업데이트: 2026. 9. 5. 오후 4:20:08</div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow"><span class="dot"></span>AUTO NEWS</p>
+    <h1>현대차그룹 소식을<br>한곳에서</h1>
+    <p class="sub">5개 매체(모터그래프·오토헤럴드·연합뉴스·Car Watch·Auto Car)에서 현대차·기아 관련 기사만 골라 2시간마다 자동으로 수집합니다.</p>
+  </section>
+
+  <section class="source-block">
+<p class="eyebrow"><span class="dot"></span>모터그래프 <span class="count">6건</span></p>
+<div class="card-list">
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44456" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차, 전시장 방문상담 예약 서비스 도입</h3>
+<time>2026. 9. 4. 오후 5:24:00</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44457" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차그룹, 경찰버스에 실내 온도 낮춰주는 ‘나노 쿨링 필름’ 시범 적용</h3>
+<time>2026. 9. 4. 오후 5:22:53</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44419" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차가 트럭 고객 위해 준비한 운휴 손실 지원 서비스, 트레이드인 프로그램</h3>
+<time>2026. 9. 1. 오후 5:07:33</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44411" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>대형 전동화 PBV, 더 기아 PV7 티저 공개</h3>
+<time>2026. 8. 31. 오후 5:04:11</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44410" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대자동차, 모바일 레이싱 게임 '레이싱 마스터' 협업 e스포츠 대회 개최</h3>
+<time>2026. 8. 31. 오후 5:01:54</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44415" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>[AD] 기아 김형수 선임 오토컨설턴트, 4천대 판매 ‘그랜드 마스터’ 등극</h3>
+<time>2026. 8. 31. 오후 4:49:17</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+</div>
 </section>
-<section>
-<h2>오토헤럴드 <span class="count">12건</span></h2>
-<ul>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61528" target="_blank" rel="noopener">현대차그룹, 석유 심장부 오만에 최초 수소버스 투입... 중동 전동화 공략</a><time>2026. 9. 4. 오전 9:17:31</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61524" target="_blank" rel="noopener">기아 2세대 텔루라이드, 확 높인 기준에도 IIHS 최고 안전등급 ‘TSP+’ 획득</a><time>2026. 9. 4. 오전 8:20:12</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61522" target="_blank" rel="noopener">현대차, 인도 토종 브랜드에 밀려난 '2위 탈환' 총력... SUV·EV 신차 투입</a><time>2026. 9. 3. 오후 3:01:27</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61520" target="_blank" rel="noopener">&quot;주문 받습니다&quot; 현대차, 4000만 원대 '아이오닉 3' 유럽서 사전 예약</a><time>2026. 9. 3. 오후 2:55:10</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61518" target="_blank" rel="noopener">[신차 리뷰] 신형 아반떼, '현대차 연구원이 직접 공개한 놀라운 기술'</a><time>2026. 9. 3. 오후 1:57:01</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61505" target="_blank" rel="noopener">[모빌리티 인사이트] 美 소비자가 먼저 답, 현대차 'HEV 확대전' 통할까?</a><time>2026. 9. 2. 오후 3:27:58</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61498" target="_blank" rel="noopener">현대차그룹, 폭염에 지친 경찰버스 ‘나노 쿨링 필름’ 처방... 최대 7℃ 낮춰</a><time>2026. 9. 2. 오전 9:43:20</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61496" target="_blank" rel="noopener">현대차, 스타리아 EV 기반 어린이 통학차 '안심 승하차 솔루션' 개발</a><time>2026. 9. 2. 오전 9:18:06</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61491" target="_blank" rel="noopener">현대차ㆍ기아 美 8월 판매 0.4% 소폭 감소... 하이브리드는 폭풍성장</a><time>2026. 9. 2. 오전 7:26:02</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61489" target="_blank" rel="noopener">'잔인한 8월' 파업·휴가 겹치며 5.9% 감소... 기아, 내수 경쟁에서 현대차 제쳐</a><time>2026. 9. 1. 오후 4:50:15</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61479" target="_blank" rel="noopener">[김흥식 칼럼] 美 빅3 바뀌나... GMㆍ포드 턱밑까지 추격한 토요타와 현대차</a><time>2026. 9. 1. 오전 11:00:00</time></li>
-<li><a href="http://www.autoherald.co.kr/news/articleView.html?idxno=61481" target="_blank" rel="noopener">기아, K5 한 번 더 부분변경 '2019년 플랫폼 유지·하이브리드 강화'</a><time>2026. 9. 1. 오전 10:44:40</time></li>
-</ul>
+<section class="source-block">
+<p class="eyebrow"><span class="dot"></span>오토헤럴드 <span class="count">12건</span></p>
+<div class="card-list">
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61528" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차그룹, 석유 심장부 오만에 최초 수소버스 투입... 중동 전동화 공략</h3>
+<time>2026. 9. 4. 오전 9:17:31</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61524" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>기아 2세대 텔루라이드, 확 높인 기준에도 IIHS 최고 안전등급 ‘TSP+’ 획득</h3>
+<time>2026. 9. 4. 오전 8:20:12</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61522" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차, 인도 토종 브랜드에 밀려난 '2위 탈환' 총력... SUV·EV 신차 투입</h3>
+<time>2026. 9. 3. 오후 3:01:27</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61520" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>&quot;주문 받습니다&quot; 현대차, 4000만 원대 '아이오닉 3' 유럽서 사전 예약</h3>
+<time>2026. 9. 3. 오후 2:55:10</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61518" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>[신차 리뷰] 신형 아반떼, '현대차 연구원이 직접 공개한 놀라운 기술'</h3>
+<time>2026. 9. 3. 오후 1:57:01</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61505" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>[모빌리티 인사이트] 美 소비자가 먼저 답, 현대차 'HEV 확대전' 통할까?</h3>
+<time>2026. 9. 2. 오후 3:27:58</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61498" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차그룹, 폭염에 지친 경찰버스 ‘나노 쿨링 필름’ 처방... 최대 7℃ 낮춰</h3>
+<time>2026. 9. 2. 오전 9:43:20</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61496" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차, 스타리아 EV 기반 어린이 통학차 '안심 승하차 솔루션' 개발</h3>
+<time>2026. 9. 2. 오전 9:18:06</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61491" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>현대차ㆍ기아 美 8월 판매 0.4% 소폭 감소... 하이브리드는 폭풍성장</h3>
+<time>2026. 9. 2. 오전 7:26:02</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61489" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>'잔인한 8월' 파업·휴가 겹치며 5.9% 감소... 기아, 내수 경쟁에서 현대차 제쳐</h3>
+<time>2026. 9. 1. 오후 4:50:15</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61479" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>[김흥식 칼럼] 美 빅3 바뀌나... GMㆍ포드 턱밑까지 추격한 토요타와 현대차</h3>
+<time>2026. 9. 1. 오전 11:00:00</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61481" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>기아, K5 한 번 더 부분변경 '2019년 플랫폼 유지·하이브리드 강화'</h3>
+<time>2026. 9. 1. 오전 10:44:40</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+</div>
 </section>
-<section>
-<h2>Auto Car (UK) <span class="count">2건</span></h2>
-<ul>
-<li><a href="https://www.autocar.co.uk/car-news/electric-cars/kia-pv7-electric-van-be-revealed-14-september" target="_blank" rel="noopener">Kia PV7 electric van to be revealed on 14 September</a><time>2026. 9. 1. 오후 8:47:37</time></li>
-<li><a href="https://www.autocar.co.uk/car-news/used-cars/ev-game-changer-%C2%A310k-time-buy-used-kia-ev6" target="_blank" rel="noopener">An EV game changer for £10k? Time to buy a used Kia EV6</a><time>2026. 8. 31. 오후 5:00:00</time></li>
-</ul>
+<section class="source-block">
+<p class="eyebrow"><span class="dot"></span>Auto Car (UK) <span class="count">2건</span></p>
+<div class="card-list">
+<a class="news-card" href="https://www.autocar.co.uk/car-news/electric-cars/kia-pv7-electric-van-be-revealed-14-september" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>Kia PV7 electric van to be revealed on 14 September</h3>
+<time>2026. 9. 1. 오후 8:47:37</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+<a class="news-card" href="https://www.autocar.co.uk/car-news/used-cars/ev-game-changer-%C2%A310k-time-buy-used-kia-ev6" target="_blank" rel="noopener">
+<div class="card-text">
+<h3>An EV game changer for £10k? Time to buy a used Kia EV6</h3>
+<time>2026. 8. 31. 오후 5:00:00</time>
+</div>
+<span class="satellite" aria-hidden="true">&rarr;</span>
+</a>
+</div>
 </section>
 
+
+  <footer class="site-footer">
+    <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
+  </footer>
+</div>
 </body>
 </html>
