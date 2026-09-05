@@ -5,7 +5,7 @@ const { buildBriefing, STOPWORDS_LIST } = require('./briefing');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 const ASSETS_SRC_DIR = path.join(__dirname, '..', 'assets');
-const LOGO_FILENAME = 'hyundai-motor-group-logo.svg';
+const LOGO_FILENAME = 'hyundai-motor-group-logo.png';
 const CAROUSEL_SLIDE_COUNT = 6;
 
 function copyLogoAsset() {
@@ -718,7 +718,7 @@ function generateSite(items, stocks = []) {
 <body>
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.svg" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
+    <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.png" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
     <div class="period-filter" role="group" aria-label="기간 필터">
       <button type="button" class="period-btn active" data-period="24h">24시간</button>
       <button type="button" class="period-btn" data-period="7d">7일</button>

@@ -48,7 +48,7 @@ DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송
 
 ## 로고
 
-`assets/hyundai-motor-group-logo.svg`(Wikimedia Commons, 텍스트/도형만으로 구성되어 퍼블릭 도메인으로 분류된 파일 — 상표 자체는 별개이므로 사내/비상업 용도로만 사용)를 내비게이션 로고로 사용합니다. `generateSite()` 실행 시마다 `docs/assets/`로 자동 복사됩니다. 교체하려면 같은 파일명으로 `assets/` 폴더의 파일을 덮어쓰세요.
+`assets/hyundai-motor-group-logo.png`를 내비게이션 로고로 사용합니다(사내/비상업 용도로만 사용). `generateSite()` 실행 시마다 `docs/assets/`로 자동 복사됩니다. 교체하려면 같은 파일명으로 `assets/` 폴더의 파일을 덮어쓰세요(파일명·확장자를 바꾸려면 `src/site.js`의 `LOGO_FILENAME`도 함께 수정).
 
 ## 히어로 이미지 캐러셀
 
