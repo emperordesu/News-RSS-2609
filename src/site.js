@@ -40,6 +40,20 @@ ${summaryHtml}
 </a>`;
 }
 
+function groupFeedsByCountry() {
+  const order = [];
+  const map = new Map();
+  for (const feed of FEEDS) {
+    if (!map.has(feed.country)) {
+      map.set(feed.country, []);
+      order.push(feed.country);
+    }
+    map.get(feed.country).push(feed);
+  }
+  return { order, map };
+}
+
+// 국가(한국/일본/영국)별로 섹션을 구성한다. 매칭되는 기사가 없는 국가는 섹션 자체를 숨긴다.
 function renderSections(items) {
   const bySource = new Map();
   for (const item of items) {
@@ -47,34 +61,44 @@ function renderSections(items) {
     bySource.get(item.source).push(item);
   }
 
+  const { order, map: countryFeeds } = groupFeedsByCountry();
+
   let sourceNav = '';
   let sections = '';
+  let sectionIndex = 0;
 
-  FEEDS.forEach((feed, index) => {
-    const sectionNum = String(index + 1).padStart(2, '0');
-    const sectionId = `section-${index + 1}`;
-    const list = (bySource.get(feed.name) || []).sort(
-      (a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt)
+  for (const country of order) {
+    const feeds = countryFeeds.get(country);
+    const combined = feeds.flatMap((feed) =>
+      (bySource.get(feed.name) || []).map((item) => ({
+        ...item,
+        color: feed.color,
+        initials: feed.initials,
+      }))
     );
 
-    sourceNav += `<a href="#${sectionId}">${escapeHtml(feed.name)}</a>\n`;
+    if (combined.length === 0) continue;
 
-    const cardsHtml = list.length
-      ? `<div class="card-grid">\n${list
-          .map((item) => renderCard({ ...item, color: feed.color, initials: feed.initials }))
-          .join('\n')}\n</div>`
-      : '<p class="section-empty">아직 수집된 기사가 없습니다.</p>';
+    sectionIndex += 1;
+    const sectionNum = String(sectionIndex).padStart(2, '0');
+    const sectionId = `section-${sectionIndex}`;
+    const description = [...new Set(feeds.map((f) => f.description))].join(' · ');
+    const sorted = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
+
+    sourceNav += `<a href="#${sectionId}">${escapeHtml(country)}</a>\n`;
 
     sections += `<section class="source-section" id="${sectionId}">
 <div class="section-heading">
 <p class="section-label">SECTION ${sectionNum}</p>
-<h2>${escapeHtml(feed.name)}</h2>
-<p class="section-desc">${escapeHtml(feed.description)}</p>
+<h2>${escapeHtml(country)}</h2>
+<p class="section-desc">${escapeHtml(description)}</p>
 </div>
-${cardsHtml}
+<div class="card-grid">
+${sorted.map((item) => renderCard(item)).join('\n')}
+</div>
 </section>
 `;
-  });
+  }
 
   return { sourceNav, sections };
 }
@@ -372,7 +396,7 @@ function generateSite(items) {
     <nav class="menu">
       <a href="#briefing">오늘의 요약</a>
       <a href="#sections">전체 기사</a>
-      <a href="#source-nav">출처별</a>
+      <a href="#source-nav">국가별</a>
     </nav>
     <a class="cta-pill" href="https://github.com/emperordesu/News-RSS-2609" target="_blank" rel="noopener">GitHub</a>
   </div>
@@ -393,16 +417,14 @@ function generateSite(items) {
       <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
-        <a class="btn btn-outline" href="#source-nav">출처별 보기</a>
+        <a class="btn btn-outline" href="#source-nav">국가별 보기</a>
       </div>
     </div>
   </section>
 
-  <nav class="source-nav" id="source-nav">
-${sourceNav}  </nav>
-
+${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">
-${sections}  </div>
+${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;">현재 표시할 뉴스가 없습니다.</p>\n'}  </div>
 </main>
 
 <footer class="site-footer">

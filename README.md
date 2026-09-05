@@ -7,7 +7,7 @@
 - `src/config.js` — 수집할 RSS 피드 목록(이름/URL/설명/색상/이니셜) 및 키워드 필터
 - `src/rss.js` — RSS 파싱 + 썸네일(enclosure/media:content/media:thumbnail/본문 첫 이미지) 및 요약(본문 100자 요약) 추출
 - `src/briefing.js` — 최근 24시간 수집분 기준으로 "오늘의 요약" 헤드라인 생성(최신 기사 + 자주 언급된 키워드)
-- `src/site.js` — 웜 크림 톤 디자인의 `docs/index.html` 생성(히어로 요약, 출처별 카드 그리드)
+- `src/site.js` — 웜 크림 톤 디자인의 `docs/index.html` 생성(히어로 요약, 국가별 카드 그리드). 매칭 기사가 없는 국가 섹션은 화면에서 숨김
 - `scripts/collect.js` — 피드 수집 → `data/news.json`에 누적 저장 → `docs/index.html` 생성
 - `scripts/summary.js` — 최근 24시간 뉴스를 Discord Webhook으로 전송
 - `.github/workflows/collect-news.yml` — 2시간마다 수집 실행 후 결과 커밋
@@ -29,7 +29,7 @@ DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송
 
 ## 뉴스 소스 추가/변경
 
-`src/config.js`의 `FEEDS` 배열에 `{ name, url }` 형태로 추가하면 됩니다.
+`src/config.js`의 `FEEDS` 배열에 `{ name, url, country, description, color, initials }` 형태로 추가하면 됩니다. `country`가 같은 피드는 하나의 섹션(한국/일본/영국)으로 묶여 표시되며, 해당 국가에 매칭되는 기사가 하나도 없으면 그 섹션은 화면에서 자동으로 숨겨집니다.
 
 ## 키워드 필터
 
