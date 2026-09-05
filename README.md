@@ -27,3 +27,7 @@ DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송
 ## 뉴스 소스 추가/변경
 
 `src/config.js`의 `FEEDS` 배열에 `{ name, url }` 형태로 추가하면 됩니다.
+
+## 키워드 필터
+
+`src/config.js`의 `KEYWORDS` 배열에 있는 단어가 제목에 하나라도 포함된 기사만 수집합니다 (현재: 현대차그룹/현대차/기아 관련). GitHub Pages와 Discord 요약 모두 이 필터가 적용된 결과만 보여줍니다. 필터를 없애려면 `src/filter.js`의 `filterItems` 호출을 `scripts/collect.js`에서 제거하면 됩니다.
