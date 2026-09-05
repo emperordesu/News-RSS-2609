@@ -4,6 +4,18 @@ const { FEEDS } = require('./config');
 const { buildBriefing, STOPWORDS_LIST } = require('./briefing');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
+const ASSETS_SRC_DIR = path.join(__dirname, '..', 'assets');
+const LOGO_FILENAME = 'hyundai-motor-group-logo.svg';
+const CAROUSEL_SLIDE_COUNT = 6;
+
+function copyLogoAsset() {
+  const src = path.join(ASSETS_SRC_DIR, LOGO_FILENAME);
+  if (!fs.existsSync(src)) return false;
+  const destDir = path.join(DOCS_DIR, 'assets');
+  if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+  fs.copyFileSync(src, path.join(destDir, LOGO_FILENAME));
+  return true;
+}
 
 function escapeHtml(str) {
   return String(str)
@@ -84,6 +96,59 @@ ${stocks.map((s) => renderStockCard(s)).join('\n')}
 </section>`;
 }
 
+const FEEDS_BY_NAME = new Map(FEEDS.map((f) => [f.name, f]));
+
+function renderCarouselSlide(item, index) {
+  const feed = FEEDS_BY_NAME.get(item.source);
+  const color = feed ? feed.color : '#8A8172';
+  const initials = feed ? feed.initials : '';
+  const bgImage = item.image ? `background-image:url('${escapeHtml(item.image)}');` : '';
+
+  return `<a class="carousel-slide${index === 0 ? ' is-active' : ''}" data-index="${index}" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" style="background-color:${color};${bgImage}">
+<span class="carousel-fallback-text">${escapeHtml(initials)}</span>
+<div class="carousel-scrim"></div>
+<div class="carousel-caption">
+<span class="carousel-source">${escapeHtml(item.source)}</span>
+<h2>${escapeHtml(item.title)}</h2>
+</div>
+</a>`;
+}
+
+// 최근 기사 상위 N건으로 자동 전환되는 이미지 캐러셀을 만든다. 기사가 없으면 렌더링하지 않는다.
+function renderHeroCarousel(items) {
+  const slides = [...items]
+    .sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt))
+    .slice(0, CAROUSEL_SLIDE_COUNT);
+
+  if (slides.length === 0) return '';
+
+  const slidesHtml = slides.map((item, i) => renderCarouselSlide(item, i)).join('\n');
+  const dotsHtml = slides
+    .map(
+      (_, i) => `<button type="button" class="carousel-dot${i === 0 ? ' is-active' : ''}" data-index="${i}" aria-label="${i + 1}번 슬라이드로 이동">
+<span class="carousel-dot-num">${i + 1}</span>
+<span class="carousel-dot-bar"><span class="carousel-dot-fill"></span></span>
+</button>`
+    )
+    .join('\n');
+
+  const arrows =
+    slides.length > 1
+      ? `<button type="button" class="carousel-arrow carousel-prev" aria-label="이전 슬라이드">&#8249;</button>
+<button type="button" class="carousel-arrow carousel-next" aria-label="다음 슬라이드">&#8250;</button>`
+      : '';
+
+  return `<section class="hero-carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="주요 뉴스">
+<div class="carousel-viewport">
+${slidesHtml}
+</div>
+${arrows}
+<div class="carousel-pager">
+${dotsHtml}
+</div>
+</section>`;
+}
+
 function groupFeedsByCountry() {
   const order = [];
   const map = new Map();
@@ -150,10 +215,12 @@ ${sorted.map((item) => renderCard(item)).join('\n')}
 function generateSite(items, stocks = []) {
   if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
 
+  const hasLogo = copyLogoAsset();
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
   const briefing = buildBriefing(items);
   const { sourceNav, sections } = renderSections(items);
   const marketWidget = renderMarketWidget(stocks);
+  const heroCarousel = renderHeroCarousel(items);
 
   const html = `<!doctype html>
 <html lang="ko">
@@ -234,6 +301,148 @@ function generateSite(items, stocks = []) {
   .period-btn:hover { color: var(--accent); }
   .period-btn.active { background: var(--ink); color: var(--canvas); }
   .period-btn.active:hover { color: var(--canvas); }
+
+  .hero-carousel {
+    position: relative;
+    height: 56vh;
+    min-height: 380px;
+    max-height: 600px;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .carousel-viewport { position: relative; width: 100%; height: 100%; }
+
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+    z-index: 0;
+  }
+  .carousel-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
+
+  .carousel-fallback-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.22);
+    letter-spacing: 0.04em;
+  }
+
+  .carousel-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20, 18, 16, 0.85) 0%, rgba(20, 18, 16, 0.35) 42%, rgba(20, 18, 16, 0) 68%);
+  }
+
+  .carousel-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 32px 100px 56px 40px;
+    max-width: 760px;
+    color: #fff;
+  }
+
+  .carousel-source {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  .carousel-caption h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+  .carousel-arrow:hover { background: rgba(255, 255, 255, 0.3); }
+  .carousel-prev { left: 20px; }
+  .carousel-next { right: 20px; }
+
+  .carousel-pager {
+    position: absolute;
+    right: 40px;
+    bottom: 24px;
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .carousel-dot {
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .carousel-dot.is-active { color: #fff; }
+
+  .carousel-dot-bar {
+    width: 26px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .carousel-dot-fill {
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background: #fff;
+  }
+
+  @keyframes carousel-progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
 
   .hero {
     position: relative;
@@ -490,6 +699,12 @@ function generateSite(items, stocks = []) {
 
   @media (max-width: 767px) {
     .topbar-inner { flex-wrap: wrap; gap: 10px; }
+    .hero-carousel { height: 42vh; min-height: 280px; }
+    .carousel-caption { padding: 24px 60px 36px 20px; }
+    .carousel-arrow { width: 34px; height: 34px; font-size: 16px; }
+    .carousel-prev { left: 10px; }
+    .carousel-next { right: 10px; }
+    .carousel-pager { right: 20px; bottom: 16px; }
     .hero { padding: 44px 20px 36px; }
     .hero h1 { white-space: normal; font-size: clamp(20px, 6vw, 26px); }
     .market-widget { padding: 0 20px 40px; }
@@ -503,7 +718,7 @@ function generateSite(items, stocks = []) {
 <body>
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo">현대차·기아 뉴스</div>
+    <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.svg" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
     <div class="period-filter" role="group" aria-label="기간 필터">
       <button type="button" class="period-btn active" data-period="24h">24시간</button>
       <button type="button" class="period-btn" data-period="7d">7일</button>
@@ -513,6 +728,8 @@ function generateSite(items, stocks = []) {
 </header>
 
 <main>
+${heroCarousel}
+
   <section class="hero" id="briefing">
     <div class="hero-decor" aria-hidden="true">
       <svg width="100%" height="100%" preserveAspectRatio="none">
@@ -643,6 +860,59 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   });
 
   applyFilter('24h');
+})();
+</script>
+<script>
+(function () {
+  var carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+
+  var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
+  var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
+  var total = slides.length;
+  var DURATION = 5000;
+  var current = 0;
+  var timer = null;
+
+  function show(index) {
+    current = (index + total) % total;
+    slides.forEach(function (s, i) { s.classList.toggle('is-active', i === current); });
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === current);
+      var fill = d.querySelector('.carousel-dot-fill');
+      if (!fill) return;
+      fill.style.animation = 'none';
+      void fill.offsetWidth;
+      fill.style.animation = i === current ? 'carousel-progress ' + DURATION + 'ms linear forwards' : 'none';
+    });
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  function startTimer() {
+    stopTimer();
+    if (total > 1) timer = setInterval(next, DURATION);
+  }
+  function stopTimer() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  dots.forEach(function (d, i) {
+    d.addEventListener('click', function () { show(i); startTimer(); });
+  });
+
+  var prevBtn = carousel.querySelector('.carousel-prev');
+  var nextBtn = carousel.querySelector('.carousel-next');
+  if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startTimer(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { next(); startTimer(); });
+
+  carousel.addEventListener('mouseenter', stopTimer);
+  carousel.addEventListener('mouseleave', startTimer);
+
+  show(0);
+  startTimer();
 })();
 </script>
 </body>
