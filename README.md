@@ -4,7 +4,10 @@
 
 ## 구성
 
-- `src/config.js` — 수집할 RSS 피드 목록
+- `src/config.js` — 수집할 RSS 피드 목록(이름/URL/설명/색상/이니셜) 및 키워드 필터
+- `src/rss.js` — RSS 파싱 + 썸네일(enclosure/media:content/media:thumbnail/본문 첫 이미지) 및 요약(본문 100자 요약) 추출
+- `src/briefing.js` — 최근 24시간 수집분 기준으로 "오늘의 요약" 헤드라인 생성(최신 기사 + 자주 언급된 키워드)
+- `src/site.js` — 웜 크림 톤 디자인의 `docs/index.html` 생성(히어로 요약, 출처별 카드 그리드)
 - `scripts/collect.js` — 피드 수집 → `data/news.json`에 누적 저장 → `docs/index.html` 생성
 - `scripts/summary.js` — 최근 24시간 뉴스를 Discord Webhook으로 전송
 - `.github/workflows/collect-news.yml` — 2시간마다 수집 실행 후 결과 커밋

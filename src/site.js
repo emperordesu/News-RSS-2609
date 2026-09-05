@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { FEEDS } = require('./config');
+const { buildBriefing } = require('./briefing');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 
@@ -18,42 +20,71 @@ function formatDate(iso) {
   return d.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
 }
 
-function groupBySource(items) {
-  const map = new Map();
+function renderCard(item) {
+  const hasImage = Boolean(item.image);
+  const summaryHtml = item.summary ? `<p class="summary">${escapeHtml(item.summary)}</p>` : '';
+  const imgHtml = hasImage
+    ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy" onerror="this.remove()">`
+    : '';
+
+  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">
+<div class="thumb" style="background:${item.color}">
+<span class="thumb-fallback">${escapeHtml(item.initials)}</span>
+${imgHtml}
+</div>
+<div class="article-body">
+<h3>${escapeHtml(item.title)}</h3>
+${summaryHtml}
+<time>${formatDate(item.pubDate || item.fetchedAt)}</time>
+</div>
+</a>`;
+}
+
+function renderSections(items) {
+  const bySource = new Map();
   for (const item of items) {
-    if (!map.has(item.source)) map.set(item.source, []);
-    map.get(item.source).push(item);
+    if (!bySource.has(item.source)) bySource.set(item.source, []);
+    bySource.get(item.source).push(item);
   }
-  return map;
+
+  let sourceNav = '';
+  let sections = '';
+
+  FEEDS.forEach((feed, index) => {
+    const sectionNum = String(index + 1).padStart(2, '0');
+    const sectionId = `section-${index + 1}`;
+    const list = (bySource.get(feed.name) || []).sort(
+      (a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt)
+    );
+
+    sourceNav += `<a href="#${sectionId}">${escapeHtml(feed.name)}</a>\n`;
+
+    const cardsHtml = list.length
+      ? `<div class="card-grid">\n${list
+          .map((item) => renderCard({ ...item, color: feed.color, initials: feed.initials }))
+          .join('\n')}\n</div>`
+      : '<p class="section-empty">아직 수집된 기사가 없습니다.</p>';
+
+    sections += `<section class="source-section" id="${sectionId}">
+<div class="section-heading">
+<p class="section-label">SECTION ${sectionNum}</p>
+<h2>${escapeHtml(feed.name)}</h2>
+<p class="section-desc">${escapeHtml(feed.description)}</p>
+</div>
+${cardsHtml}
+</section>
+`;
+  });
+
+  return { sourceNav, sections };
 }
 
 function generateSite(items) {
   if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
 
-  const sorted = [...items].sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
-  const grouped = groupBySource(sorted);
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-
-  let sections = '';
-  for (const [source, list] of grouped) {
-    sections += `<section class="source-block">
-<p class="eyebrow"><span class="dot"></span>${escapeHtml(source)} <span class="count">${list.length}건</span></p>
-<div class="card-list">
-`;
-    for (const item of list) {
-      sections += `<a class="news-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">
-<div class="card-text">
-<h3>${escapeHtml(item.title)}</h3>
-<time>${formatDate(item.pubDate || item.fetchedAt)}</time>
-</div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
-</a>
-`;
-    }
-    sections += `</div>
-</section>
-`;
-  }
+  const briefing = buildBriefing(items);
+  const { sourceNav, sections } = renderSections(items);
 
   const html = `<!doctype html>
 <html lang="ko">
@@ -66,14 +97,14 @@ function generateSite(items) {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --canvas: #F3F0EE;
-    --lifted: #FCFBFA;
-    --white: #FFFFFF;
-    --ink: #141413;
-    --slate: #696969;
-    --dust: #D1CDC7;
-    --signal-orange: #CF4500;
-    --light-orange: #F37338;
+    --canvas: #F1EBE1;
+    --surface: #FFFFFF;
+    --ink: #1C1A17;
+    --ink-soft: #4A453D;
+    --muted: #8A8172;
+    --border: rgba(28, 26, 23, 0.08);
+    --accent: #B5502A;
+    --accent-on-dark: #E2916B;
     color-scheme: light;
   }
 
@@ -85,48 +116,65 @@ function generateSite(items) {
     color: var(--ink);
     font-family: "Inter", -apple-system, "Malgun Gothic", sans-serif;
     font-weight: 450;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
-  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 96px; }
+  a { color: inherit; }
 
-  .nav-pill {
+  .topbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    background: var(--white);
+  }
+
+  .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
+
+  .menu { display: flex; gap: 28px; }
+  .menu a { text-decoration: none; font-weight: 500; font-size: 14px; color: var(--ink-soft); }
+  .menu a:hover { color: var(--accent); }
+
+  .cta-pill {
+    background: var(--ink);
+    color: var(--canvas);
+    padding: 10px 22px;
     border-radius: 999px;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
-    padding: 16px 32px;
-    margin: 24px 0 64px;
-  }
-
-  .brand {
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
     white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .cta-pill:hover { opacity: 0.82; }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 24px 72px;
   }
 
-  .updated-pill {
-    color: var(--slate);
-    font-size: 13px;
-    font-weight: 450;
-    text-align: right;
-  }
+  .hero-decor { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .hero-decor circle { fill: none; stroke: var(--accent); opacity: 0.16; }
 
-  .hero { padding: 0 0 64px; }
+  .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
 
   .eyebrow {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.56px;
+    letter-spacing: 0.08em;
     color: var(--ink);
   }
 
@@ -134,141 +182,232 @@ function generateSite(items) {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--signal-orange);
+    background: var(--accent);
     flex-shrink: 0;
-  }
-
-  .eyebrow .count {
-    font-weight: 450;
-    text-transform: none;
-    letter-spacing: normal;
-    color: var(--slate);
   }
 
   .hero h1 {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -1.28px;
-    margin: 0 0 24px;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
   }
 
-  .hero .sub {
-    font-size: 16px;
+  .hero-paragraph {
+    font-size: 17px;
     font-weight: 450;
-    color: var(--slate);
-    max-width: 520px;
-    margin: 0;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 0 36px;
   }
 
-  .source-block { margin-bottom: 64px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  .card-list { display: flex; flex-direction: column; gap: 16px; }
-
-  .news-card {
-    display: flex;
+  .btn {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    background: var(--lifted);
-    border-radius: 24px;
-    padding: 24px 28px;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
     text-decoration: none;
-    color: inherit;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
   }
 
-  .news-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 24px 48px 0px;
-    transform: translateY(-2px);
+  .btn-primary { background: var(--ink); color: var(--canvas); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(28, 26, 23, 0.2); }
+
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--canvas); }
+
+  .source-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 56px;
   }
 
-  .card-text h3 {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
+  .source-nav a {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .source-nav a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .source-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 32px;
+    scroll-margin-top: 24px;
+  }
+
+  .section-heading { margin-bottom: 32px; max-width: 640px; }
+
+  .section-label {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     margin: 0 0 8px;
   }
 
-  .card-text time {
-    font-size: 13px;
-    font-weight: 450;
-    color: var(--slate);
+  .section-heading h2 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
   }
 
-  .satellite {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--canvas);
+  .section-desc { color: var(--ink-soft); font-size: 15px; margin: 0; }
+
+  .section-empty {
+    color: var(--muted);
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(28, 26, 23, 0.14); }
+
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    transition: transform 0.2s ease;
+    overflow: hidden;
   }
 
-  .news-card:hover .satellite { transform: translateX(3px); }
-
-  .empty {
-    background: var(--lifted);
-    border-radius: 24px;
-    padding: 48px;
-    text-align: center;
-    color: var(--slate);
+  .thumb-fallback {
+    font-size: 26px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.02em;
   }
+
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .article-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+  .article-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .article-body .summary {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .article-body time { margin-top: auto; font-size: 12px; color: var(--muted); }
 
   .site-footer {
     background: var(--ink);
-    color: var(--white);
-    border-radius: 40px;
+    color: var(--canvas);
+    border-radius: 32px;
     padding: 48px 40px;
-    margin-top: 64px;
+    margin: 64px 24px 48px;
     text-align: center;
     font-size: 14px;
     font-weight: 450;
   }
-
-  .site-footer a {
-    color: var(--light-orange);
-    text-decoration: none;
-  }
-
+  .site-footer a { color: var(--accent-on-dark); text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
 
+  @media (max-width: 1023px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 767px) {
-    .page { padding: 0 16px 64px; }
-    .nav-pill { flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px 24px; border-radius: 24px; }
-    .hero h1 { font-size: 40px; letter-spacing: -0.8px; }
-    .news-card { padding: 20px; }
-    .card-text h3 { font-size: 17px; }
-    .satellite { width: 40px; height: 40px; font-size: 16px; }
+    .menu { display: none; }
+    .hero { padding: 64px 20px 48px; }
+    .hero h1 { font-size: 34px; }
+    .hero-paragraph { font-size: 15px; }
+    .section-heading h2 { font-size: 24px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <header class="nav-pill">
-    <div class="brand">현대차·기아 뉴스</div>
-    <div class="updated-pill">업데이트: ${updatedAt}</div>
-  </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">현대차·기아 뉴스</div>
+    <nav class="menu">
+      <a href="#briefing">오늘의 요약</a>
+      <a href="#sections">전체 기사</a>
+      <a href="#source-nav">출처별</a>
+    </nav>
+    <a class="cta-pill" href="https://github.com/emperordesu/News-RSS-2609" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
 
-  <section class="hero">
-    <p class="eyebrow"><span class="dot"></span>AUTO NEWS</p>
-    <h1>현대차그룹 소식을<br>한곳에서</h1>
-    <p class="sub">5개 매체(모터그래프·오토헤럴드·연합뉴스·Car Watch·Auto Car)에서 현대차·기아 관련 기사만 골라 2시간마다 자동으로 수집합니다.</p>
+<main>
+  <section class="hero" id="briefing">
+    <div class="hero-decor" aria-hidden="true">
+      <svg width="100%" height="100%" preserveAspectRatio="none">
+        <circle cx="88%" cy="10%" r="220" stroke-width="1.5"></circle>
+        <circle cx="94%" cy="30%" r="140" stroke-width="1.5"></circle>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="dot"></span>${escapeHtml(briefing.eyebrow)}</p>
+      <h1>${escapeHtml(briefing.headline)}</h1>
+      <p class="hero-paragraph">${escapeHtml(briefing.paragraph)}</p>
+      <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
+        <a class="btn btn-outline" href="#source-nav">출처별 보기</a>
+      </div>
+    </div>
   </section>
 
-  ${sections || '<div class="empty">아직 수집된 뉴스가 없습니다.</div>'}
+  <nav class="source-nav" id="source-nav">
+${sourceNav}  </nav>
 
-  <footer class="site-footer">
-    <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
-  </footer>
-</div>
+  <div id="sections">
+${sections}  </div>
+</main>
+
+<footer class="site-footer">
+  <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
+</footer>
 </body>
 </html>
 `;

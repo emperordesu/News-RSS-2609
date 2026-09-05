@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --canvas: #F3F0EE;
-    --lifted: #FCFBFA;
-    --white: #FFFFFF;
-    --ink: #141413;
-    --slate: #696969;
-    --dust: #D1CDC7;
-    --signal-orange: #CF4500;
-    --light-orange: #F37338;
+    --canvas: #F1EBE1;
+    --surface: #FFFFFF;
+    --ink: #1C1A17;
+    --ink-soft: #4A453D;
+    --muted: #8A8172;
+    --border: rgba(28, 26, 23, 0.08);
+    --accent: #B5502A;
+    --accent-on-dark: #E2916B;
     color-scheme: light;
   }
 
@@ -28,48 +28,65 @@
     color: var(--ink);
     font-family: "Inter", -apple-system, "Malgun Gothic", sans-serif;
     font-weight: 450;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
-  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 96px; }
+  a { color: inherit; }
 
-  .nav-pill {
+  .topbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    background: var(--white);
+  }
+
+  .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
+
+  .menu { display: flex; gap: 28px; }
+  .menu a { text-decoration: none; font-weight: 500; font-size: 14px; color: var(--ink-soft); }
+  .menu a:hover { color: var(--accent); }
+
+  .cta-pill {
+    background: var(--ink);
+    color: var(--canvas);
+    padding: 10px 22px;
     border-radius: 999px;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
-    padding: 16px 32px;
-    margin: 24px 0 64px;
-  }
-
-  .brand {
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
     white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .cta-pill:hover { opacity: 0.82; }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 24px 72px;
   }
 
-  .updated-pill {
-    color: var(--slate);
-    font-size: 13px;
-    font-weight: 450;
-    text-align: right;
-  }
+  .hero-decor { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .hero-decor circle { fill: none; stroke: var(--accent); opacity: 0.16; }
 
-  .hero { padding: 0 0 64px; }
+  .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
 
   .eyebrow {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.56px;
+    letter-spacing: 0.08em;
     color: var(--ink);
   }
 
@@ -77,295 +94,499 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--signal-orange);
+    background: var(--accent);
     flex-shrink: 0;
-  }
-
-  .eyebrow .count {
-    font-weight: 450;
-    text-transform: none;
-    letter-spacing: normal;
-    color: var(--slate);
   }
 
   .hero h1 {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -1.28px;
-    margin: 0 0 24px;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
   }
 
-  .hero .sub {
-    font-size: 16px;
+  .hero-paragraph {
+    font-size: 17px;
     font-weight: 450;
-    color: var(--slate);
-    max-width: 520px;
-    margin: 0;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 0 36px;
   }
 
-  .source-block { margin-bottom: 64px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  .card-list { display: flex; flex-direction: column; gap: 16px; }
-
-  .news-card {
-    display: flex;
+  .btn {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    background: var(--lifted);
-    border-radius: 24px;
-    padding: 24px 28px;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
     text-decoration: none;
-    color: inherit;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
   }
 
-  .news-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 24px 48px 0px;
-    transform: translateY(-2px);
+  .btn-primary { background: var(--ink); color: var(--canvas); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(28, 26, 23, 0.2); }
+
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--canvas); }
+
+  .source-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 56px;
   }
 
-  .card-text h3 {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
+  .source-nav a {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .source-nav a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .source-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 32px;
+    scroll-margin-top: 24px;
+  }
+
+  .section-heading { margin-bottom: 32px; max-width: 640px; }
+
+  .section-label {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     margin: 0 0 8px;
   }
 
-  .card-text time {
-    font-size: 13px;
-    font-weight: 450;
-    color: var(--slate);
+  .section-heading h2 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
   }
 
-  .satellite {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--canvas);
+  .section-desc { color: var(--ink-soft); font-size: 15px; margin: 0; }
+
+  .section-empty {
+    color: var(--muted);
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(28, 26, 23, 0.14); }
+
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    transition: transform 0.2s ease;
+    overflow: hidden;
   }
 
-  .news-card:hover .satellite { transform: translateX(3px); }
-
-  .empty {
-    background: var(--lifted);
-    border-radius: 24px;
-    padding: 48px;
-    text-align: center;
-    color: var(--slate);
+  .thumb-fallback {
+    font-size: 26px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.02em;
   }
+
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .article-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+  .article-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .article-body .summary {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .article-body time { margin-top: auto; font-size: 12px; color: var(--muted); }
 
   .site-footer {
     background: var(--ink);
-    color: var(--white);
-    border-radius: 40px;
+    color: var(--canvas);
+    border-radius: 32px;
     padding: 48px 40px;
-    margin-top: 64px;
+    margin: 64px 24px 48px;
     text-align: center;
     font-size: 14px;
     font-weight: 450;
   }
-
-  .site-footer a {
-    color: var(--light-orange);
-    text-decoration: none;
-  }
-
+  .site-footer a { color: var(--accent-on-dark); text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
 
+  @media (max-width: 1023px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 767px) {
-    .page { padding: 0 16px 64px; }
-    .nav-pill { flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px 24px; border-radius: 24px; }
-    .hero h1 { font-size: 40px; letter-spacing: -0.8px; }
-    .news-card { padding: 20px; }
-    .card-text h3 { font-size: 17px; }
-    .satellite { width: 40px; height: 40px; font-size: 16px; }
+    .menu { display: none; }
+    .hero { padding: 64px 20px 48px; }
+    .hero h1 { font-size: 34px; }
+    .hero-paragraph { font-size: 15px; }
+    .section-heading h2 { font-size: 24px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <header class="nav-pill">
-    <div class="brand">현대차·기아 뉴스</div>
-    <div class="updated-pill">업데이트: 2026. 9. 5. PM 4:22:58</div>
-  </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">현대차·기아 뉴스</div>
+    <nav class="menu">
+      <a href="#briefing">오늘의 요약</a>
+      <a href="#sections">전체 기사</a>
+      <a href="#source-nav">출처별</a>
+    </nav>
+    <a class="cta-pill" href="https://github.com/emperordesu/News-RSS-2609" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
 
-  <section class="hero">
-    <p class="eyebrow"><span class="dot"></span>AUTO NEWS</p>
-    <h1>현대차그룹 소식을<br>한곳에서</h1>
-    <p class="sub">5개 매체(모터그래프·오토헤럴드·연합뉴스·Car Watch·Auto Car)에서 현대차·기아 관련 기사만 골라 2시간마다 자동으로 수집합니다.</p>
+<main>
+  <section class="hero" id="briefing">
+    <div class="hero-decor" aria-hidden="true">
+      <svg width="100%" height="100%" preserveAspectRatio="none">
+        <circle cx="88%" cy="10%" r="220" stroke-width="1.5"></circle>
+        <circle cx="94%" cy="30%" r="140" stroke-width="1.5"></circle>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="dot"></span>2026.09.05 브리핑</p>
+      <h1>현대차·기아, 최근 24시간 20건의 소식</h1>
+      <p class="hero-paragraph">최신 소식은 '현대차, 전시장 방문상담 예약 서비스 도입' 외 19건이며, 'EV', '예약', '서비스' 키워드가 자주 언급되고 있습니다.</p>
+      <p class="hero-paragraph" style="margin-top:-24px;font-size:13px;color:var(--muted);">마지막 업데이트: 2026. 9. 5. 오후 4:34:19 · 2시간마다 자동 갱신</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
+        <a class="btn btn-outline" href="#source-nav">출처별 보기</a>
+      </div>
+    </div>
   </section>
 
-  <section class="source-block">
-<p class="eyebrow"><span class="dot"></span>모터그래프 <span class="count">6건</span></p>
-<div class="card-list">
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44456" target="_blank" rel="noopener">
-<div class="card-text">
+  <nav class="source-nav" id="source-nav">
+<a href="#section-1">모터그래프</a>
+<a href="#section-2">오토헤럴드</a>
+<a href="#section-3">연합뉴스</a>
+<a href="#section-4">Car Watch (JP)</a>
+<a href="#section-5">Auto Car (UK)</a>
+  </nav>
+
+  <div id="sections">
+<section class="source-section" id="section-1">
+<div class="section-heading">
+<p class="section-label">SECTION 01</p>
+<h2>모터그래프</h2>
+<p class="section-desc">국내 자동차 전문 매체가 전하는 최신 소식</p>
+</div>
+<div class="card-grid">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44456" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>현대차, 전시장 방문상담 예약 서비스 도입</h3>
-<time>2026. 9. 4. PM 5:24:00</time>
+<p class="summary">현대자동차가 고객이 원하는 전시장과 방문 시간을 직접 선택해 구매상담을 받을 수 있는 '전시장 방문상담 예약 서비스'를 도입한다.전시장 방문상담 예약 서비스는 고객이 전시장 방문…</p>
+<time>2026. 9. 4. 오후 5:24:00</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44457" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44457" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>현대차그룹, 경찰버스에 실내 온도 낮춰주는 ‘나노 쿨링 필름’ 시범 적용</h3>
-<time>2026. 9. 4. PM 5:22:53</time>
+<p class="summary">현대자동차그룹이 한여름 폭염과 싸우는 경찰관들을 위해 특별한 선물을 전달했다. 현대차그룹은 서울특별시경찰청 기동본부(서울 중구)에서 1기동단 소속 경찰버스 두 대에 유리창 부착만으…</p>
+<time>2026. 9. 4. 오후 5:22:53</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44419" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44419" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>현대차가 트럭 고객 위해 준비한 운휴 손실 지원 서비스, 트레이드인 프로그램</h3>
-<time>2026. 9. 1. PM 5:07:33</time>
+<p class="summary">현대자동차가 트럭 고객의 안정적인 사업 운영을 지원하기 위해 운휴손실 지원 서비스와 자동차 교체 지원 프로그램을 신규 운영한다. 현대차는 사고 또는 보증 수리로 인해 운행이 불가한…</p>
+<time>2026. 9. 1. 오후 5:07:33</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44411" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44411" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>대형 전동화 PBV, 더 기아 PV7 티저 공개</h3>
-<time>2026. 8. 31. PM 5:04:11</time>
+<p class="summary">기아가 신규 대형 전동화 PBV(Platform Beyond Vehicle)를 앞세워 미래 모빌리티 시장에 새로운 가능성을 제시한다. 기아는 전동화 PBV 라인업의 두 번째 모델인…</p>
+<time>2026. 8. 31. 오후 5:04:11</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44410" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44410" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>현대자동차, 모바일 레이싱 게임 '레이싱 마스터' 협업 e스포츠 대회 개최</h3>
-<time>2026. 8. 31. PM 5:01:54</time>
+<p class="summary">현대자동차는 글로벌 인기 모바일 레이싱 게임 레이싱 마스터(Racing Master)와 협업해 서울 동대문디자인플라자(DDP)에서 '현대 N x 레이싱 마스터 컵(Racing Ma…</p>
+<time>2026. 8. 31. 오후 5:01:54</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44415" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="https://www.motorgraph.com/news/articleView.html?idxno=44415" target="_blank" rel="noopener">
+<div class="thumb" style="background:#D99A4E">
+<span class="thumb-fallback">모터</span>
+
+</div>
+<div class="article-body">
 <h3>[AD] 기아 김형수 선임 오토컨설턴트, 4천대 판매 ‘그랜드 마스터’ 등극</h3>
-<time>2026. 8. 31. PM 4:49:17</time>
+<p class="summary">기아는 서울 남부 송파지점 김형수 선임 오토컨설턴트가 누계 판매 대수 4천대를 달성해 '그랜드 마스터(Grand Master)'에 올랐다고 26일(수) 밝혔다. 그랜드 마스터는 기…</p>
+<time>2026. 8. 31. 오후 4:49:17</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
 </div>
 </section>
-<section class="source-block">
-<p class="eyebrow"><span class="dot"></span>오토헤럴드 <span class="count">12건</span></p>
-<div class="card-list">
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61528" target="_blank" rel="noopener">
-<div class="card-text">
+<section class="source-section" id="section-2">
+<div class="section-heading">
+<p class="section-label">SECTION 02</p>
+<h2>오토헤럴드</h2>
+<p class="section-desc">산업·리뷰·트렌드를 폭넓게 다루는 자동차 전문지</p>
+</div>
+<div class="card-grid">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61528" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61528_118392_930.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>현대차그룹, 석유 심장부 오만에 최초 수소버스 투입... 중동 전동화 공략</h3>
-<time>2026. 9. 4. AM 9:17:31</time>
+<p class="summary">(왼쪽부터) 오만 교통부 교통부문 차관: 카미스 빈 모하메드 알 샤막키(Khamis bin Mohammed Al Shammakhi), 현대차그룹 미래전략본부장 정호근 부사장, 오만…</p>
+<time>2026. 9. 4. 오전 9:17:31</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61524" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61524" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61524_118388_1543.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>기아 2세대 텔루라이드, 확 높인 기준에도 IIHS 최고 안전등급 ‘TSP+’ 획득</h3>
-<time>2026. 9. 4. AM 8:20:12</time>
+<p class="summary">기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…</p>
+<time>2026. 9. 4. 오전 8:20:12</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61522" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61522" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>현대차, 인도 토종 브랜드에 밀려난 '2위 탈환' 총력... SUV·EV 신차 투입</h3>
-<time>2026. 9. 3. PM 3:01:27</time>
+<p class="summary">현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…</p>
+<time>2026. 9. 3. 오후 3:01:27</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61520" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61520" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61520_118380_5222.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>&quot;주문 받습니다&quot; 현대차, 4000만 원대 '아이오닉 3' 유럽서 사전 예약</h3>
-<time>2026. 9. 3. PM 2:55:10</time>
+<p class="summary">현대자동차가 아이오닉 라인업 첫 소형 전기 해치백 '아이오닉 3(IONIQ 3)'의 영국과 유럽 주요 시장 주문에 돌입했다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 아이오닉…</p>
+<time>2026. 9. 3. 오후 2:55:10</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61518" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61518" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+
+</div>
+<div class="article-body">
 <h3>[신차 리뷰] 신형 아반떼, '현대차 연구원이 직접 공개한 놀라운 기술'</h3>
-<time>2026. 9. 3. PM 1:57:01</time>
+<p class="summary">현대자동차가 서울 아크 강남에서 개최한 '디 올 뉴 아반떼 테크 데이' 현장을 직접 다녀왔습니다. 이번 영상에서는 연구원들이 직접 설명한 내용을 바탕으로 신형 아반떼의 핵심 기술을…</p>
+<time>2026. 9. 3. 오후 1:57:01</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61505" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61505" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61505_118340_5919.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>[모빌리티 인사이트] 美 소비자가 먼저 답, 현대차 'HEV 확대전' 통할까?</h3>
-<time>2026. 9. 2. PM 3:27:58</time>
+<p class="summary">현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…</p>
+<time>2026. 9. 2. 오후 3:27:58</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61498" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61498" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61498_118317_3347.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>현대차그룹, 폭염에 지친 경찰버스 ‘나노 쿨링 필름’ 처방... 최대 7℃ 낮춰</h3>
-<time>2026. 9. 2. AM 9:43:20</time>
+<p class="summary">현대차그룹이 경찰 버스 두 대에 차량 실내 온도를 낮춰주는 첨단 소재인 ‘나노 쿨링 필름’을 적용했다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 폭염 속에서 장시간…</p>
+<time>2026. 9. 2. 오전 9:43:20</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61496" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61496" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61496_118310_1128.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>현대차, 스타리아 EV 기반 어린이 통학차 '안심 승하차 솔루션' 개발</h3>
-<time>2026. 9. 2. AM 9:18:06</time>
+<p class="summary">(왼쪽부터) 엠티알 천성재 대표, 현대차 국내판매사업부장 염재섭 상무, KT 기업사업본부장 노형래 상무, 키즈노트 강아름 부사장 (현대차) [오토헤럴드 정호인 기자] 현대자동차가…</p>
+<time>2026. 9. 2. 오전 9:18:06</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61491" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61491" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>현대차ㆍ기아 美 8월 판매 0.4% 소폭 감소... 하이브리드는 폭풍성장</h3>
-<time>2026. 9. 2. AM 7:26:02</time>
+<p class="summary">현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…</p>
+<time>2026. 9. 2. 오전 7:26:02</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61489" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61489" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61489_118292_4848.jpeg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>'잔인한 8월' 파업·휴가 겹치며 5.9% 감소... 기아, 내수 경쟁에서 현대차 제쳐</h3>
-<time>2026. 9. 1. PM 4:50:15</time>
+<p class="summary">2026년 8월 국내 5개 완성차 판매 실적 (오토헤럴드) [오토헤럴드 김흥식 기자] 지난 8월 국내 완성차 5개사의 글로벌 판매량이 내수 시장의 급격한 침체 여파로 전년 동월 대…</p>
+<time>2026. 9. 1. 오후 4:50:15</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61479" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61479" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61479_118270_1512.png" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>[김흥식 칼럼] 美 빅3 바뀌나... GMㆍ포드 턱밑까지 추격한 토요타와 현대차</h3>
-<time>2026. 9. 1. AM 11:00:00</time>
+<p class="summary">미국 신차 시장이 토요타와 현대차/기아의 판매가 급성장하면서 GM과 포드와의 순위 역전 가능성이 커지고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 미국 전통 강호와 한·…</p>
+<time>2026. 9. 1. 오전 11:00:00</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61481" target="_blank" rel="noopener">
-<div class="card-text">
+<a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61481" target="_blank" rel="noopener">
+<div class="thumb" style="background:#8FA37E">
+<span class="thumb-fallback">오토</span>
+<img src="https://cdn.autoherald.co.kr/news/photo/202609/61481_118275_4157.jpg" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>기아, K5 한 번 더 부분변경 '2019년 플랫폼 유지·하이브리드 강화'</h3>
-<time>2026. 9. 1. AM 10:44:40</time>
+<p class="summary">기아가 중형 세단 'K5'의 완전변경 대신 현행 3세대 모델을 기반으로 한 두 번째 부분변경을 준비한다(기아) [오토헤럴드 김훈기 기자] 기아가 중형 세단 'K5'의 완전변경 대신…</p>
+<time>2026. 9. 1. 오전 10:44:40</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
 </div>
 </section>
-<section class="source-block">
-<p class="eyebrow"><span class="dot"></span>Auto Car (UK) <span class="count">2건</span></p>
-<div class="card-list">
-<a class="news-card" href="https://www.autocar.co.uk/car-news/electric-cars/kia-pv7-electric-van-be-revealed-14-september" target="_blank" rel="noopener">
-<div class="card-text">
+<section class="source-section" id="section-3">
+<div class="section-heading">
+<p class="section-label">SECTION 03</p>
+<h2>연합뉴스</h2>
+<p class="section-desc">경제·산업 관점에서 본 현대차·기아 소식</p>
+</div>
+<p class="section-empty">아직 수집된 기사가 없습니다.</p>
+</section>
+<section class="source-section" id="section-4">
+<div class="section-heading">
+<p class="section-label">SECTION 04</p>
+<h2>Car Watch (JP)</h2>
+<p class="section-desc">일본 자동차 전문지가 전하는 해외 동향</p>
+</div>
+<p class="section-empty">아직 수집된 기사가 없습니다.</p>
+</section>
+<section class="source-section" id="section-5">
+<div class="section-heading">
+<p class="section-label">SECTION 05</p>
+<h2>Auto Car (UK)</h2>
+<p class="section-desc">영국 자동차 전문지가 전하는 글로벌 동향</p>
+</div>
+<div class="card-grid">
+<a class="article-card" href="https://www.autocar.co.uk/car-news/electric-cars/kia-pv7-electric-van-be-revealed-14-september" target="_blank" rel="noopener">
+<div class="thumb" style="background:#9A8AAE">
+<span class="thumb-fallback">AC</span>
+<img src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/32059-kia-corporate-pv7-teased-ahead-of-world-premiere-at-iaa-transportation-print-3600x2400-2.jpg?itok=oA1arbJD" alt="" loading="lazy" onerror="this.remove()">
+</div>
+<div class="article-body">
 <h3>Kia PV7 electric van to be revealed on 14 September</h3>
-<time>2026. 9. 1. PM 8:47:37</time>
+<p class="summary">New rival for LWB versions of Ford Transit Custom and Mercedes Vito is larger sibling to popular PV5…</p>
+<time>2026. 9. 1. 오후 8:47:37</time>
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
 </a>
-<a class="news-card" href="https://www.autocar.co.uk/car-news/used-cars/ev-game-changer-%C2%A310k-time-buy-used-kia-ev6" target="_blank" rel="noopener">
-<div class="card-text">
-<h3>An EV game changer for £10k? Time to buy a used Kia EV6</h3>
-<time>2026. 8. 31. PM 5:00:00</time>
+<a class="article-card" href="https://www.autocar.co.uk/car-news/used-cars/ev-game-changer-%C2%A310k-time-buy-used-kia-ev6" target="_blank" rel="noopener">
+<div class="thumb" style="background:#9A8AAE">
+<span class="thumb-fallback">AC</span>
+<img src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/kia-ev6-rt-50.jpg?itok=hRXnhqkN" alt="" loading="lazy" onerror="this.remove()">
 </div>
-<span class="satellite" aria-hidden="true">&rarr;</span>
+<div class="article-body">
+<h3>An EV game changer for £10k? Time to buy a used Kia EV6</h3>
+<p class="summary">For a posh, practical electric family car to turn heads and win hearts, look no further Kia's first…</p>
+<time>2026. 8. 31. 오후 5:00:00</time>
+</div>
 </a>
 </div>
 </section>
+  </div>
+</main>
 
-
-  <footer class="site-footer">
-    <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
-  </footer>
-</div>
+<footer class="site-footer">
+  <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
+</footer>
 </body>
 </html>
