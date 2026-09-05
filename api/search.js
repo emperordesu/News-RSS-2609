@@ -53,7 +53,7 @@ async function callOpenRouter(query, articles) {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
       'HTTP-Referer': 'https://news-rss-2609.vercel.app',
-      'X-Title': '현대차·기아 뉴스 검색',
+      'X-Title': 'Hyundai-Kia News Search',
     },
     body: JSON.stringify({
       model: process.env.OPENROUTER_MODEL || 'openai/gpt-4o-mini',
