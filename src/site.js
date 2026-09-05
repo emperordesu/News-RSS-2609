@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { FEEDS } = require('./config');
-const { buildBriefing, STOPWORDS_LIST } = require('./briefing');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 const ASSETS_SRC_DIR = path.join(__dirname, '..', 'assets');
@@ -56,44 +55,28 @@ ${summaryHtml}
 
 const DIRECTION_ARROW = { up: '▲', down: '▼', flat: '－' };
 
-function renderStockCard(stock) {
+function renderTickerItem(stock) {
   const arrow = DIRECTION_ARROW[stock.direction] || '－';
   const changeAbs = Math.abs(stock.change).toLocaleString('ko-KR');
   const percentAbs = Math.abs(stock.percent).toFixed(2);
-  const statusLabel = stock.isMarketClosed ? '전일 종가 기준' : stock.status ? '장중' : '';
 
-  return `<div class="stock-card stock-${stock.direction}">
-<div class="stock-head">
-<span class="stock-name">${escapeHtml(stock.name)}</span>
-<span class="stock-code">${escapeHtml(stock.code)}</span>
-</div>
-<div class="stock-price">${stock.price.toLocaleString('ko-KR')}<span class="stock-won">원</span></div>
-<div class="stock-change">${arrow} ${changeAbs} <span class="stock-percent">(${percentAbs}%)</span></div>
-${statusLabel ? `<div class="stock-status">${escapeHtml(statusLabel)}</div>` : ''}
-</div>`;
+  return `<span class="ticker-item ticker-${stock.direction}">
+<span class="ticker-arrow">${arrow}</span>
+<span class="ticker-name">${escapeHtml(stock.name)}</span>
+<span class="ticker-price">${stock.price.toLocaleString('ko-KR')}</span>
+<span class="ticker-change">(${changeAbs}, ${percentAbs}%)</span>
+</span>`;
 }
 
-// 히어로 바로 아래에 배치되는 현대차/기아/현대모비스 시세 위젯. 데이터가 없으면 렌더링하지 않는다.
-function renderMarketWidget(stocks) {
+// 캐러셀 바로 아래에 배치되는 현대차/기아/현대모비스 시세 티커. 데이터가 없으면 렌더링하지 않는다.
+function renderTickerBar(stocks) {
   if (!stocks || stocks.length === 0) return '';
 
-  const updatedAt = stocks
-    .map((s) => s.updatedAt)
-    .filter(Boolean)
-    .sort()
-    .pop();
-  const updatedLabel = updatedAt
-    ? new Date(updatedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
-    : '';
-
-  return `<section class="market-widget" aria-label="현대차·기아·현대모비스 시세">
-<div class="market-inner">
-<p class="eyebrow"><span class="dot"></span>오늘의 시황${updatedLabel ? ` · ${escapeHtml(updatedLabel)} 갱신` : ''}</p>
-<div class="stock-grid">
-${stocks.map((s) => renderStockCard(s)).join('\n')}
+  return `<div class="ticker-bar" aria-label="현대차·기아·현대모비스 시세">
+<div class="ticker-inner">
+${stocks.map((s) => renderTickerItem(s)).join('<span class="ticker-sep">|</span>\n')}
 </div>
-</div>
-</section>`;
+</div>`;
 }
 
 const FEEDS_BY_NAME = new Map(FEEDS.map((f) => [f.name, f]));
@@ -108,7 +91,6 @@ function renderCarouselSlide(item, index) {
 <span class="carousel-fallback-text">${escapeHtml(initials)}</span>
 <div class="carousel-scrim"></div>
 <div class="carousel-caption">
-<span class="carousel-source">${escapeHtml(item.source)}</span>
 <h2>${escapeHtml(item.title)}</h2>
 </div>
 </a>`;
@@ -217,9 +199,8 @@ function generateSite(items, stocks = []) {
 
   const hasLogo = copyLogoAsset();
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-  const briefing = buildBriefing(items);
   const { sourceNav, sections } = renderSections(items);
-  const marketWidget = renderMarketWidget(stocks);
+  const tickerBar = renderTickerBar(stocks);
   const heroCarousel = renderHeroCarousel(items);
 
   const html = `<!doctype html>
@@ -274,7 +255,7 @@ function generateSite(items, stocks = []) {
   }
 
   .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
-  .logo img { display: block; height: 22px; width: auto; }
+  .logo img { display: block; height: 36px; width: auto; }
 
   .period-filter {
     display: inline-flex;
@@ -355,18 +336,6 @@ function generateSite(items, stocks = []) {
     color: #fff;
   }
 
-  .carousel-source {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.16);
-    padding: 5px 12px;
-    border-radius: 999px;
-    margin-bottom: 12px;
-  }
-
   .carousel-caption h2 {
     font-size: clamp(20px, 2.6vw, 30px);
     font-weight: 700;
@@ -444,126 +413,33 @@ function generateSite(items, stocks = []) {
     to { width: 100%; }
   }
 
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 68px 24px 50px;
-  }
-
-  .hero-decor { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-  .hero-decor circle { fill: none; stroke: var(--accent); opacity: 0.16; }
-
-  .hero-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
-
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 14px;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--ink);
-  }
-
-  .eyebrow .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  .hero h1 {
-    font-size: clamp(22px, 3vw, 34px);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin: 0 0 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero-paragraph {
-    font-size: 15px;
-    font-weight: 450;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 580px;
-    margin: 0 0 10px;
-  }
-
-  .hero-meta {
-    font-size: 12px;
-    color: var(--muted);
-    margin: 0 0 24px;
-  }
-
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 28px;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
-  }
-
-  .btn-primary { background: var(--ink); color: var(--canvas); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(28, 26, 23, 0.2); }
-
-  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
-  .btn-outline:hover { background: var(--ink); color: var(--canvas); }
-
-  .market-widget { padding: 0 24px 56px; }
-
-  .market-inner { max-width: 1100px; margin: 0 auto; }
-
-  .stock-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .stock-card {
-    font-family: -apple-system, BlinkMacSystemFont, "system-ui", "Segoe UI", "Malgun Gothic", sans-serif;
+  .ticker-bar {
     background: var(--surface);
-    border-radius: 14px;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
   }
 
-  .stock-head {
+  .ticker-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px;
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 600;
   }
 
-  .stock-name { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
-  .stock-code { font-size: 11px; color: var(--muted); }
+  .ticker-item { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); }
+  .ticker-sep { color: var(--border); margin: 0 14px; }
+  .ticker-arrow { font-size: 10px; }
+  .ticker-name { color: var(--ink); font-weight: 700; }
+  .ticker-price { font-variant-numeric: tabular-nums; }
+  .ticker-change { font-weight: 500; color: var(--muted); }
 
-  .stock-price {
-    font-size: 20px;
-    font-weight: 650;
-    letter-spacing: -0.01em;
-    margin-bottom: 2px;
-  }
-  .stock-price .stock-won { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
-
-  .stock-change { font-size: 12.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
-  .stock-change .stock-percent { font-weight: 500; }
-  .stock-up .stock-change { color: #B3554F; }
-  .stock-down .stock-change { color: #3E6DA6; }
-
-  .stock-status { margin-top: 6px; font-size: 10.5px; color: var(--muted); }
+  .ticker-up .ticker-arrow, .ticker-up .ticker-price, .ticker-up .ticker-change { color: #B3554F; }
+  .ticker-down .ticker-arrow, .ticker-down .ticker-price, .ticker-down .ticker-change { color: #3E6DA6; }
+  .ticker-flat .ticker-arrow, .ticker-flat .ticker-price, .ticker-flat .ticker-change { color: var(--muted); }
 
   .source-nav {
     display: flex;
@@ -705,10 +581,9 @@ function generateSite(items, stocks = []) {
     .carousel-prev { left: 10px; }
     .carousel-next { right: 10px; }
     .carousel-pager { right: 20px; bottom: 16px; }
-    .hero { padding: 44px 20px 36px; }
-    .hero h1 { white-space: normal; font-size: clamp(20px, 6vw, 26px); }
-    .market-widget { padding: 0 20px 40px; }
-    .stock-grid { grid-template-columns: 1fr; }
+    .logo img { height: 28px; }
+    .ticker-inner { padding: 8px 20px; font-size: 12px; }
+    .ticker-sep { margin: 0 10px; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
     .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
@@ -720,8 +595,7 @@ function generateSite(items, stocks = []) {
   <div class="topbar-inner">
     <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.png" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
     <div class="period-filter" role="group" aria-label="기간 필터">
-      <button type="button" class="period-btn active" data-period="24h">24시간</button>
-      <button type="button" class="period-btn" data-period="7d">7일</button>
+      <button type="button" class="period-btn active" data-period="7d">7일</button>
       <button type="button" class="period-btn" data-period="30d">30일</button>
     </div>
   </div>
@@ -730,25 +604,7 @@ function generateSite(items, stocks = []) {
 <main>
 ${heroCarousel}
 
-  <section class="hero" id="briefing">
-    <div class="hero-decor" aria-hidden="true">
-      <svg width="100%" height="100%" preserveAspectRatio="none">
-        <circle cx="88%" cy="10%" r="220" stroke-width="1.5"></circle>
-        <circle cx="94%" cy="30%" r="140" stroke-width="1.5"></circle>
-      </svg>
-    </div>
-    <div class="hero-inner">
-      <p class="eyebrow" id="hero-eyebrow"><span class="dot"></span>${escapeHtml(briefing.eyebrow)}</p>
-      <h1 id="hero-headline">${escapeHtml(briefing.headline)}</h1>
-      <p class="hero-paragraph" id="hero-paragraph">${escapeHtml(briefing.paragraph)}</p>
-      <p class="hero-meta">마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#sections">전체 기사 보기</a>
-      </div>
-    </div>
-  </section>
-
-${marketWidget}
+${tickerBar}
 
 ${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">
@@ -757,71 +613,23 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 </main>
 
 <footer class="site-footer">
-  <p>2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
+  <p>마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
 </footer>
 <script>
 (function () {
-  var STOPWORDS = new Set(${JSON.stringify(STOPWORDS_LIST.map((w) => w.toLowerCase()))});
   var PERIODS = {
-    '24h': { ms: 24 * 60 * 60 * 1000, label: '24시간' },
-    '7d': { ms: 7 * 24 * 60 * 60 * 1000, label: '7일' },
-    '30d': { ms: 30 * 24 * 60 * 60 * 1000, label: '30일' }
+    '7d': { ms: 7 * 24 * 60 * 60 * 1000 },
+    '30d': { ms: 30 * 24 * 60 * 60 * 1000 }
   };
-  var PUNCTUATION_RE = /[[\\]()'"“”‘’…!?.,·]/g;
-
-  function tokenize(title) {
-    return (title || '')
-      .replace(PUNCTUATION_RE, ' ')
-      .split(/\\s+/)
-      .map(function (t) { return t.trim(); })
-      .filter(function (t) { return t.length >= 2; });
-  }
-
-  function topKeywords(titles, limit) {
-    var freq = {};
-    titles.slice(0, 30).forEach(function (title) {
-      tokenize(title).forEach(function (token) {
-        var key = token.toLowerCase();
-        if (STOPWORDS.has(key)) return;
-        freq[token] = (freq[token] || 0) + 1;
-      });
-    });
-    return Object.keys(freq)
-      .sort(function (a, b) { return freq[b] - freq[a]; })
-      .slice(0, limit || 3);
-  }
-
-  function buildBriefing(cards, periodLabel) {
-    if (cards.length === 0) {
-      return { headline: '해당 기간에는 소식이 없습니다', paragraph: '다른 기간을 선택해 보세요.' };
-    }
-    var sorted = cards.slice().sort(function (a, b) { return b.time - a.time; });
-    var latest = sorted[0];
-    var keywords = topKeywords(sorted.map(function (c) { return c.title; }));
-    var otherCount = sorted.length - 1;
-    var paragraph = keywords.length > 0
-      ? "최신 소식은 '" + latest.title + "'" + (otherCount > 0 ? ' 외 ' + otherCount + '건' : '') + "이며, '" + keywords.join("', '") + "' 키워드가 자주 언급되고 있습니다."
-      : "최신 소식은 '" + latest.title + "' 입니다.";
-    return {
-      headline: '현대차·기아, 최근 ' + periodLabel + ' ' + sorted.length + '건의 소식',
-      paragraph: paragraph
-    };
-  }
 
   function applyFilter(periodKey) {
     var period = PERIODS[periodKey];
     if (!period) return;
     var cutoff = Date.now() - period.ms;
-    var visibleCards = [];
 
     document.querySelectorAll('.article-card').forEach(function (card) {
       var t = new Date(card.getAttribute('data-pubdate')).getTime();
-      var visible = !isNaN(t) && t >= cutoff;
-      card.hidden = !visible;
-      if (visible) {
-        var h3 = card.querySelector('h3');
-        visibleCards.push({ title: h3 ? h3.textContent : '', time: t });
-      }
+      card.hidden = !(!isNaN(t) && t >= cutoff);
     });
 
     document.querySelectorAll('.source-section').forEach(function (section) {
@@ -844,12 +652,6 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
       noResults.hidden = !!document.querySelector('.source-section:not([hidden])');
     }
 
-    var briefing = buildBriefing(visibleCards, period.label);
-    var headlineEl = document.getElementById('hero-headline');
-    var paragraphEl = document.getElementById('hero-paragraph');
-    if (headlineEl) headlineEl.textContent = briefing.headline;
-    if (paragraphEl) paragraphEl.textContent = briefing.paragraph;
-
     document.querySelectorAll('.period-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-period') === periodKey);
     });
@@ -859,7 +661,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
     btn.addEventListener('click', function () { applyFilter(btn.getAttribute('data-period')); });
   });
 
-  applyFilter('24h');
+  applyFilter('7d');
 })();
 </script>
 <script>
