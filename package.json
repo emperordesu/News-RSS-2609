@@ -1,0 +1,14 @@
+{
+  "name": "news-rss-collector",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RSS 뉴스를 2시간마다 수집해 GitHub Pages에 표시하고, 매일 오전 9시 Discord로 요약을 전송합니다.",
+  "type": "commonjs",
+  "scripts": {
+    "collect": "node scripts/collect.js",
+    "summary": "node scripts/summary.js"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
