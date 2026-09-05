@@ -1,9 +1,19 @@
-async function sendDiscordMessage(webhookUrl, content) {
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function sendDiscordMessage(webhookUrl, content, retriesLeft = 3) {
   const res = await fetch(webhookUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ content }),
   });
+
+  if (res.status === 429 && retriesLeft > 0) {
+    const body = await res.json().catch(() => ({}));
+    const retryAfterMs = Math.ceil((body.retry_after || 1) * 1000) + 200;
+    await sleep(retryAfterMs);
+    return sendDiscordMessage(webhookUrl, content, retriesLeft - 1);
+  }
+
   if (!res.ok) {
     const text = await res.text().catch(() => '');
     throw new Error(`Discord 전송 실패 (${res.status}): ${text}`);
@@ -32,6 +42,7 @@ async function sendDiscordSummary(webhookUrl, text) {
   const chunks = chunkText(text);
   for (const chunk of chunks) {
     await sendDiscordMessage(webhookUrl, chunk);
+    await sleep(500); // Discord webhook rate limit(초당 요청 수) 여유
   }
 }
 
