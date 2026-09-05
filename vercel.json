@@ -1,5 +1,11 @@
 {
+  "functions": {
+    "api/search.js": {
+      "includeFiles": "data/news.json"
+    }
+  },
   "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/(.*)", "destination": "/docs/$1" }
   ]
 }

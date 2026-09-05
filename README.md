@@ -8,17 +8,27 @@
 - `src/rss.js` — RSS 파싱 + 썸네일(enclosure/media:content/media:thumbnail/본문 첫 이미지) 및 요약(본문 100자 요약) 추출
 - `src/site.js` — 웜 크림 톤 디자인의 `docs/index.html` 생성(이미지 캐러셀, 시세 티커, 국가별 카드 그리드). 매칭 기사가 없는 국가 섹션은 화면에서 숨김
 - `src/stocks.js` — 네이버 증권 시세 페이지(HTML)에서 현재가/전일대비/등락률을 정규식으로 파싱
+- `src/countryGroups.js` — `FEEDS`를 `country` 기준으로 묶는 공용 로직(사이트 생성·섹션 요약 생성 스크립트가 공유)
+- `src/openrouter.js` — OpenRouter Chat Completions API 호출 헬퍼(국가별 섹션 요약 생성에 사용)
 - `scripts/collect.js` — 피드 수집 → `data/news.json`에 누적 저장 → `docs/index.html` 생성
 - `scripts/collect-stocks.js` — 현대차·기아·현대모비스 시세 수집 → `data/stocks.json` 저장 → `docs/index.html` 재생성
+- `scripts/generate-section-summaries.js` — 국가 그룹별 기사 제목을 OpenRouter에 보내 한 문장 요약 생성 → `data/section-summary.json` 저장 → `docs/index.html` 재생성
 - `scripts/summary.js` — 최근 24시간 뉴스를 Discord Webhook으로 전송
-- `.github/workflows/collect-news.yml` — 2시간마다 뉴스+시세 수집 실행 후 결과 커밋
+- `api/search.js` — Vercel 서버리스 함수. OpenRouter로 자연어 검색 처리(브라우저에서 API 키 노출 없이)
+- `.github/workflows/collect-news.yml` — 2시간마다 뉴스+시세+섹션 요약 수집 실행 후 결과 커밋
 - `.github/workflows/daily-summary.yml` — 매일 09:00(KST)에 Discord 요약 전송
 
 ## 최초 설정 (1회)
 
 1. **GitHub Pages 활성화**: 저장소 Settings → Pages → Build and deployment → Source를 `Deploy from a branch`로, Branch를 `main` / `docs` 폴더로 설정합니다. 저장 후 몇 분 뒤 `https://<계정>.github.io/News-RSS-2609/`에서 뉴스 목록을 볼 수 있습니다.
 2. **Discord Webhook Secret**: 저장소 Settings → Secrets and variables → Actions에 `DISCORD_WEBHOOK_URL` 이름으로 이미 등록되어 있습니다. (변경 시 같은 이름으로 갱신)
-3. 워크플로우는 저장소에 push되는 즉시 예약(cron)대로 자동 실행됩니다. 바로 테스트하려면 Actions 탭 → 각 워크플로우 → "Run workflow"로 수동 실행할 수 있습니다.
+3. **GitHub Actions OpenRouter Secret**: 같은 위치에 `OPENROUTER_API_KEY`가 이미 등록되어 있습니다(국가별 섹션 요약 생성용).
+4. **Vercel OpenRouter 환경변수 (검색 기능에 필수, 별도 등록 필요)**: `/api/search`는 Vercel 서버리스 함수라서 GitHub Actions Secret과는 별개로 Vercel 프로젝트에도 키를 등록해야 동작합니다.
+   - Vercel 대시보드 → 해당 프로젝트 → **Settings → Environment Variables**
+   - Key: `OPENROUTER_API_KEY`, Value: 실제 키 값, Environment: Production(필요하면 Preview/Development도) 체크 후 저장
+   - 저장 후 **재배포**해야 함수에 반영됩니다(다음 git push로 자동 재배포되거나, Vercel 대시보드 Deployments에서 "Redeploy" 클릭)
+   - 등록 전에는 검색이 자동으로 제목 텍스트 매칭 폴백으로 동작하니 사이트가 깨지지는 않습니다.
+5. 워크플로우는 저장소에 push되는 즉시 예약(cron)대로 자동 실행됩니다. 바로 테스트하려면 Actions 탭 → 각 워크플로우 → "Run workflow"로 수동 실행할 수 있습니다.
 
 ## 로컬 테스트
 
@@ -26,6 +36,7 @@
 npm install
 npm run collect          # RSS 수집 + docs/index.html 갱신
 npm run collect-stocks   # 현대차·기아·현대모비스 시세 수집 + docs/index.html 갱신
+OPENROUTER_API_KEY=발급받은키 npm run generate-section-summaries   # 국가별 AI 요약 생성 + docs/index.html 갱신
 DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송 테스트
 ```
 
@@ -52,3 +63,13 @@ DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송
 ## 히어로 이미지 캐러셀
 
 로고 아래에 최신 기사 상위 6건을 자동으로 넘어가는 풀블리드 캐러셀이 표시됩니다(`renderHeroCarousel`, kia.com/jp/ja 참고). 5초 간격 자동 전환, 좌우 화살표, 1~6 번호가 붙은 하단 진행바 인디케이터로 직접 이동할 수 있고, 마우스를 올리면 일시정지됩니다. 썸네일 이미지가 없거나 로드에 실패하면 해당 매체의 색상+이니셜이 자동으로 대체 표시됩니다(출처 이름 배지는 표시하지 않습니다).
+
+## 국가별 AI 요약 (섹션 설명)
+
+"SECTION 01 한국" 등 각 국가 섹션 제목 아래의 한 줄 설명은 그 시점에 수집된 해당 국가 그룹 기사 제목(최대 30개)을 OpenRouter(`openai/gpt-4o-mini`, `OPENROUTER_MODEL` 환경변수로 변경 가능)에 보내 생성한 한국어 한 문장 요약입니다(`scripts/generate-section-summaries.js` → `data/section-summary.json`). 2시간 수집 주기의 마지막 스텝으로 실행됩니다. API 키가 없거나 호출이 실패하면 해당 국가는 직전에 성공한 AI 요약을 계속 보여주고(있다면), 그마저 없으면 `src/config.js`에 하드코딩된 고정 문구로 자연스럽게 대체되어 섹션이 빈 채로 나오는 일은 없습니다.
+
+## AI 검색 (Vercel 서버리스)
+
+시세 티커 바로 아래 검색창에 자연어로 질문하면(예: "최근 리콜 관련 뉴스", "기아 신차 소식") `api/search.js`(Vercel 서버리스 함수)가 현재 수집된 기사 제목+요약을 컨텍스트로 OpenRouter에 전달해 관련 기사를 골라주고 짧은 한국어 답변을 함께 보여줍니다. 브라우저는 OpenRouter를 직접 호출하지 않습니다(키 노출 방지). 입력 500ms 디바운스, 서버 측 IP당 분당 10회 제한(서버리스 인스턴스 생존 기간 동안만 유효한 best-effort 제한)이 적용됩니다. API 키 미등록·호출 실패·엔드포인트 자체가 없는 환경(GitHub Pages 등)에서는 자동으로 기존 제목 텍스트 매칭 검색으로 폴백되어 기능이 완전히 죽지 않습니다.
+
+**⚠️ 별도 설정 필요**: 이 기능은 요청이 올 때마다(런타임) OpenRouter를 호출하므로, GitHub Actions Secret과는 별개로 **Vercel 프로젝트 Settings → Environment Variables에 `OPENROUTER_API_KEY`를 반드시 등록**해야 합니다. 위 "최초 설정" 4번 항목을 참고하세요.

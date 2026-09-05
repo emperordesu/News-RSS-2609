@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { FEEDS } = require('./config');
+const { groupFeedsByCountry } = require('./countryGroups');
 
 const DOCS_DIR = path.join(__dirname, '..', 'docs');
 const ASSETS_SRC_DIR = path.join(__dirname, '..', 'assets');
@@ -131,21 +132,8 @@ ${dotsHtml}
 </section>`;
 }
 
-function groupFeedsByCountry() {
-  const order = [];
-  const map = new Map();
-  for (const feed of FEEDS) {
-    if (!map.has(feed.country)) {
-      map.set(feed.country, []);
-      order.push(feed.country);
-    }
-    map.get(feed.country).push(feed);
-  }
-  return { order, map };
-}
-
 // 국가(한국/일본/영국)별로 섹션을 구성한다. 매칭되는 기사가 없는 국가는 섹션 자체를 숨긴다.
-function renderSections(items) {
+function renderSections(items, sectionSummaries = {}) {
   const bySource = new Map();
   for (const item of items) {
     if (!bySource.has(item.source)) bySource.set(item.source, []);
@@ -173,7 +161,8 @@ function renderSections(items) {
     sectionIndex += 1;
     const sectionNum = String(sectionIndex).padStart(2, '0');
     const sectionId = `section-${sectionIndex}`;
-    const description = [...new Set(feeds.map((f) => f.description))].join(' · ');
+    const aiSummary = sectionSummaries[country] && sectionSummaries[country].text;
+    const description = aiSummary || [...new Set(feeds.map((f) => f.description))].join(' · ');
     const sorted = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
 
     sourceNav += `<a href="#${sectionId}">${escapeHtml(country)}</a>\n`;
@@ -194,12 +183,12 @@ ${sorted.map((item) => renderCard(item)).join('\n')}
   return { sourceNav, sections };
 }
 
-function generateSite(items, stocks = []) {
+function generateSite(items, stocks = [], sectionSummaries = {}) {
   if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
 
   const hasLogo = copyLogoAsset();
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-  const { sourceNav, sections } = renderSections(items);
+  const { sourceNav, sections } = renderSections(items, sectionSummaries);
   const tickerBar = renderTickerBar(stocks);
   const heroCarousel = renderHeroCarousel(items);
 
@@ -441,13 +430,80 @@ function generateSite(items, stocks = []) {
   .ticker-down .ticker-arrow, .ticker-down .ticker-price, .ticker-down .ticker-change { color: #3E6DA6; }
   .ticker-flat .ticker-arrow, .ticker-flat .ticker-price, .ticker-flat .ticker-change { color: var(--muted); }
 
+  .search-bar-wrap {
+    background: var(--canvas);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .search-bar-inner { max-width: 1100px; margin: 0 auto; padding: 16px 24px; }
+
+  #search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 18px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .search-icon { font-size: 14px; opacity: 0.6; }
+
+  #search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  #search-input::placeholder { color: var(--muted); }
+
+  .search-clear-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 13px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+  }
+  .search-clear-btn:hover { color: var(--accent); }
+
+  .search-results { margin-top: 16px; }
+
+  .search-answer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 0 0 16px;
+  }
+
+  .search-answer-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .search-answer p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+
   .source-nav {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px 56px;
+    padding: 40px 24px 8px;
   }
 
   .source-nav a {
@@ -466,7 +522,7 @@ function generateSite(items, stocks = []) {
   .source-section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 48px 24px 32px;
+    padding: 24px 24px 32px;
     scroll-margin-top: 24px;
   }
 
@@ -584,6 +640,8 @@ function generateSite(items, stocks = []) {
     .logo img { height: 28px; }
     .ticker-inner { padding: 8px 20px; font-size: 12px; }
     .ticker-sep { margin: 0 10px; }
+    .search-bar-inner { padding: 12px 20px; }
+    #search-form { max-width: none; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
     .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
@@ -605,6 +663,23 @@ function generateSite(items, stocks = []) {
 ${heroCarousel}
 
 ${tickerBar}
+
+<div class="search-bar-wrap">
+  <div class="search-bar-inner">
+    <form id="search-form" autocomplete="off">
+      <span class="search-icon" aria-hidden="true">&#128269;</span>
+      <input type="search" id="search-input" placeholder="예: 최근 리콜 관련 뉴스, 기아 신차 소식" aria-label="뉴스 검색">
+      <button type="button" id="search-clear" class="search-clear-btn" hidden aria-label="검색어 지우기">&times;</button>
+    </form>
+    <div id="search-results" class="search-results" hidden>
+      <div id="search-answer" class="search-answer" hidden>
+        <span class="search-answer-label">AI 답변</span>
+        <p id="search-answer-text"></p>
+      </div>
+      <div id="search-cards" class="card-grid"></div>
+    </div>
+  </div>
+</div>
 
 ${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">
@@ -715,6 +790,142 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 
   show(0);
   startTimer();
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById('search-form');
+  var input = document.getElementById('search-input');
+  var clearBtn = document.getElementById('search-clear');
+  var resultsBox = document.getElementById('search-results');
+  var answerBox = document.getElementById('search-answer');
+  var answerText = document.getElementById('search-answer-text');
+  var cardsBox = document.getElementById('search-cards');
+  if (!form || !input) return;
+
+  var debounceTimer = null;
+  var DEBOUNCE_MS = 500;
+
+  function clientFallbackSearch(query) {
+    var q = query.toLowerCase();
+    var matches = [];
+    document.querySelectorAll('.article-card').forEach(function (card) {
+      var h3 = card.querySelector('h3');
+      var title = h3 ? h3.textContent : '';
+      if (title.toLowerCase().indexOf(q) !== -1) {
+        var thumbEl = card.querySelector('.thumb img');
+        matches.push({
+          title: title,
+          link: card.getAttribute('href'),
+          image: thumbEl ? thumbEl.getAttribute('src') : null,
+        });
+      }
+    });
+    return matches.slice(0, 8);
+  }
+
+  function renderResultCard(item) {
+    var a = document.createElement('a');
+    a.className = 'article-card';
+    a.href = item.link;
+    a.target = '_blank';
+    a.rel = 'noopener';
+
+    var thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    thumb.style.background = '#8A8172';
+    var fallback = document.createElement('span');
+    fallback.className = 'thumb-fallback';
+    fallback.textContent = item.source ? item.source.slice(0, 2) : '';
+    thumb.appendChild(fallback);
+    if (item.image) {
+      var img = document.createElement('img');
+      img.src = item.image;
+      img.loading = 'lazy';
+      img.onerror = function () { img.remove(); };
+      thumb.appendChild(img);
+    }
+
+    var body = document.createElement('div');
+    body.className = 'article-body';
+    var h3 = document.createElement('h3');
+    h3.textContent = item.title;
+    body.appendChild(h3);
+
+    a.appendChild(thumb);
+    a.appendChild(body);
+    return a;
+  }
+
+  function showResults(answer, items) {
+    cardsBox.innerHTML = '';
+    if (answer) {
+      answerText.textContent = answer;
+      answerBox.hidden = false;
+    } else {
+      answerBox.hidden = true;
+    }
+    if (items.length === 0) {
+      var empty = document.createElement('p');
+      empty.className = 'section-empty';
+      empty.textContent = '관련 기사를 찾지 못했습니다.';
+      cardsBox.appendChild(empty);
+    } else {
+      items.forEach(function (item) { cardsBox.appendChild(renderResultCard(item)); });
+    }
+    resultsBox.hidden = false;
+    clearBtn.hidden = false;
+  }
+
+  function runSearch(query) {
+    fetch('/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q: query }),
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('bad status');
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.fallback) {
+          showResults('', clientFallbackSearch(query));
+        } else {
+          showResults((data && data.answer) || '', (data && data.results) || []);
+        }
+      })
+      .catch(function () {
+        showResults('', clientFallbackSearch(query));
+      });
+  }
+
+  function clearSearch() {
+    input.value = '';
+    resultsBox.hidden = true;
+    clearBtn.hidden = true;
+    clearTimeout(debounceTimer);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = input.value.trim();
+    if (!q) return;
+    clearTimeout(debounceTimer);
+    runSearch(q);
+  });
+
+  input.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    var q = input.value.trim();
+    if (!q) {
+      resultsBox.hidden = true;
+      clearBtn.hidden = true;
+      return;
+    }
+    debounceTimer = setTimeout(function () { runSearch(q); }, DEBOUNCE_MS);
+  });
+
+  clearBtn.addEventListener('click', clearSearch);
 })();
 </script>
 </body>
