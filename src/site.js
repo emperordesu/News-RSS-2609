@@ -203,6 +203,7 @@ ${sentimentHtml}
 <div class="card-grid">
 ${sorted.map((item) => renderCard(item)).join('\n')}
 </div>
+<p class="section-card-empty" hidden>선택한 조건에 해당하는 기사가 없습니다.</p>
 </section>
 `;
   }
@@ -613,6 +614,15 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     text-align: center;
   }
 
+  .section-card-empty {
+    color: var(--muted);
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    margin: 0;
+  }
+
   .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -772,6 +782,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
         section.hidden = true;
         return;
       }
+      section.hidden = false;
       var sentimentFilter = sectionSentiment[section.id];
       var anyVisible = false;
       section.querySelectorAll('.article-card').forEach(function (card) {
@@ -782,7 +793,8 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
         card.hidden = !show;
         if (show) anyVisible = true;
       });
-      section.hidden = !anyVisible;
+      var emptyMsg = section.querySelector('.section-card-empty');
+      if (emptyMsg) emptyMsg.hidden = anyVisible;
     });
 
     var noResults = document.getElementById('no-results');
