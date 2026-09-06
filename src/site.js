@@ -32,6 +32,9 @@ function formatDate(iso) {
   return d.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
 }
 
+const DISCORD_ICON_SVG =
+  '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>';
+
 function renderCard(item) {
   const hasImage = Boolean(item.image);
   const summaryHtml = item.summary ? `<p class="summary">${escapeHtml(item.summary)}</p>` : '';
@@ -42,7 +45,8 @@ function renderCard(item) {
   const pubdate = item.pubDate || item.fetchedAt || '';
   const sentimentAttr = item.sentiment ? ` data-sentiment="${escapeHtml(item.sentiment)}"` : '';
 
-  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" data-pubdate="${escapeHtml(pubdate)}"${sentimentAttr}>
+  return `<div class="article-card" data-pubdate="${escapeHtml(pubdate)}"${sentimentAttr}>
+<a class="article-card-link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">
 <div class="thumb" style="background:${item.color}">
 <span class="thumb-fallback">${escapeHtml(item.initials)}</span>
 ${imgHtml}
@@ -52,7 +56,9 @@ ${imgHtml}
 ${summaryHtml}
 <time>${formatDate(item.pubDate || item.fetchedAt)}</time>
 </div>
-</a>`;
+</a>
+<button type="button" class="discord-share-btn" data-link="${escapeHtml(item.link)}" data-title="${escapeHtml(item.title)}" data-source="${escapeHtml(item.source || '')}" data-summary="${escapeHtml(item.summary || '')}" title="디스코드로 전송" aria-label="디스코드로 전송">${DISCORD_ICON_SVG}</button>
+</div>`;
 }
 
 const DIRECTION_ARROW = { up: '▲', down: '▼', flat: '－' };
@@ -613,16 +619,47 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   }
 
   .article-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: var(--surface);
     border-radius: 20px;
     overflow: hidden;
-    text-decoration: none;
     box-shadow: 0 12px 32px rgba(28, 26, 23, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(28, 26, 23, 0.14); }
+
+  .article-card-link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .discord-share-btn {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--ink-soft);
+    box-shadow: 0 2px 8px rgba(28, 26, 23, 0.18);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .discord-share-btn:hover { background: #5865F2; color: #fff; transform: scale(1.08); }
+  .discord-share-btn.is-sent { background: var(--sentiment-positive); color: #fff; }
+  .discord-share-btn.is-error { background: var(--sentiment-negative); color: #fff; }
 
   .thumb {
     position: relative;
@@ -789,6 +826,51 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   });
 
   applyFilters();
+})();
+</script>
+<script>
+(function () {
+  var RESET_DELAY_MS = 2200;
+
+  document.querySelectorAll('.discord-share-btn').forEach(function (btn) {
+    var defaultTitle = btn.getAttribute('title');
+    var resetTimer = null;
+
+    btn.addEventListener('click', function () {
+      if (btn.disabled) return;
+      btn.disabled = true;
+      btn.classList.remove('is-sent', 'is-error');
+      btn.title = '전송 중...';
+
+      fetch('/api/send-to-discord', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: btn.getAttribute('data-title'),
+          link: btn.getAttribute('data-link'),
+          source: btn.getAttribute('data-source'),
+          summary: btn.getAttribute('data-summary'),
+        }),
+      })
+        .then(function (res) { if (!res.ok) throw new Error('bad status'); return res.json(); })
+        .then(function () {
+          btn.classList.add('is-sent');
+          btn.title = '디스코드로 전송했습니다';
+        })
+        .catch(function () {
+          btn.classList.add('is-error');
+          btn.title = '전송 실패, 다시 시도해주세요';
+        })
+        .then(function () {
+          btn.disabled = false;
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(function () {
+            btn.classList.remove('is-sent', 'is-error');
+            btn.title = defaultTitle;
+          }, RESET_DELAY_MS);
+        });
+    });
+  });
 })();
 </script>
 <script>

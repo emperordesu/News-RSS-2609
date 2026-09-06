@@ -14,6 +14,7 @@
 - `scripts/collect-stocks.js` — 현대차·기아·현대모비스 시세 수집 → `data/stocks.json` 저장 → `docs/index.html` 재생성
 - `scripts/generate-section-summaries.js` — 국가 그룹별 기사 제목을 OpenRouter에 보내 한 문장 요약 생성 → `data/section-summary.json` 저장 → `docs/index.html` 재생성
 - `scripts/summary.js` — 최근 24시간 뉴스를 Discord Webhook으로 전송
+- `api/send-to-discord.js` — Vercel 서버리스 함수. 기사 카드의 디스코드 버튼 클릭 시 해당 기사를 Discord Webhook으로 전송(브라우저에 Webhook URL을 노출하지 않기 위함)
 - `.github/workflows/collect-news.yml` — 2시간마다 뉴스+시세+섹션 요약 수집 실행 후 결과 커밋
 - `.github/workflows/daily-summary.yml` — 매일 09:00(KST)에 Discord 요약 전송
 
@@ -22,7 +23,11 @@
 1. **GitHub Pages 활성화**: 저장소 Settings → Pages → Build and deployment → Source를 `Deploy from a branch`로, Branch를 `main` / `docs` 폴더로 설정합니다. 저장 후 몇 분 뒤 `https://<계정>.github.io/News-RSS-2609/`에서 뉴스 목록을 볼 수 있습니다.
 2. **Discord Webhook Secret**: 저장소 Settings → Secrets and variables → Actions에 `DISCORD_WEBHOOK_URL` 이름으로 이미 등록되어 있습니다. (변경 시 같은 이름으로 갱신)
 3. **GitHub Actions OpenRouter Secret**: 같은 위치에 `OPENROUTER_API_KEY`가 이미 등록되어 있습니다(국가별 섹션 요약·감성 분석 생성용).
-4. 워크플로우는 저장소에 push되는 즉시 예약(cron)대로 자동 실행됩니다. 바로 테스트하려면 Actions 탭 → 각 워크플로우 → "Run workflow"로 수동 실행할 수 있습니다.
+4. **Vercel Discord 환경변수 (기사별 디스코드 전송 버튼에 필수, 별도 등록 필요)**: `api/send-to-discord.js`는 Vercel 서버리스 함수라서 GitHub Actions Secret과는 별개로 Vercel 프로젝트에도 `DISCORD_WEBHOOK_URL`을 등록해야 동작합니다.
+   - Vercel 대시보드 → 해당 프로젝트 → **Settings → Environment Variables**
+   - Key: `DISCORD_WEBHOOK_URL`, Value: 실제 Webhook URL, Environment: Production(필요하면 Preview/Development도) 체크 후 저장, 이후 재배포
+   - 등록 전에는 버튼을 눌러도 "디스코드 연동이 설정되지 않았습니다" 오류가 반환됩니다.
+5. 워크플로우는 저장소에 push되는 즉시 예약(cron)대로 자동 실행됩니다. 바로 테스트하려면 Actions 탭 → 각 워크플로우 → "Run workflow"로 수동 실행할 수 있습니다.
 
 ## 로컬 테스트
 
@@ -60,4 +65,10 @@ DISCORD_WEBHOOK_URL=발급받은주소 npm run summary   # Discord 요약 전송
 
 ## 국가별 AI 요약 및 감성 분석 (섹션 설명)
 
-"SECTION 01 한국" 등 각 국가 섹션 제목 아래 "한 줄 요약 : "에 이어지는 문장(1줄로 말줄임 처리)은 그 시점에 수집된 해당 국가 그룹 기사 제목(최대 30개)을 OpenRouter(`openai/gpt-4o-mini`, `OPENROUTER_MODEL` 환경변수로 변경 가능)에 보내 생성한 한국어 한 문장 요약입니다. 같은 제목 목록을 현대차·기아 브랜드 관점에서 긍정/중립/부정으로 분류해 섹션 설명 아래 긍정·중립·부정 기사 수를 버튼으로 표시하고, 각 기사(`data/news.json`의 `sentiment` 필드)에도 라벨을 붙입니다(`scripts/generate-section-summaries.js` → `data/section-summary.json` + `data/news.json`). 버튼을 클릭하면 해당 섹션의 기사 카드가 그 감성으로만 필터링되고 버튼 배경이 진해지며, 다시 클릭하면 필터가 해제됩니다. 2시간 수집 주기의 마지막 스텝으로 실행됩니다. API 키가 없거나 호출이 실패하면 해당 국가는 직전에 성공한 값을 계속 보여주고(있다면), 그마저 없으면 요약은 "요약을 준비 중입니다."로, 감성 버튼은 표시하지 않는 것으로 자연스럽게 대체됩니다.
+"SECTION 01 한국" 등 각 국가 섹션 제목 아래 "한 줄 요약 : "에 이어지는 문장(1줄로 말줄임 처리)은 그 시점에 수집된 해당 국가 그룹 기사 제목(최대 30개)을 OpenRouter(`openai/gpt-4o-mini`, `OPENROUTER_MODEL` 환경변수로 변경 가능)에 보내 생성한 한국어 한 문장 요약입니다. 같은 제목 목록을 현대차·기아 브랜드 관점에서 긍정/중립/부정으로 분류해 섹션 설명 아래 긍정·중립·부정 기사 수를 버튼으로 표시하고, 각 기사(`data/news.json`의 `sentiment` 필드)에도 라벨을 붙입니다(`scripts/generate-section-summaries.js` → `data/section-summary.json` + `data/news.json`). 버튼을 클릭하면 해당 섹션의 기사 카드가 그 감성으로만 필터링되고 버튼 배경이 진해지며, 옆의 "초기화" 버튼이나 같은 버튼을 다시 클릭하면 필터가 해제됩니다. 2시간 수집 주기의 마지막 스텝으로 실행됩니다. API 키가 없거나 호출이 실패하면 해당 국가는 직전에 성공한 값을 계속 보여주고(있다면), 그마저 없으면 요약은 "요약을 준비 중입니다."로, 감성 버튼은 표시하지 않는 것으로 자연스럽게 대체됩니다.
+
+## 기사별 디스코드 전송 버튼 (Vercel 전용)
+
+각 기사 카드 우측 하단의 디스코드 아이콘 버튼을 누르면 그 기사(제목·링크·출처·요약)를 Discord Webhook으로 즉시 전송합니다. Webhook URL을 브라우저에 노출하지 않기 위해 클릭은 항상 `api/send-to-discord.js`(Vercel 서버리스 함수)를 거치고, 이 함수가 서버 쪽 환경변수 `DISCORD_WEBHOOK_URL`로만 실제 Webhook을 호출합니다. 전송에 성공하면 버튼이 잠시 초록색으로, 실패하면 빨간색으로 바뀌었다가 원래 상태로 돌아옵니다. IP당 분당 10회로 제한됩니다(서버리스 인스턴스 생존 기간 동안만 유효한 best-effort 제한).
+
+**⚠️ GitHub Pages에서는 동작하지 않습니다**: GitHub Pages는 정적 호스팅이라 서버리스 함수를 실행할 수 없습니다. 이 버튼은 Vercel로 배포된 도메인(`news-rss-2609.vercel.app` 등)에서 열었을 때만 동작하며, GitHub Pages URL에서는 버튼을 눌러도 요청이 404로 실패합니다(자동으로 실패 표시만 됩니다). Vercel에 `DISCORD_WEBHOOK_URL`을 등록하는 방법은 위 "최초 설정" 4번 항목을 참고하세요.
