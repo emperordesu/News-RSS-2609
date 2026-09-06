@@ -896,9 +896,27 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
   var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
   var total = slides.length;
-  var DURATION = 2750;
+  var DURATION = 2200;
+  var RECHECK_MS = 150;
   var current = 0;
   var timer = null;
+
+  // 슬라이드 배경 이미지를 미리 로드해두고, 아직 로드되지 않은 슬라이드로는
+  // 자동 전환이 넘어가지 않도록 해서 전환 시 이미지가 없는 빈 화면이 보이는 렉을 막는다.
+  var imageLoaded = slides.map(function (s) {
+    var match = /url\\((["']?)(.*?)\\1\\)/.exec(s.style.backgroundImage || '');
+    if (!match) return true;
+    var loaded = { done: false };
+    var img = new Image();
+    img.onload = img.onerror = function () { loaded.done = true; };
+    img.src = match[2];
+    return loaded;
+  });
+
+  function isReady(index) {
+    var entry = imageLoaded[index];
+    return entry === true || (entry && entry.done);
+  }
 
   function show(index) {
     current = (index + total) % total;
@@ -916,12 +934,23 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   function next() { show(current + 1); }
   function prev() { show(current - 1); }
 
+  function tick() {
+    var nextIndex = (current + 1) % total;
+    if (isReady(nextIndex)) {
+      show(nextIndex);
+      timer = setTimeout(tick, DURATION);
+    } else {
+      // 다음 이미지가 아직 로드되지 않았으면 진행 바는 유지한 채 짧게 다시 확인한다.
+      timer = setTimeout(tick, RECHECK_MS);
+    }
+  }
+
   function startTimer() {
     stopTimer();
-    if (total > 1) timer = setInterval(next, DURATION);
+    if (total > 1) timer = setTimeout(tick, DURATION);
   }
   function stopTimer() {
-    if (timer) clearInterval(timer);
+    if (timer) clearTimeout(timer);
     timer = null;
   }
 
