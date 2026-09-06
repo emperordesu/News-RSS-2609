@@ -2,7 +2,7 @@ const { loadAll } = require('../src/store');
 const { loadStocks } = require('../src/stockStore');
 const { loadSectionSummaries, saveSectionSummaries } = require('../src/sectionSummaryStore');
 const { groupFeedsByCountry } = require('../src/countryGroups');
-const { summarizeCountryTitles } = require('../src/openrouter');
+const { summarizeCountryTitles, classifyCountrySentiment } = require('../src/openrouter');
 const { generateSite } = require('../src/site');
 
 const MAX_TITLES = 30;
@@ -39,12 +39,24 @@ async function main() {
       .slice(0, MAX_TITLES)
       .map((i) => i.title);
 
+    const previous = summaries[country] || {};
+
     try {
       const text = await summarizeCountryTitles(country, titles);
-      summaries[country] = { text, updatedAt: new Date().toISOString(), articleCount: combined.length };
+      summaries[country] = { ...previous, text, updatedAt: new Date().toISOString(), articleCount: combined.length };
       console.log(`  [${country}] ${text}`);
     } catch (err) {
-      console.error(`  [${country}] 생성 실패: ${err.message} (이전 값 또는 고정 문구로 대체됨)`);
+      console.error(`  [${country}] 요약 생성 실패: ${err.message} (이전 값 또는 고정 문구로 대체됨)`);
+    }
+
+    try {
+      const labels = await classifyCountrySentiment(country, titles);
+      const sentiment = { positive: 0, neutral: 0, negative: 0 };
+      for (const label of labels) sentiment[label] += 1;
+      summaries[country] = { ...summaries[country], sentiment };
+      console.log(`  [${country}] 감성: 긍정 ${sentiment.positive} · 중립 ${sentiment.neutral} · 부정 ${sentiment.negative}`);
+    } catch (err) {
+      console.error(`  [${country}] 감성 분석 실패: ${err.message} (이전 값 유지)`);
     }
   }
 

@@ -132,6 +132,20 @@ ${dotsHtml}
 </section>`;
 }
 
+function renderSentimentRow(sentiment) {
+  if (!sentiment) return '';
+  const positive = sentiment.positive || 0;
+  const neutral = sentiment.neutral || 0;
+  const negative = sentiment.negative || 0;
+  if (positive + neutral + negative === 0) return '';
+
+  return `<div class="sentiment-row" aria-label="기사 감성 분포">
+<span class="sentiment-chip sentiment-positive">긍정 ${positive}</span>
+<span class="sentiment-chip sentiment-neutral">중립 ${neutral}</span>
+<span class="sentiment-chip sentiment-negative">부정 ${negative}</span>
+</div>`;
+}
+
 // 국가(한국/일본/영국)별로 섹션을 구성한다. 매칭되는 기사가 없는 국가는 섹션 자체를 숨긴다.
 function renderSections(items, sectionSummaries = {}) {
   const bySource = new Map();
@@ -142,9 +156,9 @@ function renderSections(items, sectionSummaries = {}) {
 
   const { order, map: countryFeeds } = groupFeedsByCountry();
 
-  let sourceNav = '';
   let sections = '';
   let sectionIndex = 0;
+  const countriesWithData = [];
 
   for (const country of order) {
     const feeds = countryFeeds.get(country);
@@ -158,20 +172,21 @@ function renderSections(items, sectionSummaries = {}) {
 
     if (combined.length === 0) continue;
 
+    countriesWithData.push(country);
     sectionIndex += 1;
     const sectionNum = String(sectionIndex).padStart(2, '0');
     const sectionId = `section-${sectionIndex}`;
-    const aiSummary = sectionSummaries[country] && sectionSummaries[country].text;
-    const description = aiSummary || [...new Set(feeds.map((f) => f.description))].join(' · ');
+    const summaryEntry = sectionSummaries[country];
+    const summaryText = (summaryEntry && summaryEntry.text) || '요약을 준비 중입니다.';
+    const sentimentHtml = renderSentimentRow(summaryEntry && summaryEntry.sentiment);
     const sorted = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
 
-    sourceNav += `<a href="#${sectionId}">${escapeHtml(country)}</a>\n`;
-
-    sections += `<section class="source-section" id="${sectionId}">
+    sections += `<section class="source-section" id="${sectionId}" data-country="${escapeHtml(country)}">
 <div class="section-heading">
 <p class="section-label">SECTION ${sectionNum}</p>
 <h2>${escapeHtml(country)}</h2>
-<p class="section-desc">${escapeHtml(description)}</p>
+<p class="section-desc"><strong>한 줄 요약 : </strong>${escapeHtml(summaryText)}</p>
+${sentimentHtml}
 </div>
 <div class="card-grid">
 ${sorted.map((item) => renderCard(item)).join('\n')}
@@ -180,7 +195,39 @@ ${sorted.map((item) => renderCard(item)).join('\n')}
 `;
   }
 
-  return { sourceNav, sections };
+  return { sections, countriesWithData };
+}
+
+const PERIOD_OPTIONS = [
+  ['30d', '30일'],
+  ['15d', '15일'],
+  ['7d', '7일'],
+  ['24h', '24시간'],
+];
+const DEFAULT_PERIOD = '7d';
+
+// 국가(다중 선택) + 기간(단일 선택) 필터 바. 기사가 있는 국가만 버튼으로 노출한다.
+function renderFilterBar(countries) {
+  if (countries.length === 0) return '';
+
+  const countryBtns = countries
+    .map((c) => `<button type="button" class="filter-btn country-btn active" data-country="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
+    .join('\n');
+  const periodBtns = PERIOD_OPTIONS.map(
+    ([key, label]) =>
+      `<button type="button" class="filter-btn period-btn${key === DEFAULT_PERIOD ? ' active' : ''}" data-period="${key}">${label}</button>`
+  ).join('\n');
+
+  return `<div class="filter-bar" id="filter-bar">
+<div class="filter-group" role="group" aria-label="국가 필터">
+<span class="filter-group-label">국가</span>
+${countryBtns}
+</div>
+<div class="filter-group" role="group" aria-label="기간 필터">
+<span class="filter-group-label">기간</span>
+${periodBtns}
+</div>
+</div>`;
 }
 
 function generateSite(items, stocks = [], sectionSummaries = {}) {
@@ -188,7 +235,8 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
 
   const hasLogo = copyLogoAsset();
   const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-  const { sourceNav, sections } = renderSections(items, sectionSummaries);
+  const { sections, countriesWithData } = renderSections(items, sectionSummaries);
+  const filterBar = renderFilterBar(countriesWithData);
   const tickerBar = renderTickerBar(stocks);
   const heroCarousel = renderHeroCarousel(items);
 
@@ -211,6 +259,10 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     --border: rgba(28, 26, 23, 0.08);
     --accent: #B5502A;
     --accent-on-dark: #E2916B;
+    --filter-active: #2F6FED;
+    --filter-active-ink: #FFFFFF;
+    --sentiment-positive: #2F7D5D;
+    --sentiment-negative: #B5502A;
     color-scheme: light;
   }
 
@@ -246,19 +298,35 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
   .logo img { display: block; height: 36px; width: auto; }
 
-  .period-filter {
-    display: inline-flex;
-    background: var(--canvas);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 3px;
-    gap: 2px;
+  .filter-bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 24px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
   }
 
-  .period-btn {
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-group-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 2px;
+  }
+
+  .filter-btn {
     appearance: none;
-    border: none;
-    background: transparent;
+    border: 1px solid var(--border);
+    background: var(--surface);
     color: var(--ink-soft);
     font: inherit;
     font-size: 13px;
@@ -266,11 +334,15 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     padding: 7px 16px;
     border-radius: 999px;
     cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
-  .period-btn:hover { color: var(--accent); }
-  .period-btn.active { background: var(--ink); color: var(--canvas); }
-  .period-btn.active:hover { color: var(--canvas); }
+  .filter-btn:hover { border-color: var(--filter-active); color: var(--filter-active); }
+  .filter-btn.active {
+    background: var(--filter-active);
+    border-color: var(--filter-active);
+    color: var(--filter-active-ink);
+  }
+  .filter-btn.active:hover { color: var(--filter-active-ink); }
 
   .hero-carousel {
     position: relative;
@@ -430,94 +502,23 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   .ticker-down .ticker-arrow, .ticker-down .ticker-price, .ticker-down .ticker-change { color: #3E6DA6; }
   .ticker-flat .ticker-arrow, .ticker-flat .ticker-price, .ticker-flat .ticker-change { color: var(--muted); }
 
-  .search-bar-wrap {
-    background: var(--canvas);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .search-bar-inner { max-width: 1100px; margin: 0 auto; padding: 16px 24px; }
-
-  #search-form {
+  .sentiment-row {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 10px 18px;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  .search-icon { font-size: 14px; opacity: 0.6; }
-
-  #search-input {
-    flex: 1;
-    min-width: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    font: inherit;
-    font-size: 14px;
-    color: var(--ink);
-  }
-  #search-input::placeholder { color: var(--muted); }
-
-  .search-clear-btn {
-    appearance: none;
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 13px;
-    padding: 2px 6px;
-    flex-shrink: 0;
-  }
-  .search-clear-btn:hover { color: var(--accent); }
-
-  .search-results { margin-top: 16px; }
-
-  .search-answer {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin: 0 0 16px;
-  }
-
-  .search-answer-label {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-
-  .search-answer p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
-
-  .source-nav {
-    display: flex;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 24px 8px;
+    margin: 14px 0 0;
   }
 
-  .source-nav a {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 8px 18px;
+  .sentiment-chip {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
     border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: border-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
   }
-  .source-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .sentiment-positive { background: rgba(47, 125, 93, 0.12); color: var(--sentiment-positive); }
+  .sentiment-neutral { background: rgba(138, 129, 114, 0.14); color: var(--muted); }
+  .sentiment-negative { background: rgba(181, 80, 42, 0.12); color: var(--sentiment-negative); }
 
   .source-section {
     max-width: 1100px;
@@ -640,8 +641,7 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     .logo img { height: 28px; }
     .ticker-inner { padding: 8px 20px; font-size: 12px; }
     .ticker-sep { margin: 0 10px; }
-    .search-bar-inner { padding: 12px 20px; }
-    #search-form { max-width: none; }
+    .filter-bar { padding: 16px 20px 4px; gap: 10px 20px; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
     .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
@@ -652,10 +652,6 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.png" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
-    <div class="period-filter" role="group" aria-label="기간 필터">
-      <button type="button" class="period-btn active" data-period="7d">7일</button>
-      <button type="button" class="period-btn" data-period="30d">30일</button>
-    </div>
   </div>
 </header>
 
@@ -664,26 +660,10 @@ ${heroCarousel}
 
 ${tickerBar}
 
-<div class="search-bar-wrap">
-  <div class="search-bar-inner">
-    <form id="search-form" autocomplete="off">
-      <span class="search-icon" aria-hidden="true">&#128269;</span>
-      <input type="search" id="search-input" placeholder="예: 최근 리콜 관련 뉴스, 기아 신차 소식" aria-label="뉴스 검색">
-      <button type="button" id="search-clear" class="search-clear-btn" hidden aria-label="검색어 지우기">&times;</button>
-    </form>
-    <div id="search-results" class="search-results" hidden>
-      <div id="search-answer" class="search-answer" hidden>
-        <span class="search-answer-label">AI 답변</span>
-        <p id="search-answer-text"></p>
-      </div>
-      <div id="search-cards" class="card-grid"></div>
-    </div>
-  </div>
-</div>
+${filterBar}
 
-${sourceNav ? `  <nav class="source-nav" id="source-nav">\n${sourceNav}  </nav>\n` : ''}
   <div id="sections">
-${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;">현재 표시할 뉴스가 없습니다.</p>\n'}  <p id="no-results" class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;" hidden>선택한 기간에는 표시할 뉴스가 없습니다.</p>
+${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;">현재 표시할 뉴스가 없습니다.</p>\n'}  <p id="no-results" class="section-empty" style="max-width:1100px;margin:0 auto;padding:0 24px 48px;" hidden>선택한 조건에는 표시할 뉴스가 없습니다.</p>
   </div>
 </main>
 
@@ -692,51 +672,72 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 </footer>
 <script>
 (function () {
-  var PERIODS = {
-    '7d': { ms: 7 * 24 * 60 * 60 * 1000 },
-    '30d': { ms: 30 * 24 * 60 * 60 * 1000 }
+  var PERIOD_MS = {
+    '24h': 24 * 60 * 60 * 1000,
+    '7d': 7 * 24 * 60 * 60 * 1000,
+    '15d': 15 * 24 * 60 * 60 * 1000,
+    '30d': 30 * 24 * 60 * 60 * 1000
   };
 
-  function applyFilter(periodKey) {
-    var period = PERIODS[periodKey];
-    if (!period) return;
-    var cutoff = Date.now() - period.ms;
+  var countryBtns = Array.prototype.slice.call(document.querySelectorAll('.country-btn'));
+  var periodBtns = Array.prototype.slice.call(document.querySelectorAll('.period-btn'));
+  var selectedCountries = {};
+  countryBtns.forEach(function (btn) {
+    if (btn.classList.contains('active')) selectedCountries[btn.getAttribute('data-country')] = true;
+  });
+  var selectedPeriod = '7d';
+  periodBtns.forEach(function (btn) {
+    if (btn.classList.contains('active')) selectedPeriod = btn.getAttribute('data-period');
+  });
 
-    document.querySelectorAll('.article-card').forEach(function (card) {
-      var t = new Date(card.getAttribute('data-pubdate')).getTime();
-      card.hidden = !(!isNaN(t) && t >= cutoff);
-    });
+  function applyFilters() {
+    var cutoff = Date.now() - (PERIOD_MS[selectedPeriod] || PERIOD_MS['7d']);
 
     document.querySelectorAll('.source-section').forEach(function (section) {
-      section.hidden = !section.querySelector('.article-card:not([hidden])');
+      var country = section.getAttribute('data-country');
+      if (!selectedCountries[country]) {
+        section.hidden = true;
+        return;
+      }
+      var anyVisible = false;
+      section.querySelectorAll('.article-card').forEach(function (card) {
+        var t = new Date(card.getAttribute('data-pubdate')).getTime();
+        var show = !isNaN(t) && t >= cutoff;
+        card.hidden = !show;
+        if (show) anyVisible = true;
+      });
+      section.hidden = !anyVisible;
     });
-
-    var anyNavLinkVisible = false;
-    document.querySelectorAll('.source-nav a').forEach(function (a) {
-      var id = (a.getAttribute('href') || '').replace('#', '');
-      var section = id ? document.getElementById(id) : null;
-      var show = !!section && !section.hidden;
-      a.hidden = !show;
-      if (show) anyNavLinkVisible = true;
-    });
-    var sourceNavEl = document.getElementById('source-nav');
-    if (sourceNavEl) sourceNavEl.hidden = !anyNavLinkVisible;
 
     var noResults = document.getElementById('no-results');
     if (noResults) {
       noResults.hidden = !!document.querySelector('.source-section:not([hidden])');
     }
-
-    document.querySelectorAll('.period-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-period') === periodKey);
-    });
   }
 
-  document.querySelectorAll('.period-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { applyFilter(btn.getAttribute('data-period')); });
+  countryBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var country = btn.getAttribute('data-country');
+      if (selectedCountries[country]) {
+        delete selectedCountries[country];
+        btn.classList.remove('active');
+      } else {
+        selectedCountries[country] = true;
+        btn.classList.add('active');
+      }
+      applyFilters();
+    });
   });
 
-  applyFilter('7d');
+  periodBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      selectedPeriod = btn.getAttribute('data-period');
+      periodBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+      applyFilters();
+    });
+  });
+
+  applyFilters();
 })();
 </script>
 <script>
@@ -790,142 +791,6 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 
   show(0);
   startTimer();
-})();
-</script>
-<script>
-(function () {
-  var form = document.getElementById('search-form');
-  var input = document.getElementById('search-input');
-  var clearBtn = document.getElementById('search-clear');
-  var resultsBox = document.getElementById('search-results');
-  var answerBox = document.getElementById('search-answer');
-  var answerText = document.getElementById('search-answer-text');
-  var cardsBox = document.getElementById('search-cards');
-  if (!form || !input) return;
-
-  var debounceTimer = null;
-  var DEBOUNCE_MS = 500;
-
-  function clientFallbackSearch(query) {
-    var q = query.toLowerCase();
-    var matches = [];
-    document.querySelectorAll('.article-card').forEach(function (card) {
-      var h3 = card.querySelector('h3');
-      var title = h3 ? h3.textContent : '';
-      if (title.toLowerCase().indexOf(q) !== -1) {
-        var thumbEl = card.querySelector('.thumb img');
-        matches.push({
-          title: title,
-          link: card.getAttribute('href'),
-          image: thumbEl ? thumbEl.getAttribute('src') : null,
-        });
-      }
-    });
-    return matches.slice(0, 8);
-  }
-
-  function renderResultCard(item) {
-    var a = document.createElement('a');
-    a.className = 'article-card';
-    a.href = item.link;
-    a.target = '_blank';
-    a.rel = 'noopener';
-
-    var thumb = document.createElement('div');
-    thumb.className = 'thumb';
-    thumb.style.background = '#8A8172';
-    var fallback = document.createElement('span');
-    fallback.className = 'thumb-fallback';
-    fallback.textContent = item.source ? item.source.slice(0, 2) : '';
-    thumb.appendChild(fallback);
-    if (item.image) {
-      var img = document.createElement('img');
-      img.src = item.image;
-      img.loading = 'lazy';
-      img.onerror = function () { img.remove(); };
-      thumb.appendChild(img);
-    }
-
-    var body = document.createElement('div');
-    body.className = 'article-body';
-    var h3 = document.createElement('h3');
-    h3.textContent = item.title;
-    body.appendChild(h3);
-
-    a.appendChild(thumb);
-    a.appendChild(body);
-    return a;
-  }
-
-  function showResults(answer, items) {
-    cardsBox.innerHTML = '';
-    if (answer) {
-      answerText.textContent = answer;
-      answerBox.hidden = false;
-    } else {
-      answerBox.hidden = true;
-    }
-    if (items.length === 0) {
-      var empty = document.createElement('p');
-      empty.className = 'section-empty';
-      empty.textContent = '관련 기사를 찾지 못했습니다.';
-      cardsBox.appendChild(empty);
-    } else {
-      items.forEach(function (item) { cardsBox.appendChild(renderResultCard(item)); });
-    }
-    resultsBox.hidden = false;
-    clearBtn.hidden = false;
-  }
-
-  function runSearch(query) {
-    fetch('/api/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: query }),
-    })
-      .then(function (res) {
-        if (!res.ok) throw new Error('bad status');
-        return res.json();
-      })
-      .then(function (data) {
-        if (data && data.fallback) {
-          showResults('', clientFallbackSearch(query));
-        } else {
-          showResults((data && data.answer) || '', (data && data.results) || []);
-        }
-      })
-      .catch(function () {
-        showResults('', clientFallbackSearch(query));
-      });
-  }
-
-  function clearSearch() {
-    input.value = '';
-    resultsBox.hidden = true;
-    clearBtn.hidden = true;
-    clearTimeout(debounceTimer);
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var q = input.value.trim();
-    if (!q) return;
-    clearTimeout(debounceTimer);
-    runSearch(q);
-  });
-
-  input.addEventListener('input', function () {
-    clearTimeout(debounceTimer);
-    var q = input.value.trim();
-    if (!q) {
-      resultsBox.hidden = true;
-      clearBtn.hidden = true;
-      return;
-    }
-    debounceTimer = setTimeout(function () { runSearch(q); }, DEBOUNCE_MS);
-  });
-
-  clearBtn.addEventListener('click', clearSearch);
 })();
 </script>
 </body>
