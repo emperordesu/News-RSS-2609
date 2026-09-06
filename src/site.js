@@ -57,7 +57,7 @@ ${summaryHtml}
 <time>${formatDate(item.pubDate || item.fetchedAt)}</time>
 </div>
 </a>
-<button type="button" class="discord-share-btn" data-link="${escapeHtml(item.link)}" data-title="${escapeHtml(item.title)}" data-source="${escapeHtml(item.source || '')}" data-summary="${escapeHtml(item.summary || '')}" title="디스코드로 전송" aria-label="디스코드로 전송">${DISCORD_ICON_SVG}</button>
+<button type="button" class="discord-share-btn" data-link="${escapeHtml(item.link)}" data-title="${escapeHtml(item.title)}" title="공유하기 (디스코드 등)" aria-label="공유하기 (디스코드 등)">${DISCORD_ICON_SVG}</button>
 </div>`;
 }
 
@@ -832,43 +832,57 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 (function () {
   var RESET_DELAY_MS = 2200;
 
+  function flash(btn, className, title, defaultTitle) {
+    btn.classList.remove('is-sent', 'is-error');
+    btn.classList.add(className);
+    btn.title = title;
+    clearTimeout(btn._resetTimer);
+    btn._resetTimer = setTimeout(function () {
+      btn.classList.remove('is-sent', 'is-error');
+      btn.title = defaultTitle;
+    }, RESET_DELAY_MS);
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
   document.querySelectorAll('.discord-share-btn').forEach(function (btn) {
     var defaultTitle = btn.getAttribute('title');
-    var resetTimer = null;
+    var title = btn.getAttribute('data-title');
+    var link = btn.getAttribute('data-link');
 
     btn.addEventListener('click', function () {
-      if (btn.disabled) return;
-      btn.disabled = true;
-      btn.classList.remove('is-sent', 'is-error');
-      btn.title = '전송 중...';
-
-      fetch('/api/send-to-discord', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: btn.getAttribute('data-title'),
-          link: btn.getAttribute('data-link'),
-          source: btn.getAttribute('data-source'),
-          summary: btn.getAttribute('data-summary'),
-        }),
-      })
-        .then(function (res) { if (!res.ok) throw new Error('bad status'); return res.json(); })
-        .then(function () {
-          btn.classList.add('is-sent');
-          btn.title = '디스코드로 전송했습니다';
-        })
-        .catch(function () {
-          btn.classList.add('is-error');
-          btn.title = '전송 실패, 다시 시도해주세요';
-        })
-        .then(function () {
-          btn.disabled = false;
-          clearTimeout(resetTimer);
-          resetTimer = setTimeout(function () {
-            btn.classList.remove('is-sent', 'is-error');
-            btn.title = defaultTitle;
-          }, RESET_DELAY_MS);
+      if (navigator.share) {
+        navigator.share({ title: title, url: link }).catch(function (err) {
+          if (err && err.name === 'AbortError') return; // 사용자가 공유를 취소함
+          copyToClipboard(title + '\\n' + link)
+            .then(function () { flash(btn, 'is-sent', '링크가 복사되었습니다', defaultTitle); })
+            .catch(function () { flash(btn, 'is-error', '공유에 실패했습니다', defaultTitle); });
         });
+        return;
+      }
+
+      copyToClipboard(title + '\\n' + link)
+        .then(function () { flash(btn, 'is-sent', '링크가 복사되었습니다. 디스코드에 붙여넣어보세요', defaultTitle); })
+        .catch(function () { flash(btn, 'is-error', '복사에 실패했습니다', defaultTitle); });
     });
   });
 })();
