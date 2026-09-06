@@ -1,4 +1,4 @@
-const { loadAll } = require('../src/store');
+const { loadAll, saveAll } = require('../src/store');
 const { loadStocks } = require('../src/stockStore');
 const { loadSectionSummaries, saveSectionSummaries } = require('../src/sectionSummaryStore');
 const { groupFeedsByCountry } = require('../src/countryGroups');
@@ -34,10 +34,8 @@ async function main() {
       continue;
     }
 
-    const titles = combined
-      .sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt))
-      .slice(0, MAX_TITLES)
-      .map((i) => i.title);
+    const topItems = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt)).slice(0, MAX_TITLES);
+    const titles = topItems.map((i) => i.title);
 
     const previous = summaries[country] || {};
 
@@ -51,6 +49,7 @@ async function main() {
 
     try {
       const labels = await classifyCountrySentiment(country, titles);
+      topItems.forEach((item, i) => { item.sentiment = labels[i]; });
       const sentiment = { positive: 0, neutral: 0, negative: 0 };
       for (const label of labels) sentiment[label] += 1;
       summaries[country] = { ...summaries[country], sentiment };
@@ -61,8 +60,9 @@ async function main() {
   }
 
   saveSectionSummaries(summaries);
+  saveAll(items);
   generateSite(loadAll(), loadStocks(), summaries);
-  console.log('docs/index.html 갱신 완료 (섹션 요약 반영)');
+  console.log('docs/index.html 갱신 완료 (섹션 요약·감성 반영)');
 }
 
 main().catch((err) => {

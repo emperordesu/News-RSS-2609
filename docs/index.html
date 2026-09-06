@@ -16,7 +16,6 @@
     --muted: #8A8172;
     --border: rgba(28, 26, 23, 0.08);
     --accent: #B5502A;
-    --accent-on-dark: #E2916B;
     --filter-active: #2F6FED;
     --filter-active-ink: #FFFFFF;
     --sentiment-positive: #2F7D5D;
@@ -56,10 +55,15 @@
   .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
   .logo img { display: block; height: 36px; width: auto; }
 
+  .filter-bar-wrap {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
   .filter-bar {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 24px 24px 8px;
+    padding: 16px 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px 32px;
@@ -84,7 +88,7 @@
   .filter-btn {
     appearance: none;
     border: 1px solid var(--border);
-    background: var(--surface);
+    background: var(--canvas);
     color: var(--ink-soft);
     font: inherit;
     font-size: 13px;
@@ -161,6 +165,10 @@
     line-height: 1.35;
     margin: 0;
     letter-spacing: -0.01em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .carousel-arrow {
@@ -232,19 +240,11 @@
     to { width: 100%; }
   }
 
-  .ticker-bar {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-
-  .ticker-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 10px 24px;
+  .ticker-inline {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    overflow-x: auto;
     font-size: 13px;
     font-weight: 600;
   }
@@ -268,15 +268,29 @@
   }
 
   .sentiment-chip {
+    appearance: none;
+    border: none;
+    font: inherit;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
     border-radius: 999px;
     white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
   }
   .sentiment-positive { background: rgba(47, 125, 93, 0.12); color: var(--sentiment-positive); }
   .sentiment-neutral { background: rgba(138, 129, 114, 0.14); color: var(--muted); }
   .sentiment-negative { background: rgba(181, 80, 42, 0.12); color: var(--sentiment-negative); }
+
+  .sentiment-positive:hover { background: rgba(47, 125, 93, 0.22); }
+  .sentiment-neutral:hover { background: rgba(138, 129, 114, 0.24); }
+  .sentiment-negative:hover { background: rgba(181, 80, 42, 0.22); }
+
+  .sentiment-chip.active { color: #fff; }
+  .sentiment-positive.active { background: var(--sentiment-positive); }
+  .sentiment-neutral.active { background: var(--muted); }
+  .sentiment-negative.active { background: var(--sentiment-negative); }
 
   .source-section {
     max-width: 1100px;
@@ -303,7 +317,14 @@
     margin: 0 0 12px;
   }
 
-  .section-desc { color: var(--ink-soft); font-size: 15px; margin: 0; }
+  .section-desc {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .section-empty {
     color: var(--muted);
@@ -371,19 +392,6 @@
 
   .article-body time { margin-top: auto; font-size: 12px; color: var(--muted); }
 
-  .site-footer {
-    background: var(--ink);
-    color: var(--canvas);
-    border-radius: 32px;
-    padding: 48px 40px;
-    margin: 64px 24px 48px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 450;
-  }
-  .site-footer a { color: var(--accent-on-dark); text-decoration: none; }
-  .site-footer a:hover { text-decoration: underline; }
-
   @media (max-width: 1023px) {
     .card-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -397,12 +405,11 @@
     .carousel-next { right: 10px; }
     .carousel-pager { right: 20px; bottom: 16px; }
     .logo img { height: 28px; }
-    .ticker-inner { padding: 8px 20px; font-size: 12px; }
+    .ticker-inline { font-size: 11px; }
     .ticker-sep { margin: 0 10px; }
     .filter-bar { padding: 16px 20px 4px; gap: 10px 20px; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
-    .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
   }
 </style>
 </head>
@@ -410,6 +417,26 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo"><img src="assets/hyundai-motor-group-logo.png" alt="Hyundai Motor Group"></div>
+    <div class="ticker-inline" aria-label="현대차·기아·현대모비스 시세">
+<span class="ticker-item ticker-flat">
+<span class="ticker-arrow">－</span>
+<span class="ticker-name">현대차</span>
+<span class="ticker-price">383,500</span>
+<span class="ticker-change">(0, 0.00%)</span>
+</span><span class="ticker-sep">|</span>
+<span class="ticker-item ticker-down">
+<span class="ticker-arrow">▼</span>
+<span class="ticker-name">기아</span>
+<span class="ticker-price">126,500</span>
+<span class="ticker-change">(900, 0.71%)</span>
+</span><span class="ticker-sep">|</span>
+<span class="ticker-item ticker-down">
+<span class="ticker-arrow">▼</span>
+<span class="ticker-name">현대모비스</span>
+<span class="ticker-price">422,000</span>
+<span class="ticker-change">(1,500, 0.35%)</span>
+</span>
+</div>
   </div>
 </header>
 
@@ -489,29 +516,7 @@
 </div>
 </section>
 
-<div class="ticker-bar" aria-label="현대차·기아·현대모비스 시세">
-<div class="ticker-inner">
-<span class="ticker-item ticker-flat">
-<span class="ticker-arrow">－</span>
-<span class="ticker-name">현대차</span>
-<span class="ticker-price">383,500</span>
-<span class="ticker-change">(0, 0.00%)</span>
-</span><span class="ticker-sep">|</span>
-<span class="ticker-item ticker-down">
-<span class="ticker-arrow">▼</span>
-<span class="ticker-name">기아</span>
-<span class="ticker-price">126,500</span>
-<span class="ticker-change">(900, 0.71%)</span>
-</span><span class="ticker-sep">|</span>
-<span class="ticker-item ticker-down">
-<span class="ticker-arrow">▼</span>
-<span class="ticker-name">현대모비스</span>
-<span class="ticker-price">422,000</span>
-<span class="ticker-change">(1,500, 0.35%)</span>
-</span>
-</div>
-</div>
-
+<div class="filter-bar-wrap">
 <div class="filter-bar" id="filter-bar">
 <div class="filter-group" role="group" aria-label="국가 필터">
 <span class="filter-group-label">국가</span>
@@ -528,18 +533,15 @@
 <button type="button" class="filter-btn period-btn" data-period="24h">24시간</button>
 </div>
 </div>
+</div>
 
   <div id="sections">
 <section class="source-section" id="section-1" data-country="한국">
 <div class="section-heading">
 <p class="section-label">SECTION 01</p>
 <h2>한국</h2>
-<p class="section-desc"><strong>한 줄 요약 : </strong>한국 자동차 산업에서 현대차와 기아가 신차 출시, 안전성 강화, 전동화 및 글로벌 시장 경쟁력 확보에 주력하고 있다는 내용이다.</p>
-<div class="sentiment-row" aria-label="기사 감성 분포">
-<span class="sentiment-chip sentiment-positive">긍정 6</span>
-<span class="sentiment-chip sentiment-neutral">중립 4</span>
-<span class="sentiment-chip sentiment-negative">부정 2</span>
-</div>
+<p class="section-desc"><strong>한 줄 요약 : </strong>요약을 준비 중입니다.</p>
+
 </div>
 <div class="card-grid">
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61528" target="_blank" rel="noopener" data-pubdate="2026-09-04T00:17:31.000Z">
@@ -550,7 +552,7 @@
 <div class="article-body">
 <h3>현대차그룹, 석유 심장부 오만에 최초 수소버스 투입... 중동 전동화 공략</h3>
 <p class="summary">(왼쪽부터) 오만 교통부 교통부문 차관: 카미스 빈 모하메드 알 샤막키(Khamis bin Mohammed Al Shammakhi), 현대차그룹 미래전략본부장 정호근 부사장, 오만…</p>
-<time>2026. 9. 4. AM 9:17:31</time>
+<time>2026. 9. 4. 오전 9:17:31</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61524" target="_blank" rel="noopener" data-pubdate="2026-09-03T23:20:12.000Z">
@@ -561,7 +563,7 @@
 <div class="article-body">
 <h3>기아 2세대 텔루라이드, 확 높인 기준에도 IIHS 최고 안전등급 ‘TSP+’ 획득</h3>
 <p class="summary">기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…</p>
-<time>2026. 9. 4. AM 8:20:12</time>
+<time>2026. 9. 4. 오전 8:20:12</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61522" target="_blank" rel="noopener" data-pubdate="2026-09-03T06:01:27.000Z">
@@ -572,7 +574,7 @@
 <div class="article-body">
 <h3>현대차, 인도 토종 브랜드에 밀려난 '2위 탈환' 총력... SUV·EV 신차 투입</h3>
 <p class="summary">현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…</p>
-<time>2026. 9. 3. PM 3:01:27</time>
+<time>2026. 9. 3. 오후 3:01:27</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61520" target="_blank" rel="noopener" data-pubdate="2026-09-03T05:55:10.000Z">
@@ -583,7 +585,7 @@
 <div class="article-body">
 <h3>&quot;주문 받습니다&quot; 현대차, 4000만 원대 '아이오닉 3' 유럽서 사전 예약</h3>
 <p class="summary">현대자동차가 아이오닉 라인업 첫 소형 전기 해치백 '아이오닉 3(IONIQ 3)'의 영국과 유럽 주요 시장 주문에 돌입했다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 아이오닉…</p>
-<time>2026. 9. 3. PM 2:55:10</time>
+<time>2026. 9. 3. 오후 2:55:10</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61518" target="_blank" rel="noopener" data-pubdate="2026-09-03T04:57:01.000Z">
@@ -594,7 +596,7 @@
 <div class="article-body">
 <h3>[신차 리뷰] 신형 아반떼, '현대차 연구원이 직접 공개한 놀라운 기술'</h3>
 <p class="summary">현대자동차가 서울 아크 강남에서 개최한 '디 올 뉴 아반떼 테크 데이' 현장을 직접 다녀왔습니다. 이번 영상에서는 연구원들이 직접 설명한 내용을 바탕으로 신형 아반떼의 핵심 기술을…</p>
-<time>2026. 9. 3. PM 1:57:01</time>
+<time>2026. 9. 3. 오후 1:57:01</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61505" target="_blank" rel="noopener" data-pubdate="2026-09-02T06:27:58.000Z">
@@ -605,7 +607,7 @@
 <div class="article-body">
 <h3>[모빌리티 인사이트] 美 소비자가 먼저 답, 현대차 'HEV 확대전' 통할까?</h3>
 <p class="summary">현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…</p>
-<time>2026. 9. 2. PM 3:27:58</time>
+<time>2026. 9. 2. 오후 3:27:58</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61498" target="_blank" rel="noopener" data-pubdate="2026-09-02T00:43:20.000Z">
@@ -616,7 +618,7 @@
 <div class="article-body">
 <h3>현대차그룹, 폭염에 지친 경찰버스 ‘나노 쿨링 필름’ 처방... 최대 7℃ 낮춰</h3>
 <p class="summary">현대차그룹이 경찰 버스 두 대에 차량 실내 온도를 낮춰주는 첨단 소재인 ‘나노 쿨링 필름’을 적용했다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 폭염 속에서 장시간…</p>
-<time>2026. 9. 2. AM 9:43:20</time>
+<time>2026. 9. 2. 오전 9:43:20</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61496" target="_blank" rel="noopener" data-pubdate="2026-09-02T00:18:06.000Z">
@@ -627,7 +629,7 @@
 <div class="article-body">
 <h3>현대차, 스타리아 EV 기반 어린이 통학차 '안심 승하차 솔루션' 개발</h3>
 <p class="summary">(왼쪽부터) 엠티알 천성재 대표, 현대차 국내판매사업부장 염재섭 상무, KT 기업사업본부장 노형래 상무, 키즈노트 강아름 부사장 (현대차) [오토헤럴드 정호인 기자] 현대자동차가…</p>
-<time>2026. 9. 2. AM 9:18:06</time>
+<time>2026. 9. 2. 오전 9:18:06</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61491" target="_blank" rel="noopener" data-pubdate="2026-09-01T22:26:02.000Z">
@@ -638,7 +640,7 @@
 <div class="article-body">
 <h3>현대차ㆍ기아 美 8월 판매 0.4% 소폭 감소... 하이브리드는 폭풍성장</h3>
 <p class="summary">현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…</p>
-<time>2026. 9. 2. AM 7:26:02</time>
+<time>2026. 9. 2. 오전 7:26:02</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61489" target="_blank" rel="noopener" data-pubdate="2026-09-01T07:50:15.000Z">
@@ -649,7 +651,7 @@
 <div class="article-body">
 <h3>'잔인한 8월' 파업·휴가 겹치며 5.9% 감소... 기아, 내수 경쟁에서 현대차 제쳐</h3>
 <p class="summary">2026년 8월 국내 5개 완성차 판매 실적 (오토헤럴드) [오토헤럴드 김흥식 기자] 지난 8월 국내 완성차 5개사의 글로벌 판매량이 내수 시장의 급격한 침체 여파로 전년 동월 대…</p>
-<time>2026. 9. 1. PM 4:50:15</time>
+<time>2026. 9. 1. 오후 4:50:15</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61479" target="_blank" rel="noopener" data-pubdate="2026-09-01T02:00:00.000Z">
@@ -660,7 +662,7 @@
 <div class="article-body">
 <h3>[김흥식 칼럼] 美 빅3 바뀌나... GMㆍ포드 턱밑까지 추격한 토요타와 현대차</h3>
 <p class="summary">미국 신차 시장이 토요타와 현대차/기아의 판매가 급성장하면서 GM과 포드와의 순위 역전 가능성이 커지고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 미국 전통 강호와 한·…</p>
-<time>2026. 9. 1. AM 11:00:00</time>
+<time>2026. 9. 1. 오전 11:00:00</time>
 </div>
 </a>
 <a class="article-card" href="http://www.autoherald.co.kr/news/articleView.html?idxno=61481" target="_blank" rel="noopener" data-pubdate="2026-09-01T01:44:40.000Z">
@@ -671,7 +673,7 @@
 <div class="article-body">
 <h3>기아, K5 한 번 더 부분변경 '2019년 플랫폼 유지·하이브리드 강화'</h3>
 <p class="summary">기아가 중형 세단 'K5'의 완전변경 대신 현행 3세대 모델을 기반으로 한 두 번째 부분변경을 준비한다(기아) [오토헤럴드 김훈기 기자] 기아가 중형 세단 'K5'의 완전변경 대신…</p>
-<time>2026. 9. 1. AM 10:44:40</time>
+<time>2026. 9. 1. 오전 10:44:40</time>
 </div>
 </a>
 </div>
@@ -680,12 +682,8 @@
 <div class="section-heading">
 <p class="section-label">SECTION 02</p>
 <h2>일본</h2>
-<p class="section-desc"><strong>한 줄 요약 : </strong>한국의 자동차 브랜드 기아가 일본 시장에 본격 진출한다는 소식이다.</p>
-<div class="sentiment-row" aria-label="기사 감성 분포">
-<span class="sentiment-chip sentiment-positive">긍정 1</span>
-<span class="sentiment-chip sentiment-neutral">중립 0</span>
-<span class="sentiment-chip sentiment-negative">부정 0</span>
-</div>
+<p class="section-desc"><strong>한 줄 요약 : </strong>요약을 준비 중입니다.</p>
+
 </div>
 <div class="card-grid">
 <a class="article-card" href="https://bestcarweb.jp/feature/column/1592873" target="_blank" rel="noopener" data-pubdate="2026-09-06T06:00:00.000Z">
@@ -696,7 +694,7 @@
 <div class="article-body">
 <h3>韓国の巨大メーカー「Kia」がついに日本本格進出！ ヒョンデに続く“実力派ブランド”の正体とは</h3>
 <p class="summary">およそ十数年ぶりの日本市場再参入となった韓国のKia。日本の大手商社で自動車にも明るい「双日」と手を組み、準備は万端。前回参入は尻すぼみで寂しい結果となったのも否めないが、今回はどうだ？ 日本再参入車…</p>
-<time>2026. 9. 6. PM 3:00:00</time>
+<time>2026. 9. 6. 오후 3:00:00</time>
 </div>
 </a>
 </div>
@@ -705,12 +703,8 @@
 <div class="section-heading">
 <p class="section-label">SECTION 03</p>
 <h2>영국</h2>
-<p class="section-desc"><strong>한 줄 요약 : </strong>영국에서 기아의 전기차와 관련된 새로운 모델 출시와 중고 전기차 구매에 대한 관심이 높아지고 있다.</p>
-<div class="sentiment-row" aria-label="기사 감성 분포">
-<span class="sentiment-chip sentiment-positive">긍정 2</span>
-<span class="sentiment-chip sentiment-neutral">중립 0</span>
-<span class="sentiment-chip sentiment-negative">부정 0</span>
-</div>
+<p class="section-desc"><strong>한 줄 요약 : </strong>요약을 준비 중입니다.</p>
+
 </div>
 <div class="card-grid">
 <a class="article-card" href="https://www.autocar.co.uk/car-news/electric-cars/kia-pv7-electric-van-be-revealed-14-september" target="_blank" rel="noopener" data-pubdate="2026-09-01T11:47:37.000Z">
@@ -721,7 +715,7 @@
 <div class="article-body">
 <h3>Kia PV7 electric van to be revealed on 14 September</h3>
 <p class="summary">New rival for LWB versions of Ford Transit Custom and Mercedes Vito is larger sibling to popular PV5…</p>
-<time>2026. 9. 1. PM 8:47:37</time>
+<time>2026. 9. 1. 오후 8:47:37</time>
 </div>
 </a>
 <a class="article-card" href="https://www.autocar.co.uk/car-news/used-cars/ev-game-changer-%C2%A310k-time-buy-used-kia-ev6" target="_blank" rel="noopener" data-pubdate="2026-08-31T08:00:00.000Z">
@@ -732,7 +726,7 @@
 <div class="article-body">
 <h3>An EV game changer for £10k? Time to buy a used Kia EV6</h3>
 <p class="summary">For a posh, practical electric family car to turn heads and win hearts, look no further Kia's first…</p>
-<time>2026. 8. 31. PM 5:00:00</time>
+<time>2026. 8. 31. 오후 5:00:00</time>
 </div>
 </a>
 </div>
@@ -741,12 +735,8 @@
 <div class="section-heading">
 <p class="section-label">SECTION 04</p>
 <h2>미국</h2>
-<p class="section-desc"><strong>한 줄 요약 : </strong>현대와 기아가 새로운 전기차 모델을 출시하며 디자인과 크기에서 경쟁력을 강조하고 있다.</p>
-<div class="sentiment-row" aria-label="기사 감성 분포">
-<span class="sentiment-chip sentiment-positive">긍정 3</span>
-<span class="sentiment-chip sentiment-neutral">중립 0</span>
-<span class="sentiment-chip sentiment-negative">부정 0</span>
-</div>
+<p class="section-desc"><strong>한 줄 요약 : </strong>요약을 준비 중입니다.</p>
+
 </div>
 <div class="card-grid">
 <a class="article-card" href="https://www.carscoops.com/2026/09/2028-hyundai-kona-spied-lightly-disguised/" target="_blank" rel="noopener" data-pubdate="2026-09-06T11:44:00.000Z">
@@ -757,7 +747,7 @@
 <div class="article-body">
 <h3>Hyundai’s New Kona Ditches The Weird Look For A Normal Crossover Shape</h3>
 <p class="summary">Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…</p>
-<time>2026. 9. 6. PM 8:44:00</time>
+<time>2026. 9. 6. 오후 8:44:00</time>
 </div>
 </a>
 <a class="article-card" href="https://www.carscoops.com/2026/09/hyundai-staria-electric-europe/" target="_blank" rel="noopener" data-pubdate="2026-09-05T16:45:00.000Z">
@@ -768,7 +758,7 @@
 <div class="article-body">
 <h3>Hyundai’s New Nine-Seat Electric Van Matches The ID. Buzz On Price And Beats It On Size</h3>
 <p class="summary">Hyundai opens European orders for the new Staria Electric. It packs an 84 kWh battery and offers up…</p>
-<time>2026. 9. 6. AM 1:45:00</time>
+<time>2026. 9. 6. 오전 1:45:00</time>
 </div>
 </a>
 <a class="article-card" href="https://www.carscoops.com/2026/09/kia-pv7-spied/" target="_blank" rel="noopener" data-pubdate="2026-09-05T11:59:00.000Z">
@@ -779,7 +769,7 @@
 <div class="article-body">
 <h3>Kia’s Next Electric Van Is A 17-Foot Box On Wheels And It’s Coming For VW</h3>
 <p class="summary">Spy photographers have snapped Kia’s upcoming PV7. Electric van slots above the PV5 and is aimed at…</p>
-<time>2026. 9. 5. PM 8:59:00</time>
+<time>2026. 9. 5. 오후 8:59:00</time>
 </div>
 </a>
 </div>
@@ -788,9 +778,6 @@
   </div>
 </main>
 
-<footer class="site-footer">
-  <p>마지막 업데이트: 2026. 9. 6. PM 9:14:37 · 2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
-</footer>
 <script>
 (function () {
   var PERIOD_MS = {
@@ -802,6 +789,7 @@
 
   var countryBtns = Array.prototype.slice.call(document.querySelectorAll('.country-btn'));
   var periodBtns = Array.prototype.slice.call(document.querySelectorAll('.period-btn'));
+  var sentimentBtns = Array.prototype.slice.call(document.querySelectorAll('.sentiment-chip'));
   var selectedCountries = {};
   countryBtns.forEach(function (btn) {
     if (btn.classList.contains('active')) selectedCountries[btn.getAttribute('data-country')] = true;
@@ -810,6 +798,7 @@
   periodBtns.forEach(function (btn) {
     if (btn.classList.contains('active')) selectedPeriod = btn.getAttribute('data-period');
   });
+  var sectionSentiment = {};
 
   function applyFilters() {
     var cutoff = Date.now() - (PERIOD_MS[selectedPeriod] || PERIOD_MS['7d']);
@@ -820,10 +809,13 @@
         section.hidden = true;
         return;
       }
+      var sentimentFilter = sectionSentiment[section.id];
       var anyVisible = false;
       section.querySelectorAll('.article-card').forEach(function (card) {
         var t = new Date(card.getAttribute('data-pubdate')).getTime();
-        var show = !isNaN(t) && t >= cutoff;
+        var withinPeriod = !isNaN(t) && t >= cutoff;
+        var matchesSentiment = !sentimentFilter || card.getAttribute('data-sentiment') === sentimentFilter;
+        var show = withinPeriod && matchesSentiment;
         card.hidden = !show;
         if (show) anyVisible = true;
       });
@@ -858,6 +850,19 @@
     });
   });
 
+  sentimentBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var sectionId = btn.getAttribute('data-section');
+      var sentiment = btn.getAttribute('data-sentiment');
+      var next = sectionSentiment[sectionId] === sentiment ? null : sentiment;
+      sectionSentiment[sectionId] = next;
+      sentimentBtns
+        .filter(function (b) { return b.getAttribute('data-section') === sectionId; })
+        .forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-sentiment') === next); });
+      applyFilters();
+    });
+  });
+
   applyFilters();
 })();
 </script>
@@ -869,7 +874,7 @@
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
   var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
   var total = slides.length;
-  var DURATION = 5000;
+  var DURATION = 3750;
   var current = 0;
   var timer = null;
 

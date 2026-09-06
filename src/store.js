@@ -51,4 +51,4 @@ function getItemsSince(sinceDate) {
   return loadAll().filter((i) => new Date(i.fetchedAt).getTime() >= sinceDate.getTime());
 }
 
-module.exports = { loadAll, addNewItems, getItemsSince, DATA_FILE };
+module.exports = { loadAll, saveAll, addNewItems, getItemsSince, DATA_FILE };

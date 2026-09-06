@@ -40,8 +40,9 @@ function renderCard(item) {
     : '';
 
   const pubdate = item.pubDate || item.fetchedAt || '';
+  const sentimentAttr = item.sentiment ? ` data-sentiment="${escapeHtml(item.sentiment)}"` : '';
 
-  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" data-pubdate="${escapeHtml(pubdate)}">
+  return `<a class="article-card" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" data-pubdate="${escapeHtml(pubdate)}"${sentimentAttr}>
 <div class="thumb" style="background:${item.color}">
 <span class="thumb-fallback">${escapeHtml(item.initials)}</span>
 ${imgHtml}
@@ -69,14 +70,12 @@ function renderTickerItem(stock) {
 </span>`;
 }
 
-// 캐러셀 바로 아래에 배치되는 현대차/기아/현대모비스 시세 티커. 데이터가 없으면 렌더링하지 않는다.
-function renderTickerBar(stocks) {
+// 상단바 오른쪽에 배치되는 현대차/기아/현대모비스 시세 티커. 데이터가 없으면 렌더링하지 않는다.
+function renderTickerInline(stocks) {
   if (!stocks || stocks.length === 0) return '';
 
-  return `<div class="ticker-bar" aria-label="현대차·기아·현대모비스 시세">
-<div class="ticker-inner">
+  return `<div class="ticker-inline" aria-label="현대차·기아·현대모비스 시세">
 ${stocks.map((s) => renderTickerItem(s)).join('<span class="ticker-sep">|</span>\n')}
-</div>
 </div>`;
 }
 
@@ -132,17 +131,20 @@ ${dotsHtml}
 </section>`;
 }
 
-function renderSentimentRow(sentiment) {
+function renderSentimentRow(sentiment, sectionId) {
   if (!sentiment) return '';
   const positive = sentiment.positive || 0;
   const neutral = sentiment.neutral || 0;
   const negative = sentiment.negative || 0;
   if (positive + neutral + negative === 0) return '';
 
-  return `<div class="sentiment-row" aria-label="기사 감성 분포">
-<span class="sentiment-chip sentiment-positive">긍정 ${positive}</span>
-<span class="sentiment-chip sentiment-neutral">중립 ${neutral}</span>
-<span class="sentiment-chip sentiment-negative">부정 ${negative}</span>
+  const btn = (kind, label, count) =>
+    `<button type="button" class="sentiment-chip sentiment-${kind}" data-sentiment="${kind}" data-section="${sectionId}">${label} ${count}</button>`;
+
+  return `<div class="sentiment-row" aria-label="기사 감성 분포로 필터링">
+${btn('positive', '긍정', positive)}
+${btn('neutral', '중립', neutral)}
+${btn('negative', '부정', negative)}
 </div>`;
 }
 
@@ -178,7 +180,7 @@ function renderSections(items, sectionSummaries = {}) {
     const sectionId = `section-${sectionIndex}`;
     const summaryEntry = sectionSummaries[country];
     const summaryText = (summaryEntry && summaryEntry.text) || '요약을 준비 중입니다.';
-    const sentimentHtml = renderSentimentRow(summaryEntry && summaryEntry.sentiment);
+    const sentimentHtml = renderSentimentRow(summaryEntry && summaryEntry.sentiment, sectionId);
     const sorted = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
 
     sections += `<section class="source-section" id="${sectionId}" data-country="${escapeHtml(country)}">
@@ -218,7 +220,8 @@ function renderFilterBar(countries) {
       `<button type="button" class="filter-btn period-btn${key === DEFAULT_PERIOD ? ' active' : ''}" data-period="${key}">${label}</button>`
   ).join('\n');
 
-  return `<div class="filter-bar" id="filter-bar">
+  return `<div class="filter-bar-wrap">
+<div class="filter-bar" id="filter-bar">
 <div class="filter-group" role="group" aria-label="국가 필터">
 <span class="filter-group-label">국가</span>
 ${countryBtns}
@@ -227,6 +230,7 @@ ${countryBtns}
 <span class="filter-group-label">기간</span>
 ${periodBtns}
 </div>
+</div>
 </div>`;
 }
 
@@ -234,10 +238,9 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
 
   const hasLogo = copyLogoAsset();
-  const updatedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
   const { sections, countriesWithData } = renderSections(items, sectionSummaries);
   const filterBar = renderFilterBar(countriesWithData);
-  const tickerBar = renderTickerBar(stocks);
+  const tickerInline = renderTickerInline(stocks);
   const heroCarousel = renderHeroCarousel(items);
 
   const html = `<!doctype html>
@@ -258,7 +261,6 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     --muted: #8A8172;
     --border: rgba(28, 26, 23, 0.08);
     --accent: #B5502A;
-    --accent-on-dark: #E2916B;
     --filter-active: #2F6FED;
     --filter-active-ink: #FFFFFF;
     --sentiment-positive: #2F7D5D;
@@ -298,10 +300,15 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   .logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
   .logo img { display: block; height: 36px; width: auto; }
 
+  .filter-bar-wrap {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
   .filter-bar {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 24px 24px 8px;
+    padding: 16px 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px 32px;
@@ -326,7 +333,7 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   .filter-btn {
     appearance: none;
     border: 1px solid var(--border);
-    background: var(--surface);
+    background: var(--canvas);
     color: var(--ink-soft);
     font: inherit;
     font-size: 13px;
@@ -403,6 +410,10 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     line-height: 1.35;
     margin: 0;
     letter-spacing: -0.01em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .carousel-arrow {
@@ -474,19 +485,11 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     to { width: 100%; }
   }
 
-  .ticker-bar {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-
-  .ticker-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 10px 24px;
+  .ticker-inline {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    overflow-x: auto;
     font-size: 13px;
     font-weight: 600;
   }
@@ -510,15 +513,29 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   }
 
   .sentiment-chip {
+    appearance: none;
+    border: none;
+    font: inherit;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
     border-radius: 999px;
     white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
   }
   .sentiment-positive { background: rgba(47, 125, 93, 0.12); color: var(--sentiment-positive); }
   .sentiment-neutral { background: rgba(138, 129, 114, 0.14); color: var(--muted); }
   .sentiment-negative { background: rgba(181, 80, 42, 0.12); color: var(--sentiment-negative); }
+
+  .sentiment-positive:hover { background: rgba(47, 125, 93, 0.22); }
+  .sentiment-neutral:hover { background: rgba(138, 129, 114, 0.24); }
+  .sentiment-negative:hover { background: rgba(181, 80, 42, 0.22); }
+
+  .sentiment-chip.active { color: #fff; }
+  .sentiment-positive.active { background: var(--sentiment-positive); }
+  .sentiment-neutral.active { background: var(--muted); }
+  .sentiment-negative.active { background: var(--sentiment-negative); }
 
   .source-section {
     max-width: 1100px;
@@ -545,7 +562,14 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     margin: 0 0 12px;
   }
 
-  .section-desc { color: var(--ink-soft); font-size: 15px; margin: 0; }
+  .section-desc {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .section-empty {
     color: var(--muted);
@@ -613,19 +637,6 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
 
   .article-body time { margin-top: auto; font-size: 12px; color: var(--muted); }
 
-  .site-footer {
-    background: var(--ink);
-    color: var(--canvas);
-    border-radius: 32px;
-    padding: 48px 40px;
-    margin: 64px 24px 48px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 450;
-  }
-  .site-footer a { color: var(--accent-on-dark); text-decoration: none; }
-  .site-footer a:hover { text-decoration: underline; }
-
   @media (max-width: 1023px) {
     .card-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -639,12 +650,11 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     .carousel-next { right: 10px; }
     .carousel-pager { right: 20px; bottom: 16px; }
     .logo img { height: 28px; }
-    .ticker-inner { padding: 8px 20px; font-size: 12px; }
+    .ticker-inline { font-size: 11px; }
     .ticker-sep { margin: 0 10px; }
     .filter-bar { padding: 16px 20px 4px; gap: 10px 20px; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
-    .site-footer { margin: 48px 16px 32px; padding: 36px 24px; }
   }
 </style>
 </head>
@@ -652,13 +662,12 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
 <header class="topbar">
   <div class="topbar-inner">
     <div class="logo">${hasLogo ? '<img src="assets/hyundai-motor-group-logo.png" alt="Hyundai Motor Group">' : '현대차·기아 뉴스'}</div>
+    ${tickerInline}
   </div>
 </header>
 
 <main>
 ${heroCarousel}
-
-${tickerBar}
 
 ${filterBar}
 
@@ -667,9 +676,6 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   </div>
 </main>
 
-<footer class="site-footer">
-  <p>마지막 업데이트: ${updatedAt} · 2시간마다 자동 갱신 · <a href="https://github.com/emperordesu/News-RSS-2609">GitHub Actions</a>로 운영됩니다.</p>
-</footer>
 <script>
 (function () {
   var PERIOD_MS = {
@@ -681,6 +687,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
 
   var countryBtns = Array.prototype.slice.call(document.querySelectorAll('.country-btn'));
   var periodBtns = Array.prototype.slice.call(document.querySelectorAll('.period-btn'));
+  var sentimentBtns = Array.prototype.slice.call(document.querySelectorAll('.sentiment-chip'));
   var selectedCountries = {};
   countryBtns.forEach(function (btn) {
     if (btn.classList.contains('active')) selectedCountries[btn.getAttribute('data-country')] = true;
@@ -689,6 +696,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   periodBtns.forEach(function (btn) {
     if (btn.classList.contains('active')) selectedPeriod = btn.getAttribute('data-period');
   });
+  var sectionSentiment = {};
 
   function applyFilters() {
     var cutoff = Date.now() - (PERIOD_MS[selectedPeriod] || PERIOD_MS['7d']);
@@ -699,10 +707,13 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
         section.hidden = true;
         return;
       }
+      var sentimentFilter = sectionSentiment[section.id];
       var anyVisible = false;
       section.querySelectorAll('.article-card').forEach(function (card) {
         var t = new Date(card.getAttribute('data-pubdate')).getTime();
-        var show = !isNaN(t) && t >= cutoff;
+        var withinPeriod = !isNaN(t) && t >= cutoff;
+        var matchesSentiment = !sentimentFilter || card.getAttribute('data-sentiment') === sentimentFilter;
+        var show = withinPeriod && matchesSentiment;
         card.hidden = !show;
         if (show) anyVisible = true;
       });
@@ -737,6 +748,19 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
     });
   });
 
+  sentimentBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var sectionId = btn.getAttribute('data-section');
+      var sentiment = btn.getAttribute('data-sentiment');
+      var next = sectionSentiment[sectionId] === sentiment ? null : sentiment;
+      sectionSentiment[sectionId] = next;
+      sentimentBtns
+        .filter(function (b) { return b.getAttribute('data-section') === sectionId; })
+        .forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-sentiment') === next); });
+      applyFilters();
+    });
+  });
+
   applyFilters();
 })();
 </script>
@@ -748,7 +772,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
   var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
   var total = slides.length;
-  var DURATION = 5000;
+  var DURATION = 3750;
   var current = 0;
   var timer = null;
 
