@@ -145,6 +145,7 @@ function renderSentimentRow(sentiment, sectionId) {
 ${btn('positive', '긍정', positive)}
 ${btn('neutral', '중립', neutral)}
 ${btn('negative', '부정', negative)}
+<button type="button" class="sentiment-chip sentiment-reset" data-section="${sectionId}">초기화</button>
 </div>`;
 }
 
@@ -180,6 +181,7 @@ function renderSections(items, sectionSummaries = {}) {
     const sectionId = `section-${sectionIndex}`;
     const summaryEntry = sectionSummaries[country];
     const summaryText = (summaryEntry && summaryEntry.text) || '요약을 준비 중입니다.';
+    const aiTagHtml = summaryEntry && summaryEntry.text ? '<p class="ai-tag">OpenRouter AI 요약</p>' : '';
     const sentimentHtml = renderSentimentRow(summaryEntry && summaryEntry.sentiment, sectionId);
     const sorted = combined.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
 
@@ -188,6 +190,7 @@ function renderSections(items, sectionSummaries = {}) {
 <p class="section-label">SECTION ${sectionNum}</p>
 <h2>${escapeHtml(country)}</h2>
 <p class="section-desc"><strong>한 줄 요약 : </strong>${escapeHtml(summaryText)}</p>
+${aiTagHtml}
 ${sentimentHtml}
 </div>
 <div class="card-grid">
@@ -490,13 +493,13 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     align-items: center;
     white-space: nowrap;
     overflow-x: auto;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
   }
 
-  .ticker-item { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); }
-  .ticker-sep { color: var(--border); margin: 0 14px; }
-  .ticker-arrow { font-size: 10px; }
+  .ticker-item { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-soft); }
+  .ticker-sep { color: var(--border); margin: 0 8px; }
+  .ticker-arrow { font-size: 9px; }
   .ticker-name { color: var(--ink); font-weight: 700; }
   .ticker-price { font-variant-numeric: tabular-nums; }
   .ticker-change { font-weight: 500; color: var(--muted); }
@@ -537,6 +540,16 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
   .sentiment-neutral.active { background: var(--muted); }
   .sentiment-negative.active { background: var(--sentiment-negative); }
 
+  .sentiment-reset {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .sentiment-reset:hover { color: var(--accent); border-color: var(--accent); }
+
   .source-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -544,7 +557,7 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     scroll-margin-top: 24px;
   }
 
-  .section-heading { margin-bottom: 32px; max-width: 640px; }
+  .section-heading { margin-bottom: 32px; }
 
   .section-label {
     color: var(--accent);
@@ -560,6 +573,7 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     font-weight: 700;
     letter-spacing: -0.01em;
     margin: 0 0 12px;
+    max-width: 640px;
   }
 
   .section-desc {
@@ -569,6 +583,19 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .ai-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin: 8px 0 0;
   }
 
   .section-empty {
@@ -650,8 +677,8 @@ function generateSite(items, stocks = [], sectionSummaries = {}) {
     .carousel-next { right: 10px; }
     .carousel-pager { right: 20px; bottom: 16px; }
     .logo img { height: 28px; }
-    .ticker-inline { font-size: 11px; }
-    .ticker-sep { margin: 0 10px; }
+    .ticker-inline { font-size: 10px; }
+    .ticker-sep { margin: 0 6px; }
     .filter-bar { padding: 16px 20px 4px; gap: 10px 20px; }
     .section-heading h2 { font-size: 24px; }
     .card-grid { grid-template-columns: 1fr; }
@@ -752,10 +779,10 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
     btn.addEventListener('click', function () {
       var sectionId = btn.getAttribute('data-section');
       var sentiment = btn.getAttribute('data-sentiment');
-      var next = sectionSentiment[sectionId] === sentiment ? null : sentiment;
+      var next = sentiment && sectionSentiment[sectionId] !== sentiment ? sentiment : null;
       sectionSentiment[sectionId] = next;
       sentimentBtns
-        .filter(function (b) { return b.getAttribute('data-section') === sectionId; })
+        .filter(function (b) { return b.getAttribute('data-section') === sectionId && b.getAttribute('data-sentiment'); })
         .forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-sentiment') === next); });
       applyFilters();
     });
@@ -772,7 +799,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
   var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
   var total = slides.length;
-  var DURATION = 3750;
+  var DURATION = 3250;
   var current = 0;
   var timer = null;
 
