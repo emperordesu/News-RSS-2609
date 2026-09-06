@@ -1,12 +1,42 @@
 {
   "한국": {
-    "text": "한국 자동차 산업의 경쟁력 강화와 전동화 및 안전성 향상에 대한 다양한 노력이 집중되고 있다.",
-    "updatedAt": "2026-09-06T08:11:36.384Z",
-    "articleCount": 12
+    "text": "한국 자동차 산업의 경쟁력 강화와 전동화 및 안전성 향상에 대한 다양한 노력이 이루어지고 있다.",
+    "updatedAt": "2026-09-06T10:11:50.699Z",
+    "articleCount": 12,
+    "sentiment": {
+      "positive": 6,
+      "neutral": 4,
+      "negative": 2
+    }
   },
   "영국": {
-    "text": "영국에서 기아의 전기차와 전기 밴에 대한 관심이 높아지고 있다.",
-    "updatedAt": "2026-09-06T08:11:37.713Z",
-    "articleCount": 2
+    "text": "영국에서 기아의 전기차와 관련된 새로운 모델 발표 및 중고 전기차 구매에 대한 관심이 높아지고 있다.",
+    "updatedAt": "2026-09-06T10:11:53.655Z",
+    "articleCount": 2,
+    "sentiment": {
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0
+    }
+  },
+  "일본": {
+    "text": "한국의 자동차 브랜드 기아가 일본 시장에 본격 진출한다는 소식이다.",
+    "updatedAt": "2026-09-06T10:11:52.058Z",
+    "articleCount": 1,
+    "sentiment": {
+      "positive": 1,
+      "neutral": 0,
+      "negative": 0
+    }
+  },
+  "미국": {
+    "text": "현대와 기아가 전기 밴 시장에 진출하며 경쟁력을 강화하고 있다.",
+    "updatedAt": "2026-09-06T10:11:55.558Z",
+    "articleCount": 2,
+    "sentiment": {
+      "positive": 2,
+      "neutral": 0,
+      "negative": 0
+    }
   }
 }
