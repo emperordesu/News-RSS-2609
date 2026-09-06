@@ -92,9 +92,10 @@ function renderCarouselSlide(item, index) {
   const color = feed ? feed.color : '#8A8172';
   const initials = feed ? feed.initials : '';
   const bgImage = item.image ? `background-image:url('${escapeHtml(item.image)}');` : '';
+  const fallbackHtml = item.image ? '' : `<span class="carousel-fallback-text">${escapeHtml(initials)}</span>`;
 
   return `<a class="carousel-slide${index === 0 ? ' is-active' : ''}" data-index="${index}" href="${escapeHtml(item.link)}" target="_blank" rel="noopener" style="background-color:${color};${bgImage}">
-<span class="carousel-fallback-text">${escapeHtml(initials)}</span>
+${fallbackHtml}
 <div class="carousel-scrim"></div>
 <div class="carousel-caption">
 <h2>${escapeHtml(item.title)}</h2>
@@ -895,7 +896,7 @@ ${sections || '<p class="section-empty" style="max-width:1100px;margin:0 auto;pa
   var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
   var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
   var total = slides.length;
-  var DURATION = 3250;
+  var DURATION = 2750;
   var current = 0;
   var timer = null;
 
