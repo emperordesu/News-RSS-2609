@@ -39,6 +39,30 @@ const FEEDS = [
     color: '#9A8AAE',
     initials: 'AC',
   },
+  {
+    name: 'ベストカー',
+    url: 'https://bestcarweb.jp/feed',
+    country: '일본',
+    description: '일본 자동차 전문지가 전하는 현지 동향',
+    color: '#3E8E7E',
+    initials: 'BC',
+  },
+  {
+    name: 'Motor1',
+    url: 'https://www.motor1.com/rss/news/all',
+    country: '미국',
+    description: '글로벌 자동차 매체가 전하는 최신 뉴스와 리뷰',
+    color: '#C0524A',
+    initials: 'M1',
+  },
+  {
+    name: 'Carscoops',
+    url: 'https://www.carscoops.com/category/news/feed/',
+    country: '미국',
+    description: '글로벌 자동차 스쿠프 전문 매체',
+    color: '#4A6FA5',
+    initials: 'CS',
+  },
 ];
 
 // 데이터 파일에 보관할 기간 (일). 프론트엔드의 30일 필터가 의미 있으려면 최소 30일 필요.
