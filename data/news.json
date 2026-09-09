@@ -1,6 +1,36 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "\"깜찍 귀여운 외관 버린다\" 현대차 신형 코나, 듬직한 정통 SUV로 환골탈태",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61560",
+    "pubDate": "2026-09-09T10:11:39.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61560_118474_447.png",
+    "summary": "위장막 스파이샷, 해외 예상도 등을 참고해 기사의 이래를 돕기 위해 AI로 생성한 차세대 코나 예상도. (오토헤럴드) [오토헤럴드 김흥식 기자] 유선형의 날렵하고 깜찍한 도심형 크…",
+    "fetchedAt": "2026-09-09T02:11:05.140Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차, 1.9kg 초경량 무동력 착용 로봇 '엑스블 숄더' 국가유산 파수꾼 됐다",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61564",
+    "pubDate": "2026-09-09T09:40:20.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61564_118469_3035.jpg",
+    "summary": "현대자동차-국가유산청 '엑스블 숄더' 기증식 행사 기념 촬영 (왼쪽부터 전현철 현대차 사업개발&지속가능경영실장, 이길배 국가유산청 유산정책국장) (현대차) [오토헤럴드 정호인 기자…",
+    "fetchedAt": "2026-09-09T02:11:05.140Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, 추석 앞두고 협력사에 납품대금 2조 2562억 원 ‘통 큰 조기 지급’",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61563",
+    "pubDate": "2026-09-09T09:24:23.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61563_118467_211.jpg",
+    "summary": "현대차그룹이 추석 연휴에 앞서 협력사들에 납품 대금 2조 2,562억 원을 기존 지급일보다 최대 23일 앞당겨 지급할 계획이다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차…",
+    "fetchedAt": "2026-09-09T02:11:05.140Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "[르포] \"엠블럼 하나까지 로봇이 착착\" 기아 PBV 승부처 '화성 EVO 플랜트'",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61558",
     "pubDate": "2026-09-09T08:30:58.000Z",
@@ -147,7 +177,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -177,7 +207,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61505_118340_5919.jpg",
     "summary": "현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -187,7 +217,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61498_118317_3347.jpg",
     "summary": "현대차그룹이 경찰 버스 두 대에 차량 실내 온도를 낮춰주는 첨단 소재인 ‘나노 쿨링 필름’을 적용했다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 폭염 속에서 장시간…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -207,7 +237,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
