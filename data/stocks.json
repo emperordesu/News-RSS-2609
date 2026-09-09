@@ -3,25 +3,25 @@
     "code": "005380",
     "name": "현대차",
     "market": "코스피",
-    "price": 387000,
-    "change": 2000,
-    "percent": 0.52,
+    "price": 388000,
+    "change": 3000,
+    "percent": 0.78,
     "direction": "up",
-    "status": "2026년 09월 09일 15시 15분 기준 장중",
-    "isMarketClosed": false,
-    "updatedAt": "2026-09-09T06:15:34.850Z"
+    "status": "2026년 09월 09일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-09T08:13:24.764Z"
   },
   {
     "code": "000270",
     "name": "기아",
     "market": "코스피",
-    "price": 126700,
-    "change": 1300,
-    "percent": 1.04,
+    "price": 126800,
+    "change": 1400,
+    "percent": 1.12,
     "direction": "up",
-    "status": "2026년 09월 09일 15시 15분 기준 장중",
-    "isMarketClosed": false,
-    "updatedAt": "2026-09-09T06:15:34.852Z"
+    "status": "2026년 09월 09일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-09T08:13:24.811Z"
   },
   {
     "code": "012330",
@@ -31,8 +31,8 @@
     "change": 2500,
     "percent": 0.6,
     "direction": "up",
-    "status": "2026년 09월 09일 15시 15분 기준 장중",
-    "isMarketClosed": false,
-    "updatedAt": "2026-09-09T06:15:35.016Z"
+    "status": "2026년 09월 09일 16시 10분 기준 장마감",
+    "isMarketClosed": true,
+    "updatedAt": "2026-09-09T08:13:24.763Z"
   }
 ]

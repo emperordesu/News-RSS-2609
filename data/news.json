@@ -1,5 +1,15 @@
 [
   {
+    "source": "Motor1",
+    "title": "Hyundai Wants To XRT All The Things With Rugged Model Offensive",
+    "link": "https://www.motor1.com/news/807619/hyundai-more-rugged-models-planned/",
+    "pubDate": "2026-09-09T08:00:45.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/pbJVyo/s3/2027-hyundai-tucson.jpg",
+    "summary": "Dedicated off-roaders could crown the lineup.",
+    "fetchedAt": "2026-09-09T08:12:24.174Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "오토헤럴드",
     "title": "현대차그룹, AfDB와 맞손 ‘금융+모빌리티’로 아프리카 14억 시장 정조준",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61569",
@@ -47,7 +57,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61558_118453_1353.jpg",
     "summary": "기아는 오토랜드 화성에서 '기아 PBV 생산 허브 테크 데이'를 열고 PV5가 만들어지는 화성 EVO Plant의 생산 현장을 공개했다(기아) [오토헤럴드 김훈기 기자] 8일, 경…",
     "fetchedAt": "2026-09-09T00:18:10.448Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -187,7 +197,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -227,7 +237,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61498_118317_3347.jpg",
     "summary": "현대차그룹이 경찰 버스 두 대에 차량 실내 온도를 낮춰주는 첨단 소재인 ‘나노 쿨링 필름’을 적용했다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 폭염 속에서 장시간…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -247,7 +257,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -267,7 +277,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61479_118270_1512.png",
     "summary": "미국 신차 시장이 토요타와 현대차/기아의 판매가 급성장하면서 GM과 포드와의 순위 역전 가능성이 커지고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 미국 전통 강호와 한·…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
