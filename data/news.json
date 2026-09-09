@@ -57,7 +57,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61558_118453_1353.jpg",
     "summary": "기아는 오토랜드 화성에서 '기아 PBV 생산 허브 테크 데이'를 열고 PV5가 만들어지는 화성 EVO Plant의 생산 현장을 공개했다(기아) [오토헤럴드 김훈기 기자] 8일, 경…",
     "fetchedAt": "2026-09-09T00:18:10.448Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
@@ -187,7 +187,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61524_118388_1543.jpg",
     "summary": "기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -197,7 +197,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -237,7 +237,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61498_118317_3347.jpg",
     "summary": "현대차그룹이 경찰 버스 두 대에 차량 실내 온도를 낮춰주는 첨단 소재인 ‘나노 쿨링 필름’을 적용했다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 폭염 속에서 장시간…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
