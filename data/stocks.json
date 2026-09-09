@@ -9,7 +9,7 @@
     "direction": "up",
     "status": "2026년 09월 09일 16시 10분 기준 장마감",
     "isMarketClosed": true,
-    "updatedAt": "2026-09-09T18:15:03.281Z"
+    "updatedAt": "2026-09-09T20:12:35.365Z"
   },
   {
     "code": "000270",
@@ -21,7 +21,7 @@
     "direction": "up",
     "status": "2026년 09월 09일 16시 10분 기준 장마감",
     "isMarketClosed": true,
-    "updatedAt": "2026-09-09T18:15:03.259Z"
+    "updatedAt": "2026-09-09T20:12:35.435Z"
   },
   {
     "code": "012330",
@@ -33,6 +33,6 @@
     "direction": "up",
     "status": "2026년 09월 09일 16시 10분 기준 장마감",
     "isMarketClosed": true,
-    "updatedAt": "2026-09-09T18:15:03.451Z"
+    "updatedAt": "2026-09-09T20:12:35.550Z"
   }
 ]
