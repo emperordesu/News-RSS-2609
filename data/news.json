@@ -1,5 +1,35 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "기아, 대형 PBV 'PV7' 하노버 IAA서 최초 예고 \"유럽 전기 밴 공략 확대\"",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61576",
+    "pubDate": "2026-09-10T08:54:17.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61576_118496_5240.jpg",
+    "summary": "기아의 대형 전동화 PBV '더 기아 PV7(The Kia PV7)'이 독일 하노버 상용차 박람회에 첫 등장한다(기아) [오토헤럴드 김훈기 기자] 기아의 대형 전동화 PBV '더…",
+    "fetchedAt": "2026-09-10T00:15:23.814Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "할리우드 홀린 순찰차 액션... 나홍진 ‘호프’ 타고 부활한 현대차 스텔라",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61573",
+    "pubDate": "2026-09-10T07:53:55.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61573_118491_4822.jpg",
+    "summary": "나홍진 감독 영화 '호프'에서 경찰 순찰차로 등장한 현대차 스텔라. (현대자동차) [오토헤럴드 김흥식 기자] 나홍진 감독의 SF 액션 스릴러 ‘호프(HOPE)’가 9일(현지 시간)…",
+    "fetchedAt": "2026-09-10T00:15:23.814Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Motor1",
+    "title": "Hyundai Could Turn Its Best Seller Into A 350-HP Performance SUV",
+    "link": "https://www.motor1.com/news/807726/hyundai-tucson-n-hybrid-powertrain-rumor/",
+    "pubDate": "2026-09-09T23:00:00.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/pbJVyo/s3/2027-hyundai-tucson.jpg",
+    "summary": "It will allegedly feature a hybrid powertrain focused on power delivery.",
+    "fetchedAt": "2026-09-10T00:15:23.814Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Motor1",
     "title": "Hyundai Wants To XRT All The Things With Rugged Model Offensive",
     "link": "https://www.motor1.com/news/807619/hyundai-more-rugged-models-planned/",
@@ -57,7 +87,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61558_118453_1353.jpg",
     "summary": "기아는 오토랜드 화성에서 '기아 PBV 생산 허브 테크 데이'를 열고 PV5가 만들어지는 화성 EVO Plant의 생산 현장을 공개했다(기아) [오토헤럴드 김훈기 기자] 8일, 경…",
     "fetchedAt": "2026-09-09T00:18:10.448Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -197,7 +227,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -257,7 +287,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -277,7 +307,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61479_118270_1512.png",
     "summary": "미국 신차 시장이 토요타와 현대차/기아의 판매가 급성장하면서 GM과 포드와의 순위 역전 가능성이 커지고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 미국 전통 강호와 한·…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
