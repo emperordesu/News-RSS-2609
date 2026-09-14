@@ -1,6 +1,26 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "기아, 스타렉스보다 큰 대형 PBV 'PV7' 공개... '460km 주행·350kW 충전'",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61615",
+    "pubDate": "2026-09-14T17:50:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61615_118587_3954.jpg",
+    "summary": "기아가 독일 하노버에서 열린 세계 최대 상용차 박람회 'IAA 트랜스포테이션 2026'에서 '더 기아 PV7(이하 PV7)'을 세계 최초로 공개했다(기아) [오토헤럴드 김훈기 기자…",
+    "fetchedAt": "2026-09-14T10:11:36.769Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Auto Car (UK)",
+    "title": "New Kia PV7 targets Ford E-Transit Custom with 286-mile range",
+    "link": "https://www.autocar.co.uk/car-news/new-cars-vans/new-kia-pv7-targets-ford-e-transit-custom-286-mile-range",
+    "pubDate": "2026-09-14T08:50:00.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/pv7p_dsc_6582.jpg?itok=CTlQRrvG",
+    "summary": "Korean brand's second electric van can carry up to 1200kg or 11 people Kia has revealed the PV7 as a…",
+    "fetchedAt": "2026-09-14T10:11:36.769Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "현대차그룹, 청년 인재 양성 'HINT' 2기 모집... AI·제조 지능화 실무 교육",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61607",
     "pubDate": "2026-09-14T09:10:26.000Z",
@@ -287,7 +307,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61524_118388_1543.jpg",
     "summary": "기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -327,7 +347,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61505_118340_5919.jpg",
     "summary": "현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +367,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61496_118310_1128.jpg",
     "summary": "(왼쪽부터) 엠티알 천성재 대표, 현대차 국내판매사업부장 염재섭 상무, KT 기업사업본부장 노형래 상무, 키즈노트 강아름 부사장 (현대차) [오토헤럴드 정호인 기자] 현대자동차가…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +377,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
