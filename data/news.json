@@ -1,5 +1,15 @@
 [
   {
+    "source": "Motor1",
+    "title": "Kia's New PV7 Electric Van Wants To Do It All",
+    "link": "https://www.motor1.com/news/808293/2027-kia-pv7-specs-photos/",
+    "pubDate": "2026-09-15T07:38:09.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/P3VnGr/s3/2027-kia-pv7-passenger.jpg",
+    "summary": "With 23 variants planned, Kia’s new electric workhorse aims to have something for everyone.",
+    "fetchedAt": "2026-09-15T08:13:07.132Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Carscoops",
     "title": "Kia Makes Regular Vans Feel Outdated With New PV7",
     "link": "https://www.carscoops.com/2026/09/kia-pv7-debut/",
@@ -347,7 +357,7 @@
     "image": null,
     "summary": "현대자동차가 서울 아크 강남에서 개최한 '디 올 뉴 아반떼 테크 데이' 현장을 직접 다녀왔습니다. 이번 영상에서는 연구원들이 직접 설명한 내용을 바탕으로 신형 아반떼의 핵심 기술을…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +367,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61505_118340_5919.jpg",
     "summary": "현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -387,7 +397,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
