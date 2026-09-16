@@ -1,5 +1,15 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "‘덤블링도 하는데 1.7조 적자에 발목’... 현대차, 보스턴 다이내믹스 IPO 연기",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61631",
+    "pubDate": "2026-09-16T08:44:54.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61631_118641_434.png",
+    "summary": "보스턴다이나믹스 아틀라스가 기계체조 동작을 수행하고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차그룹이 미래 성장 동력으로 삼았던 로보틱스 자회사 보스턴 다이내믹…",
+    "fetchedAt": "2026-09-16T00:14:37.112Z",
+    "sentiment": "negative"
+  },
+  {
     "source": "Carscoops",
     "title": "Kia’s EV9 Fire Sale Could Save You $16,000 Off MSRP",
     "link": "https://www.carscoops.com/2026/09/kia-ev9-fire-sale/",
@@ -337,7 +347,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61524_118388_1543.jpg",
     "summary": "기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +357,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +367,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61520_118380_5222.jpg",
     "summary": "현대자동차가 아이오닉 라인업 첫 소형 전기 해치백 '아이오닉 3(IONIQ 3)'의 영국과 유럽 주요 시장 주문에 돌입했다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 아이오닉…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -367,7 +377,7 @@
     "image": null,
     "summary": "현대자동차가 서울 아크 강남에서 개최한 '디 올 뉴 아반떼 테크 데이' 현장을 직접 다녀왔습니다. 이번 영상에서는 연구원들이 직접 설명한 내용을 바탕으로 신형 아반떼의 핵심 기술을…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -377,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61505_118340_5919.jpg",
     "summary": "현대자동차가 미국 시장에서 하이브리드를 새로운 성장축으로 키우겠다고 밝힌 가운데 실제 판매에서도 소비자 수요가 빠르게 이동하는 모습이 확인됐다(현대차) [오토헤럴드 김훈기 기자]…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -397,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61496_118310_1128.jpg",
     "summary": "(왼쪽부터) 엠티알 천성재 대표, 현대차 국내판매사업부장 염재섭 상무, KT 기업사업본부장 노형래 상무, 키즈노트 강아름 부사장 (현대차) [오토헤럴드 정호인 기자] 현대자동차가…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -407,7 +417,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61491_118300_2128.png",
     "summary": "현대차ㆍ기아, 8월 미국 시장 판매 현황(오토헤럴드) [오토헤럴드 김흥식 기자] 현대자동차와 기아의 8월 미국 시장 판매량이 하이브리드 라인업 그리고 투싼과 스포티지의 맹활약에도…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
