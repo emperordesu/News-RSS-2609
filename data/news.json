@@ -1,6 +1,56 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "'40만km' 달릴 확률 현대차·기아 0.8%... 토요타, 19.7%로 압도적 1위",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61633",
+    "pubDate": "2026-09-16T10:42:20.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61633_118653_3547.png",
+    "summary": "(아이씨카 리서치 데이터 참고) [오토헤럴드 김흥식 기자] 25만 마일(약 40만km)은 하루 평균 37.8km(KOSIS/2025년 기준)를 주행하는 국내 운전자가 약 29년을…",
+    "fetchedAt": "2026-09-16T02:11:23.731Z",
+    "sentiment": "negative"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "‘전기차와 경쟁 아닌 보완’… 현대차그룹, 제주서 수소 모빌리티 청사진 제시",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61638",
+    "pubDate": "2026-09-16T10:29:46.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61638_118652_221.jpg",
+    "summary": "(왼쪽부터) 박덕열 기후에너지환경부 수소열산업정책관, 위성곤 제주특별자치도지사, 신승규 현대차그룹 부사장, 조선희 제주특별자치도 기후에너지국장 (현대차그룹) [오토헤럴드 정호인 기…",
+    "fetchedAt": "2026-09-16T02:11:23.731Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"엔진도 없는데 엔진 브레이크\" 현대차그룹, 전기차 가상 변속 특허 추가",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61635",
+    "pubDate": "2026-09-16T10:20:24.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61635_118648_1544.jpg",
+    "summary": "현대자동차그룹이 엔진이 없는 전기차에서도 내연기관처럼 기어와 엔진 회전수에 따라 달라지는 '엔진 브레이크' 감각을 구현하는 기술을 개발한다(현대차) [오토헤럴드 김훈기 기자] 현대…",
+    "fetchedAt": "2026-09-16T02:11:23.731Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "“벤츠·렉서스 넘었다”... 현대차·기아·제네시스, 獨 럭셔리 브랜드 턱밑 추격",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61637",
+    "pubDate": "2026-09-16T10:07:32.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61637_118647_013.jpg",
+    "summary": "현대차 팰리세이드 (현대차 기아) [오토헤럴드 정호인 기자] 현대자동차와 기아, 제네시스가 전통적인 독일 럭셔리 브랜드와의 상품성 격차를 허물며 미국 프리미엄 자동차 시장의 판도를…",
+    "fetchedAt": "2026-09-16T02:11:23.731Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "‘수도권 버스 480대 수소 전환’... 현대차, 선진그룹·하이넷과 인프라 동맹",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61636",
+    "pubDate": "2026-09-16T09:47:02.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61636_118644_434.jpg",
+    "summary": "(왼쪽부터) 현대차 비즈니스이노베이션실장 박승원 상무, 한국자동차환경협회 황계영 회장, 하이넷 송성호 대표이사, 선진그룹 신재호 회장, 선진그룹 박홍제 부회장, 한국천연가스수소충전…",
+    "fetchedAt": "2026-09-16T02:11:23.731Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "‘덤블링도 하는데 1.7조 적자에 발목’... 현대차, 보스턴 다이내믹스 IPO 연기",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61631",
     "pubDate": "2026-09-16T08:44:54.000Z",
@@ -87,7 +137,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61596_118543_446.jpg",
     "summary": "현대자동차그룹이 11일 경기도 성남시 포티투닷 본사에서 자율주행 AI '아트리아 AI(Atria AI)'의 실제 도로 주행 모습을 공개했다(현대차그룹) [오토헤럴드 김훈기 기자=성…",
     "fetchedAt": "2026-09-13T00:15:59.110Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -297,7 +347,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
     "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
     "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "ベストカー",
@@ -337,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61528_118392_930.jpg",
     "summary": "(왼쪽부터) 오만 교통부 교통부문 차관: 카미스 빈 모하메드 알 샤막키(Khamis bin Mohammed Al Shammakhi), 현대차그룹 미래전략본부장 정호근 부사장, 오만…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +397,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61524_118388_1543.jpg",
     "summary": "기아 텔루라이드가 미국 고속도로안전보험협회로부터 최고 안전등급인 TSP+를 획득했다. (기아) [오토헤럴드 김흥식 기자] 기아의 대형 3열 SUV 텔루라이드가 미국에서 최고 수준의…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61522_118384_5833.jpg",
     "summary": "현대차 인도 첸나이 공장. 현대차가 인도 시장 2위 탈환을 위해 현지 생산 능력을 확대하고 신규 라인업을 투입한다고 밝혔다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -367,7 +417,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61520_118380_5222.jpg",
     "summary": "현대자동차가 아이오닉 라인업 첫 소형 전기 해치백 '아이오닉 3(IONIQ 3)'의 영국과 유럽 주요 시장 주문에 돌입했다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 아이오닉…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
