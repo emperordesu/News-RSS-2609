@@ -1,5 +1,15 @@
 [
   {
+    "source": "Carscoops",
+    "title": "Hyundai’s New Tucson Remembers How You Got Into That Tight Parking Bay, And Reverses Itself Out",
+    "link": "https://www.carscoops.com/2026/09/hyundais-new-tucson-can-remember-how-you-got-into-that-tight-parking-bay-and-reverse-itself-out/",
+    "pubDate": "2026-09-21T10:30:41.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Tucson-lead-v2-Sep21261-1024x576.jpg",
+    "summary": "Hyundai has given the MY27, fifth-gen Tucson a full reveal in Korea. Longer, wider compact SUV gains…",
+    "fetchedAt": "2026-09-21T12:13:48.674Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Motor1",
     "title": "2027 Hyundai Tucson XRT Breaks Cover Trying To Look Tough",
     "link": "https://www.motor1.com/news/808871/2027-hyundai-tucson-xrt/",
@@ -7,7 +17,7 @@
     "image": "https://cdn.motor1.com/images/mgl/eoWbq6/s3/2027-hyundai-tucson-xrt.jpg",
     "summary": "The compact crossover gets an off-road attitude, making the mall parking lot feel like the great out…",
     "fetchedAt": "2026-09-21T08:12:27.194Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -67,7 +77,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -377,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61564_118469_3035.jpg",
     "summary": "현대자동차-국가유산청 '엑스블 숄더' 기증식 행사 기념 촬영 (왼쪽부터 전현철 현대차 사업개발&지속가능경영실장, 이길배 국가유산청 유산정책국장) (현대차) [오토헤럴드 정호인 기자…",
     "fetchedAt": "2026-09-09T02:11:05.140Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -427,7 +437,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61551_118437_225.jpeg",
     "summary": "프랑스한국교육원 정상명 원장(왼쪽에서 4번째)과 현대차그룹 성 김 전략기획담당 사장(왼쪽에서 5번째)이 기념촬영을 하고 있다. (현대차) [오토헤럴드 정호인 기자] 현대자동차의 대…",
     "fetchedAt": "2026-09-08T00:18:09.574Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
