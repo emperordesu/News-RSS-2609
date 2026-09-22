@@ -1,5 +1,15 @@
 [
   {
+    "source": "Carscoops",
+    "title": "Hyundai Ioniq 9 Recalled Because The Seats Can Squish Kids",
+    "link": "https://www.carscoops.com/2026/09/hyundai-ioniq-9-recalled-because-the-seats-can-squish-kids/",
+    "pubDate": "2026-09-22T17:40:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-9-seat-recall-ac-1-1024x576.jpg",
+    "summary": "The Ioniq 9 is being recalled for the same issue that killed a two-year-old. More than 5,300 Hyundai…",
+    "fetchedAt": "2026-09-22T18:14:04.906Z",
+    "sentiment": "negative"
+  },
+  {
     "source": "오토헤럴드",
     "title": "현대차 자율주행은 어디쯤 왔을까?",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61690",
@@ -107,7 +117,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
