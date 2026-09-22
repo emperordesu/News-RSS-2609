@@ -1,6 +1,26 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "현대차 자율주행은 어디쯤 왔을까?",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61690",
+    "pubDate": "2026-09-22T15:25:28.000Z",
+    "image": null,
+    "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
+    "fetchedAt": "2026-09-22T08:11:44.819Z",
+    "sentiment": "neutral"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"아반떼 저항 의식했나\" 현대차, 신형 투싼 가격 놓고 막판까지 고심",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61685",
+    "pubDate": "2026-09-22T15:20:54.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61685_118805_1755.jpg",
+    "summary": "22일 관련 업계에 따르면 현대차는 당초 지난주 신형 투싼 공개 행사와 함께 국내 판매 가격을 공개하고 계약에 들어가는 방안을 검토했지만 최종 가격 발표와 계약 시점을 뒤로 미룬…",
+    "fetchedAt": "2026-09-22T08:11:44.819Z",
+    "sentiment": "neutral"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "\"아트카 부럽지 않네\"... 영국 고속도로 달리는 현대차 아이오닉 9 순찰차",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61686",
     "pubDate": "2026-09-22T10:26:41.000Z",
@@ -87,7 +107,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -97,7 +117,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61649_118689_3911.png",
     "summary": "‘2027 북미 올해의 차(NACTOY) 2차 본선 진출 25개 차종이 확정 발표됐다. 국산차는 현대차와 기아, 제네시스 등 6개 모델이 이름을 올렸다. (NACTOY) [오토헤럴…",
     "fetchedAt": "2026-09-17T06:15:07.140Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -167,7 +187,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61638_118652_221.jpg",
     "summary": "(왼쪽부터) 박덕열 기후에너지환경부 수소열산업정책관, 위성곤 제주특별자치도지사, 신승규 현대차그룹 부사장, 조선희 제주특별자치도 기후에너지국장 (현대차그룹) [오토헤럴드 정호인 기…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -387,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61560_118474_447.png",
     "summary": "위장막 스파이샷, 해외 예상도 등을 참고해 기사의 이래를 돕기 위해 AI로 생성한 차세대 코나 예상도. (오토헤럴드) [오토헤럴드 김흥식 기자] 유선형의 날렵하고 깜찍한 도심형 크…",
     "fetchedAt": "2026-09-09T02:11:05.140Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
