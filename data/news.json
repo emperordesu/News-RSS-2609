@@ -1,5 +1,15 @@
 [
   {
+    "source": "Carscoops",
+    "title": "Kia Shrinks K5 Lineup Despite Growing Sales",
+    "link": "https://www.carscoops.com/2026/09/2027-kia-k5-pricing/",
+    "pubDate": "2026-09-23T17:41:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2027-Kia-K5-1024x578.jpg",
+    "summary": "Kia has introduced the 2027 K5, which starts at $27,690. Pricing climbs by $200, but you get nothing…",
+    "fetchedAt": "2026-09-23T18:14:13.342Z",
+    "sentiment": "neutral"
+  },
+  {
     "source": "Motor1",
     "title": "Kia Drops K5 Trim, You Can Still Get One Under $28,000",
     "link": "https://www.motor1.com/news/809203/2027-kia-k5-pricing-trim/",
@@ -7,7 +17,7 @@
     "image": "https://cdn.motor1.com/images/mgl/9merRG/s3/2026-kia-k5-front-3-4.jpg",
     "summary": "Kia K5 pricing holds the line at $27,690 before destination as the EX grade exits, tightening the th…",
     "fetchedAt": "2026-09-23T08:11:54.560Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -137,7 +147,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -297,7 +307,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61615_118587_3954.jpg",
     "summary": "기아가 독일 하노버에서 열린 세계 최대 상용차 박람회 'IAA 트랜스포테이션 2026'에서 '더 기아 PV7(이하 PV7)'을 세계 최초로 공개했다(기아) [오토헤럴드 김훈기 기자…",
     "fetchedAt": "2026-09-14T10:11:36.769Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Auto Car (UK)",
@@ -547,7 +557,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
     "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
     "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "ベストカー",
