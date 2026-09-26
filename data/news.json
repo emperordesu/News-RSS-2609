@@ -1,5 +1,15 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, 포드 제치고 美 ‘빅3’ 사상 첫 진입 전망... 3분기 역전 초읽기",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61709",
+    "pubDate": "2026-09-26T09:22:08.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61709_118881_1952.jpg",
+    "summary": "현대자동차 미국 판매 전시장 전경. 현대차와 기아의 3분기 판매량이 포드를 제치고 GM, 토요타에 이어 사상 처음 빅3에 오를 것이라는 전망이 나왔다. (현대자동차) [오토헤럴드…",
+    "fetchedAt": "2026-09-26T03:48:45.972Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Carscoops",
     "title": "Kia Shrinks K5 Lineup Despite Growing Sales",
     "link": "https://www.carscoops.com/2026/09/2027-kia-k5-pricing/",
@@ -147,7 +157,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -157,7 +167,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61649_118689_3911.png",
     "summary": "‘2027 북미 올해의 차(NACTOY) 2차 본선 진출 25개 차종이 확정 발표됐다. 국산차는 현대차와 기아, 제네시스 등 6개 모델이 이름을 올렸다. (NACTOY) [오토헤럴…",
     "fetchedAt": "2026-09-17T06:15:07.140Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -217,7 +227,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61633_118653_3547.png",
     "summary": "(아이씨카 리서치 데이터 참고) [오토헤럴드 김흥식 기자] 25만 마일(약 40만km)은 하루 평균 37.8km(KOSIS/2025년 기준)를 주행하는 국내 운전자가 약 29년을…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -237,7 +247,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61635_118648_1544.jpg",
     "summary": "현대자동차그룹이 엔진이 없는 전기차에서도 내연기관처럼 기어와 엔진 회전수에 따라 달라지는 '엔진 브레이크' 감각을 구현하는 기술을 개발한다(현대차) [오토헤럴드 김훈기 기자] 현대…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -307,7 +317,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61615_118587_3954.jpg",
     "summary": "기아가 독일 하노버에서 열린 세계 최대 상용차 박람회 'IAA 트랜스포테이션 2026'에서 '더 기아 PV7(이하 PV7)'을 세계 최초로 공개했다(기아) [오토헤럴드 김훈기 기자…",
     "fetchedAt": "2026-09-14T10:11:36.769Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Auto Car (UK)",
@@ -557,7 +567,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
     "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
     "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "ベストカー",
