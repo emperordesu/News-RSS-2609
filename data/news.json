@@ -1,6 +1,36 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "현대차 '전고체 배터리' 탑재한 고성능 헤일로 카, 2031년 이전 출시 예고",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61734",
+    "pubDate": "2026-09-29T10:30:22.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61734_118949_2845.jpeg",
+    "summary": "제네시스 '마그마(Magma)'. 현대차가 5년 이내에 전고체 배터리를 탑재한 고성능 모델 출시를 예고했다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차가 ‘꿈의 배터…",
+    "fetchedAt": "2026-09-29T07:55:59.382Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, 드림팀 美 실리콘밸리 출격 'HMG 테크 탤런트 포럼' 첫 개최",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61732",
+    "pubDate": "2026-09-29T09:29:21.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61732_118941_1738.jpg",
+    "summary": "HMG 테크 탤런트 포럼 참석자들이 전시 공간에서 교류하는 모습 (현대차그룹) [오토헤럴드 정호인 기자] 현대차그룹이 미국 실리콘밸리 한복판에서 글로벌 테크 인재들과 미래 모빌리티…",
+    "fetchedAt": "2026-09-29T07:55:59.382Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"중·소형 SUV, 위·아래 모두 채운다\"... 현대차, 아이오닉 4·7 출격 준비",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61730",
+    "pubDate": "2026-09-29T09:28:22.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61730_118942_2619.jpg",
+    "summary": "현대차는 향후 12~18개월 동안 아이오닉 브랜드에 2종의 전기 SUV를 추가로 투입할 예정이다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 전기차 시장의 핵심으로 떠오른 소형…",
+    "fetchedAt": "2026-09-29T07:55:59.382Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "트럼프 규제 완화에 美 완성차 업계 '횡재'... 현대차그룹 7조 비용 절감 기대",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61728",
     "pubDate": "2026-09-29T08:43:36.000Z",
@@ -37,7 +67,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -197,7 +227,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -277,7 +307,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61638_118652_221.jpg",
     "summary": "(왼쪽부터) 박덕열 기후에너지환경부 수소열산업정책관, 위성곤 제주특별자치도지사, 신승규 현대차그룹 부사장, 조선희 제주특별자치도 기후에너지국장 (현대차그룹) [오토헤럴드 정호인 기…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -407,7 +437,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61590_118535_4858.jpg",
     "summary": "기아가 우정사업본부 집배 현장에 최적화된 맞춤형 PBV를 공급한다. (기아) [오토헤럴드 정호인 기자] 기아가 집배 현장의 업무 특성을 철저히 반영해 개발한 첫 맞춤형 목적 기반…",
     "fetchedAt": "2026-09-11T00:16:20.824Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -767,7 +797,7 @@
     "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/32059-kia-corporate-pv7-teased-ahead-of-world-premiere-at-iaa-transportation-print-3600x2400-2.jpg?itok=oA1arbJD",
     "summary": "New rival for LWB versions of Ford Transit Custom and Mercedes Vito is larger sibling to popular PV5…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Auto Car (UK)",
