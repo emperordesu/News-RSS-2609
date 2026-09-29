@@ -1,6 +1,16 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "트럼프 규제 완화에 美 완성차 업계 '횡재'... 현대차그룹 7조 비용 절감 기대",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61728",
+    "pubDate": "2026-09-29T08:43:36.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61728_118932_4150.jpg",
+    "summary": "트럼프 대통령이 연비 규제를 완화하면서 현대차그룹 등 미국 완성차 업체들이 천문학적 비용 부담을 덜게 될 것이라는 분석이 나왔다. 사진은 기아 조지아 공장 생산 라인. (기아) […",
+    "fetchedAt": "2026-09-29T00:12:34.875Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "\"하나의 전기차로 팔색조 변신\" 기아 PV5 섀시, 英 시장 본격 투입",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61718",
     "pubDate": "2026-09-28T10:24:53.000Z",
@@ -187,7 +197,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -207,7 +217,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61647_118685_4856.png",
     "summary": "현대차가 운전대 하단 스포크에 여닫이형 플랩과 공기 흡입 팬, 알코올 센서를 결합한 새로운 음주운전 방지 시스템 특허를 등록했다. 운전자의 안면 인식 변화와 주행 패턴을 학습해 대…",
     "fetchedAt": "2026-09-17T02:11:20.170Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -307,7 +317,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61631_118641_434.png",
     "summary": "보스턴다이나믹스 아틀라스가 기계체조 동작을 수행하고 있다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차그룹이 미래 성장 동력으로 삼았던 로보틱스 자회사 보스턴 다이내믹…",
     "fetchedAt": "2026-09-16T00:14:37.112Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -397,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61590_118535_4858.jpg",
     "summary": "기아가 우정사업본부 집배 현장에 최적화된 맞춤형 PBV를 공급한다. (기아) [오토헤럴드 정호인 기자] 기아가 집배 현장의 업무 특성을 철저히 반영해 개발한 첫 맞춤형 목적 기반…",
     "fetchedAt": "2026-09-11T00:16:20.824Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -757,7 +767,7 @@
     "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/32059-kia-corporate-pv7-teased-ahead-of-world-premiere-at-iaa-transportation-print-3600x2400-2.jpg?itok=oA1arbJD",
     "summary": "New rival for LWB versions of Ford Transit Custom and Mercedes Vito is larger sibling to popular PV5…",
     "fetchedAt": "2026-09-05T07:33:16.289Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Auto Car (UK)",
