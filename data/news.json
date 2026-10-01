@@ -1,6 +1,16 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "현대차·기아, 특화 버스·관제 플랫폼 투입 레벨4 자율주행 대중교통 상용화",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61770",
+    "pubDate": "2026-10-01T15:28:36.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61770_119022_2554.jpg",
+    "summary": "협약식에서 기념촬영을 하는 모습, 좌측부터 현대차·기아 AVP본부장 박민우 사장, 서울특별시 오세훈 시장, 서울특별시버스운송사업조합 김정환 이사장 (현대차기아) [오토헤럴드 정호인…",
+    "fetchedAt": "2026-10-01T08:22:27.197Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "스마트 폰 대신 '창밖동화' 현대차 플레오스 커넥트 아이디어 대상 수상",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61762",
     "pubDate": "2026-10-01T09:48:51.000Z",
@@ -147,7 +157,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -187,7 +197,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -207,7 +217,7 @@
     "image": null,
     "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +367,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Autonomous-Level-3-1024x576.jpg",
     "summary": "The system will use technology co-designed with Nvidia and include a Level 3 system. Hyundai will la…",
     "fetchedAt": "2026-09-16T20:11:57.556Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -377,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61633_118653_3547.png",
     "summary": "(아이씨카 리서치 데이터 참고) [오토헤럴드 김흥식 기자] 25만 마일(약 40만km)은 하루 평균 37.8km(KOSIS/2025년 기준)를 주행하는 국내 운전자가 약 29년을…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -387,7 +397,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61638_118652_221.jpg",
     "summary": "(왼쪽부터) 박덕열 기후에너지환경부 수소열산업정책관, 위성곤 제주특별자치도지사, 신승규 현대차그룹 부사장, 조선희 제주특별자치도 기후에너지국장 (현대차그룹) [오토헤럴드 정호인 기…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -397,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61635_118648_1544.jpg",
     "summary": "현대자동차그룹이 엔진이 없는 전기차에서도 내연기관처럼 기어와 엔진 회전수에 따라 달라지는 '엔진 브레이크' 감각을 구현하는 기술을 개발한다(현대차) [오토헤럴드 김훈기 기자] 현대…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
