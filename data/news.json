@@ -1,6 +1,56 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "현대차·기아, 美 9월 ‘사상 최대’...하이브리드 돌풍에 3분기 ‘포드’ 추월 기대",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61774",
+    "pubDate": "2026-10-02T05:51:16.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61774_119037_4621.png",
+    "summary": "[오토헤럴드 김흥식 기자] 현대자동차와 기아가 미국 시장에서 나란히 역대 9월과 3분기 사상 최대 판매 실적을 갈아치웠다. 하이브리드(HEV) 라인업과 탄탄한 SUV·세단 포트폴리…",
+    "fetchedAt": "2026-10-01T22:23:36.351Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Auto Car (UK)",
+    "title": "New 2027 Hyundai Tucson gets bold look and practicality boost",
+    "link": "https://www.autocar.co.uk/car-news/new-cars/new-2027-hyundai-tucson-gets-bold-look-and-practicality-boost",
+    "pubDate": "2026-10-01T21:15:00.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/hyundai-tucson-reveal-2026-022.jpg?itok=KF7cD00u",
+    "summary": "UK-bound fifth-generation SUV gets interior overhaul with large touchscreen and Peugeot-style dashbo…",
+    "fetchedAt": "2026-10-01T22:23:36.351Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Motor1",
+    "title": "2027 Hyundai Tucson Goes Bigger And Boxier With Up To 288 HP",
+    "link": "https://www.motor1.com/news/805386/2027-hyundai-tucson-design-revealed/",
+    "pubDate": "2026-08-19T05:05:46.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/OoZ2XL/s3/2027-hyundai-tucson-limited.jpg",
+    "summary": "Forget what you know about the Tucson because this next-generation model is totally different.",
+    "fetchedAt": "2026-10-01T22:23:36.351Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Motor1",
+    "title": "Watch Hyundai Debut The New Tucson In The US: Livestream",
+    "link": "https://www.motor1.com/news/810508/2027-hyundai-tucson-livestream-debut/",
+    "pubDate": "2026-10-01T20:00:00.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/pb83LJ/s3/2027-hyundai-tucson.jpg",
+    "summary": "Hyundai is getting ready to show off its latest Tucson in the US for the first time, and you can wat…",
+    "fetchedAt": "2026-10-01T22:23:36.351Z",
+    "sentiment": "neutral"
+  },
+  {
+    "source": "Carscoops",
+    "title": "2027 Hyundai Tucson Lands With Wild Design And New Hybrids",
+    "link": "https://www.carscoops.com/2026/10/hyundai-tucson-2027-reveal/",
+    "pubDate": "2026-10-01T21:15:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Tucson-2027-New-Photos-1ccc-1024x576.jpg",
+    "summary": "Hyundai has announced pure-combustion, hybrid, and plug-in hybrid models. The fifth-generation Tucso…",
+    "fetchedAt": "2026-10-01T22:23:36.351Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "꽂기만 하면 충전기 알아서 소통... 현대차그룹 ‘국가 PnC’ 첫 공개",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61771",
     "pubDate": "2026-10-01T18:00:04.000Z",
@@ -217,7 +267,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -237,7 +287,7 @@
     "image": null,
     "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -337,7 +387,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61647_118685_4856.png",
     "summary": "현대차가 운전대 하단 스포크에 여닫이형 플랩과 공기 흡입 팬, 알코올 센서를 결합한 새로운 음주운전 방지 시스템 특허를 등록했다. 운전자의 안면 인식 변화와 주행 패턴을 학습해 대…",
     "fetchedAt": "2026-09-17T02:11:20.170Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -367,7 +417,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Bayon-main-1024x576.jpg",
     "summary": "Official sketches reveal a boxier second-gen Hyundai Bayon. The interior borrows the digital cockpit…",
     "fetchedAt": "2026-09-17T00:14:26.652Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -397,7 +447,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61643_118675_551.jpg",
     "summary": "현대차 안전보건최고책임자 최영일 부사장이 GOSC 컨퍼런스에서 인사말을 하는 모습 [오토헤럴드 정호인 기자] 현대자동차가 전 세계 생산 거점의 안전 관리 체계를 하나로 묶고 글로벌…",
     "fetchedAt": "2026-09-16T06:14:59.628Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -467,7 +517,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2026-Kia-EV9-1024x578.jpg",
     "summary": "Some dealers are offering the Kia EV9 for $16,000 under sticker. One of the cheapest new models in A…",
     "fetchedAt": "2026-09-15T18:11:56.620Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
