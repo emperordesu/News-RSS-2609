@@ -1,6 +1,46 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "스마트 폰 대신 '창밖동화' 현대차 플레오스 커넥트 아이디어 대상 수상",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61762",
+    "pubDate": "2026-10-01T09:48:51.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61762_119004_4255.jpg",
+    "summary": "현대차 국내마케팅실장 이철민 상무(사진 왼쪽), 대상 수상자 정이든씨가 1년 이용권으로 제공 받은 디 올 뉴 아반떼 옆에서 기념촬영을 하고 있다. (현대자동차) [오토헤럴드 김흥식…",
+    "fetchedAt": "2026-10-01T01:05:15.415Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "기아 스포티지, 獨 깐깐한 눈높이도 통과...마쓰다 간판 CX-5 완벽 제압",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61761",
+    "pubDate": "2026-10-01T09:32:17.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61761_119002_237.jpeg",
+    "summary": "기아 스포티지는 '아우토 빌트'가 실시한 가솔린 준중형 SUV 비교 평가에서 마쓰다 CX-5를 앞서며 경쟁력을 다시 한번 입증했다. (기아) [오토헤럴드 정호인 기자] 기아의 대표…",
+    "fetchedAt": "2026-10-01T01:05:15.415Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, 한국도로공사와 차세대 충전 인프라 및 피지컬 AI 실증 협력",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61757",
+    "pubDate": "2026-10-01T09:06:56.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61757_118997_222.jpeg",
+    "summary": "(왼쪽부터) 한국도로공사 조성민 도로교통연구원장과 현대차그룹 미래전략본부장 정호근 부사장 (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 한국도로공사와 손잡고 전국 고속도…",
+    "fetchedAt": "2026-10-01T01:05:15.415Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Carscoops",
+    "title": "Hyundai Says It Will Become More American Than Some “American OEMs”",
+    "link": "https://www.carscoops.com/2026/09/hyundai-expanding-north-american-production/",
+    "pubDate": "2026-10-01T00:00:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
+    "summary": "The company is investing more than $26 billion into North American production. New investments have…",
+    "fetchedAt": "2026-10-01T01:05:15.415Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "\"가장 치열한 미국서 최다\" 현대차 투싼, 국산 SUV 최초 1000만 대 돌파",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61745",
     "pubDate": "2026-09-30T09:46:39.000Z",
@@ -147,7 +187,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -167,7 +207,7 @@
     "image": null,
     "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -177,7 +217,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61685_118805_1755.jpg",
     "summary": "22일 관련 업계에 따르면 현대차는 당초 지난주 신형 투싼 공개 행사와 함께 국내 판매 가격을 공개하고 계약에 들어가는 방안을 검토했지만 최종 가격 발표와 계약 시점을 뒤로 미룬…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -287,7 +327,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61647_118685_4856.png",
     "summary": "현대차가 운전대 하단 스포크에 여닫이형 플랩과 공기 흡입 팬, 알코올 센서를 결합한 새로운 음주운전 방지 시스템 특허를 등록했다. 운전자의 안면 인식 변화와 주행 패턴을 학습해 대…",
     "fetchedAt": "2026-09-17T02:11:20.170Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -317,7 +357,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Autonomous-Level-3-1024x576.jpg",
     "summary": "The system will use technology co-designed with Nvidia and include a Level 3 system. Hyundai will la…",
     "fetchedAt": "2026-09-16T20:11:57.556Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -337,7 +377,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61633_118653_3547.png",
     "summary": "(아이씨카 리서치 데이터 참고) [오토헤럴드 김흥식 기자] 25만 마일(약 40만km)은 하루 평균 37.8km(KOSIS/2025년 기준)를 주행하는 국내 운전자가 약 29년을…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61638_118652_221.jpg",
     "summary": "(왼쪽부터) 박덕열 기후에너지환경부 수소열산업정책관, 위성곤 제주특별자치도지사, 신승규 현대차그룹 부사장, 조선희 제주특별자치도 기후에너지국장 (현대차그룹) [오토헤럴드 정호인 기…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -357,7 +397,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61635_118648_1544.jpg",
     "summary": "현대자동차그룹이 엔진이 없는 전기차에서도 내연기관처럼 기어와 엔진 회전수에 따라 달라지는 '엔진 브레이크' 감각을 구현하는 기술을 개발한다(현대차) [오토헤럴드 김훈기 기자] 현대…",
     "fetchedAt": "2026-09-16T02:11:23.731Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -397,7 +437,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2026-Kia-EV9-1024x578.jpg",
     "summary": "Some dealers are offering the Kia EV9 for $16,000 under sticker. One of the cheapest new models in A…",
     "fetchedAt": "2026-09-15T18:11:56.620Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -427,7 +467,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61615_118587_3954.jpg",
     "summary": "기아가 독일 하노버에서 열린 세계 최대 상용차 박람회 'IAA 트랜스포테이션 2026'에서 '더 기아 PV7(이하 PV7)'을 세계 최초로 공개했다(기아) [오토헤럴드 김훈기 기자…",
     "fetchedAt": "2026-09-14T10:11:36.769Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Auto Car (UK)",
