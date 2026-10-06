@@ -1,5 +1,45 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "전 세계 단 1곳... 현대차그룹 공식 웹사이트, 글로벌 웹 최고 그랑프리 영예",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61795",
+    "pubDate": "2026-10-06T09:30:28.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61795_119087_2211.jpg",
+    "summary": "현대자동차그룹 공식 웹사이트가 글로벌 웹·디지털 분야의 주요 어워드에서 연이어 수상하며 디지털 커뮤니케이션 경쟁력을 인정받았다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차…",
+    "fetchedAt": "2026-10-06T01:08:46.637Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"옆구리에 충전구가? \" 현대차, 아반떼 'PHEV 혹은 EREV' 개발 정황 포착",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61792",
+    "pubDate": "2026-10-06T08:47:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61792_119083_4544.jpg",
+    "summary": "현대차 8세대 '디 올 뉴 아반떼'. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대차가 '아반떼(수출명 엘란트라)'의 플러그인 하이브리드(PHEV) 버전을 추측하게 하는 스파…",
+    "fetchedAt": "2026-10-06T01:08:46.637Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "英 신차 4대 중 1대 '차이카'... 기아, EV2·PV5 앞세워 '역대 최대 실적' 맞불",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61791",
+    "pubDate": "2026-10-06T08:17:08.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61791_119082_1550.png",
+    "summary": "영국 신차 시장 모델별 판매 순위. (SMMT) [오토헤럴드 김흥식 기자] 중국산 저가 전기차의 영국 장악력이 더욱 강화하고 있다. 번호판 변경(Plate-change) 성수기인…",
+    "fetchedAt": "2026-10-06T01:08:46.637Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Carscoops",
+    "title": "Kia’s New Sportage Takes Shape With Dramatic New Design",
+    "link": "https://www.carscoops.com/2026/10/kias-new-sportage-takes-shape-with-dramatic-new-design/",
+    "pubDate": "2026-10-05T22:18:49.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/10/Kia-Sportage-spy-shots-new-1024x576.jpg",
+    "summary": "The new Kia Sportage will be slightly larger than the outgoing model. Like the new Tucson, Kia will…",
+    "fetchedAt": "2026-10-06T01:08:46.637Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Auto Car (UK)",
     "title": "Hyundai Ioniq 3 undercuts key rivals with £18k starting price",
     "link": "https://www.autocar.co.uk/car-news/electric-cars/hyundai-ioniq-3-undercuts-key-rivals-%C2%A318k-starting-price",
@@ -27,7 +67,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-09-UK-Highways-Agency-copy-1024x576.jpg",
     "summary": "The UK’s National Highways Traffic Officers are civilians, not police. The Ioniq 9s have been conver…",
     "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -197,7 +237,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
     "summary": "The company is investing more than $26 billion into North American production. New investments have…",
     "fetchedAt": "2026-10-01T01:05:15.415Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -307,7 +347,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -337,7 +377,7 @@
     "image": "https://cdn.motor1.com/images/mgl/9merRG/s3/2026-kia-k5-front-3-4.jpg",
     "summary": "Kia K5 pricing holds the line at $27,690 before destination as the EX grade exits, tightening the th…",
     "fetchedAt": "2026-09-23T08:11:54.560Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +387,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -367,7 +407,7 @@
     "image": null,
     "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -397,7 +437,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Tucson-lead-v2-Sep21261-1024x576.jpg",
     "summary": "Hyundai has given the MY27, fifth-gen Tucson a full reveal in Korea. Longer, wider compact SUV gains…",
     "fetchedAt": "2026-09-21T12:13:48.674Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
@@ -597,7 +637,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2026-Kia-EV9-1024x578.jpg",
     "summary": "Some dealers are offering the Kia EV9 for $16,000 under sticker. One of the cheapest new models in A…",
     "fetchedAt": "2026-09-15T18:11:56.620Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
@@ -877,7 +917,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
     "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
     "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "ベストカー",
