@@ -1,6 +1,16 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "'미리 만나는 2032년 GBC 과학관' 현대차그룹, 체험형 과학 전시 개최",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61799",
+    "pubDate": "2026-10-06T13:00:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61799_119105_3511.jpg",
+    "summary": "현대자동차그룹이 2032년 글로벌 비즈니스 콤플렉스(GBC)에 들어설 체험형 과학관의 콘텐츠를 미리 경험할 수 있는 팝업 전시를 선보인다(오토헤럴드 김훈기 기자) [오토헤럴드 김훈…",
+    "fetchedAt": "2026-10-06T08:37:15.007Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "전 세계 단 1곳... 현대차그룹 공식 웹사이트, 글로벌 웹 최고 그랑프리 영예",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61795",
     "pubDate": "2026-10-06T09:30:28.000Z",
@@ -347,7 +357,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -907,7 +917,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/v-bfwdvc-1024x576.jpg",
     "summary": "PROS &rsaquo;&rsaquo; Value, practical, comfortable ride CONS &rsaquo;&rsaquo; Coarse engine, numb s…",
     "fetchedAt": "2026-09-06T18:12:06.776Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -917,36 +927,6 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
     "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
     "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "neutral"
-  },
-  {
-    "source": "ベストカー",
-    "title": "韓国の巨大メーカー「Kia」がついに日本本格進出！ ヒョンデに続く“実力派ブランド”の正体とは",
-    "link": "https://bestcarweb.jp/feature/column/1592873",
-    "pubDate": "2026-09-06T06:00:00.000Z",
-    "image": "https://img.bestcarweb.jp/wp-content/uploads/2026/07/30093541/00_Kia_PV5_Passenger_Original-29838-aw604128-600x400.jpg",
-    "summary": "およそ十数年ぶりの日本市場再参入となった韓国のKia。日本の大手商社で自動車にも明るい「双日」と手を組み、準備は万端。前回参入は尻すぼみで寂しい結果となったのも否めないが、今回はどうだ？ 日本再参入車…",
-    "fetchedAt": "2026-09-06T08:34:58.838Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Hyundai’s New Nine-Seat Electric Van Matches The ID. Buzz On Price And Beats It On Size",
-    "link": "https://www.carscoops.com/2026/09/hyundai-staria-electric-europe/",
-    "pubDate": "2026-09-05T16:45:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Staria-Electric-Europe-main-copy-1024x576.jpg",
-    "summary": "Hyundai opens European orders for the new Staria Electric. It packs an 84 kWh battery and offers up…",
-    "fetchedAt": "2026-09-06T08:34:58.838Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Kia’s Next Electric Van Is A 17-Foot Box On Wheels And It’s Coming For VW",
-    "link": "https://www.carscoops.com/2026/09/kia-pv7-spied/",
-    "pubDate": "2026-09-05T11:59:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/KIA-PV7-6-copy-1024x576.jpg",
-    "summary": "Spy photographers have snapped Kia’s upcoming PV7. Electric van slots above the PV5 and is aimed at…",
-    "fetchedAt": "2026-09-06T08:34:58.838Z",
     "sentiment": "positive"
   }
 ]
