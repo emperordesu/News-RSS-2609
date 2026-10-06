@@ -1,5 +1,15 @@
 [
   {
+    "source": "Carscoops",
+    "title": "Despite All The Pros, The Hyundai Ioniq 5 Falters On Price | Review",
+    "link": "https://www.carscoops.com/2026/10/hyundai-ioniq-5-review-falters-on-price/",
+    "pubDate": "2026-10-06T21:00:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Line-review-a-1024x576.jpg",
+    "summary": "PROS &rsaquo;&rsaquo; Stylish, efficient, strong performance CONS &rsaquo;&rsaquo; Expensive, heavy,…",
+    "fetchedAt": "2026-10-06T22:23:37.118Z",
+    "sentiment": "negative"
+  },
+  {
     "source": "오토헤럴드",
     "title": "'미리 만나는 2032년 GBC 과학관' 현대차그룹, 체험형 과학 전시 개최",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61799",
@@ -77,7 +87,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-09-UK-Highways-Agency-copy-1024x576.jpg",
     "summary": "The UK’s National Highways Traffic Officers are civilians, not police. The Ioniq 9s have been conver…",
     "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -287,7 +297,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-6-N-Review-70patent-1024x576.jpg",
     "summary": "Hyundai may tune its simulated gears to provide realistic engine braking. Models like the Hyundai Io…",
     "fetchedAt": "2026-09-29T14:41:19.143Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -347,7 +357,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Kia-PV5-Chassis-Cab-11-1024x576.jpg",
     "summary": "The Kia PV5 has a Chassis bodystyle variant next to the Cargo and Passenger. The EV is available wit…",
     "fetchedAt": "2026-09-27T15:02:09.314Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -407,7 +417,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-9-seat-recall-ac-1-1024x576.jpg",
     "summary": "The Ioniq 9 is being recalled for the same issue that killed a two-year-old. More than 5,300 Hyundai…",
     "fetchedAt": "2026-09-22T18:14:04.906Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -447,7 +457,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Tucson-lead-v2-Sep21261-1024x576.jpg",
     "summary": "Hyundai has given the MY27, fifth-gen Tucson a full reveal in Korea. Longer, wider compact SUV gains…",
     "fetchedAt": "2026-09-21T12:13:48.674Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Motor1",
@@ -487,7 +497,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Logo-1024x576.jpg",
     "summary": "Hyundai’s CEO warns the US over Chinese cars disrupting the market. Munoz, Hyundai Motor’s CEO, poin…",
     "fetchedAt": "2026-09-20T00:15:32.395Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Motor1",
@@ -908,15 +918,5 @@
     "summary": "정의선 현대차그룹 회장(왼쪽 열 번째)을 비롯한 한미 양국 주요 인사들이 4일(현지시간) 미국 루이지애나주 애센션 패리시에서 열린 'Hyundai-POSCO Louisiana St…",
     "fetchedAt": "2026-09-07T00:18:16.633Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Kia’s 2026 K4 Turbo Hatch Is All The Small Car Most People Actually Need",
-    "link": "https://www.carscoops.com/2026/09/2026-kia-k4-hatchback-review/",
-    "pubDate": "2026-09-06T16:46:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/v-bfwdvc-1024x576.jpg",
-    "summary": "PROS &rsaquo;&rsaquo; Value, practical, comfortable ride CONS &rsaquo;&rsaquo; Coarse engine, numb s…",
-    "fetchedAt": "2026-09-06T18:12:06.776Z",
-    "sentiment": "neutral"
   }
 ]
