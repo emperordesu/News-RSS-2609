@@ -247,7 +247,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
     "summary": "The company is investing more than $26 billion into North American production. New investments have…",
     "fetchedAt": "2026-10-01T01:05:15.415Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -287,7 +287,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-6-N-Review-70patent-1024x576.jpg",
     "summary": "Hyundai may tune its simulated gears to provide realistic engine braking. Models like the Hyundai Io…",
     "fetchedAt": "2026-09-29T14:41:19.143Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -918,15 +918,5 @@
     "summary": "PROS &rsaquo;&rsaquo; Value, practical, comfortable ride CONS &rsaquo;&rsaquo; Coarse engine, numb s…",
     "fetchedAt": "2026-09-06T18:12:06.776Z",
     "sentiment": "neutral"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Hyundai’s New Kona Ditches The Weird Look For A Normal Crossover Shape",
-    "link": "https://www.carscoops.com/2026/09/2028-hyundai-kona-spied-lightly-disguised/",
-    "pubDate": "2026-09-06T11:44:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2028-Kia-Kona-1024x578.jpg",
-    "summary": "Third-generation Hyundai Kona has been spied with less disguise. Model adopts a rounded design and a…",
-    "fetchedAt": "2026-09-06T12:13:29.099Z",
-    "sentiment": "positive"
   }
 ]
