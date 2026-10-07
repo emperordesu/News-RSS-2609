@@ -1,5 +1,15 @@
 [
   {
+    "source": "くるまのニュース",
+    "title": "ハイエースのライバル？ 韓国・KIAの新型「商用バン」どんなモデル？ 仕上がりは“別次元”の「豪華モデル」!? 「PV5」のカーゴ／パッセンジャーの実力とは",
+    "link": "https://kuruma-news.jp/post/1121811",
+    "pubDate": "2026-10-07T08:10:00.000Z",
+    "image": "https://kuruma-news.jp/wp-content/uploads/2027/10/20261006_PV5_001ai.jpg?v=1791259747",
+    "summary": "韓国・キアの「PV5」が2026年5月から日本での販売を開始しています。現状どのような状況なのでしょうか。試乗した感想とともに山本シンヤ氏がレポートします。",
+    "fetchedAt": "2026-10-07T12:45:17.385Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "오토헤럴드",
     "title": "\"독일 심장부 흔든 현대차·기아\" xEV 전략부터 AI 융합... 미래차 청사진 공개",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61808",
@@ -387,7 +397,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Kia-PV5-Chassis-Cab-11-1024x576.jpg",
     "summary": "The Kia PV5 has a Chassis bodystyle variant next to the Cargo and Passenger. The EV is available wit…",
     "fetchedAt": "2026-09-27T15:02:09.314Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -397,7 +407,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -437,7 +447,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -477,7 +487,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61686_118798_230.jpeg",
     "summary": "현대차 아이오닉 9이 영국 고속도로 관리 기관인 내셔널 하이웨이(National Highways)의 도로 관리 순찰차(Traffic Officer vehicle)로 도입됐다. (현…",
     "fetchedAt": "2026-09-22T04:11:04.315Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -928,15 +938,5 @@
     "summary": "아우디 A2 e-트론 (아우디) [오토헤럴드 김흥식 기자] 프리미엄 브랜드 아우디가 무거운 배터리를 욱여넣고 덩치만 키우던 전기차 시장의 무의미한 스펙 경쟁에 제동을 걸고 나섰다.…",
     "fetchedAt": "2026-09-08T00:18:09.574Z",
     "sentiment": "neutral"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "유럽 축구 심장에 꽂힌 현대차, UEFA 챔피언스리그 공식 파트너십 체결",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61544",
-    "pubDate": "2026-09-07T14:49:56.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61544_118428_4716.png",
-    "summary": "[오토헤럴드 김흥식 기자] 현대자동차가 ‘별들의 전쟁’으로 불리는 유럽 최고 권위의 클럽 축구 대항전, UEFA 챔피언스리그(UCL)의 공식 파트너로 나선다. 2026/27 시즌부…",
-    "fetchedAt": "2026-09-07T06:15:55.328Z",
-    "sentiment": "positive"
   }
 ]
