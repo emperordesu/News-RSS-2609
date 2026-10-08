@@ -1,5 +1,15 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현실로 튀어나오면 대박 칠 것 같은데... 현대차, '크레이터 콘셉트' 공개",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61819",
+    "pubDate": "2026-10-08T08:40:26.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61819_119162_3622.jpg",
+    "summary": "크레이터 콘셉트. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차의 오프로드 특화 전기 콘셉트카 ‘크레이터 콘셉트(CRATER Concept)’가 유비소프트 아이보리 타워(Ub…",
+    "fetchedAt": "2026-10-08T00:01:28.393Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "くるまのニュース",
     "title": "ハイエースのライバル？ 韓国・KIAの新型「商用バン」どんなモデル？ 仕上がりは“別次元”の「豪華モデル」!? 「PV5」のカーゴ／パッセンジャーの実力とは",
     "link": "https://kuruma-news.jp/post/1121811",
@@ -77,7 +87,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61792_119083_4544.jpg",
     "summary": "현대차 8세대 '디 올 뉴 아반떼'. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대차가 '아반떼(수출명 엘란트라)'의 플러그인 하이브리드(PHEV) 버전을 추측하게 하는 스파…",
     "fetchedAt": "2026-10-06T01:08:46.637Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -417,7 +427,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61709_118881_1952.jpg",
     "summary": "현대자동차 미국 판매 전시장 전경. 현대차와 기아의 3분기 판매량이 포드를 제치고 GM, 토요타에 이어 사상 처음 빅3에 오를 것이라는 전망이 나왔다. (현대자동차) [오토헤럴드…",
     "fetchedAt": "2026-09-26T03:48:45.972Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -447,7 +457,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -467,7 +477,7 @@
     "image": null,
     "summary": "박민우 현대차·기아 AVP 본부장(42dot 대표이사)과 정성균 팀장이 나눈 대화 영상입니다. 무편집 영상으로 현대차의 자율주행 개발 일정과 실도로 주행 검증 현황, 그리고 차세대…",
     "fetchedAt": "2026-09-22T08:11:44.819Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -487,7 +497,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61686_118798_230.jpeg",
     "summary": "현대차 아이오닉 9이 영국 고속도로 관리 기관인 내셔널 하이웨이(National Highways)의 도로 관리 순찰차(Traffic Officer vehicle)로 도입됐다. (현…",
     "fetchedAt": "2026-09-22T04:11:04.315Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -597,7 +607,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Bayon-main-1024x576.jpg",
     "summary": "Official sketches reveal a boxier second-gen Hyundai Bayon. The interior borrows the digital cockpit…",
     "fetchedAt": "2026-09-17T00:14:26.652Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
