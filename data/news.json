@@ -1,6 +1,26 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "[기자 수첩] WRC 발 빼는 현대차, '완전 철수'보다 유연한 대안 찾아야",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61824",
+    "pubDate": "2026-10-08T11:30:11.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61824_119181_1941.jpeg",
+    "summary": "일본 나고야에서 열린 '2024 WRC 포럼8 랠리 저팬'에서 드라이버 챔피언에 오른 티에리 누빌(사진 중앙 앞줄 오른쪽)과 정의선 현대차그룹 회장(사진 우측 아래) [오토헤럴드…",
+    "fetchedAt": "2026-10-08T08:28:29.507Z",
+    "sentiment": "negative"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차 ‘디 올 뉴 넥쏘’, 콧대 높은 日 택시 업계 핵심 플레이어로 급부상",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61825",
+    "pubDate": "2026-10-08T10:48:35.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61825_119176_4142.jpg",
+    "summary": "일본 현지 택시 업체 차고지에 세워진 디 올 뉴 넥쏘 택시 (현대차) [오토헤럴드 정호인 기자] 현대자동차의 차세대 수소전기차 ‘디 올 뉴 넥쏘(The all-new NEXO)’가…",
+    "fetchedAt": "2026-10-08T08:28:29.507Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "현실로 튀어나오면 대박 칠 것 같은데... 현대차, '크레이터 콘셉트' 공개",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61819",
     "pubDate": "2026-10-08T08:40:26.000Z",
@@ -147,7 +167,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61789_119078_2013.jpeg",
     "summary": "현대자동차 인도 법인이 공개한 신형 바이온 티저 이미지. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 인도 시장을 겨냥해 투입을 준비 중인 신형 소형 SUV ‘바이욘(Ba…",
     "fetchedAt": "2026-10-04T00:22:17.113Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -157,7 +177,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61788_119074_479.jpg",
     "summary": "포드 F-150. 픽업 트럭을 앞 세운 포드가 미국 신차 시장 경쟁에서 2026년 3분기 3위 수성에 성공했지만 현대차그룹과의 격차가 수 천 여대 수준으로 크게 좁혀져 4분기 경쟁…",
     "fetchedAt": "2026-10-03T00:57:35.373Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -417,7 +437,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61710_118882_914.png",
     "summary": "현대차그룹이 경영 위기로 대규모 구조조정에 나선 폭스바겐그룹, 자율주행 및 전기차 등 미래 모빌리티 산업에서 부진한 토요타그룹을 제치고 글로벌 '넘버1'으로 오르기 위해서는 소프트…",
     "fetchedAt": "2026-09-27T03:58:02.881Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -427,7 +447,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61709_118881_1952.jpg",
     "summary": "현대자동차 미국 판매 전시장 전경. 현대차와 기아의 3분기 판매량이 포드를 제치고 GM, 토요타에 이어 사상 처음 빅3에 오를 것이라는 전망이 나왔다. (현대자동차) [오토헤럴드…",
     "fetchedAt": "2026-09-26T03:48:45.972Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -457,7 +477,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61695_118816_1218.jpeg",
     "summary": "현대차 대형 전기 SUV '아이오닉 9'이 2열 전동 폴딩 시트의 끼임 방지 기능 문제로 리콜에 들어간다(현대차) [오토헤럴드 김훈기 기자] 현대자동차 대형 전기 SUV '아이오닉…",
     "fetchedAt": "2026-09-23T02:11:27.727Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -547,7 +567,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Logo-1024x576.jpg",
     "summary": "Hyundai’s CEO warns the US over Chinese cars disrupting the market. Munoz, Hyundai Motor’s CEO, poin…",
     "fetchedAt": "2026-09-20T00:15:32.395Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
@@ -607,7 +627,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Bayon-main-1024x576.jpg",
     "summary": "Official sketches reveal a boxier second-gen Hyundai Bayon. The interior borrows the digital cockpit…",
     "fetchedAt": "2026-09-17T00:14:26.652Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -918,35 +938,5 @@
     "summary": "The eight-generation sedan will be larger and more powerful than the outgoing model, while returning…",
     "fetchedAt": "2026-09-08T22:11:11.646Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "기아, '인간-AI 협업형’ 미래 인재 포함 2026 하반기 신입·경력 집중 채용",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61552",
-    "pubDate": "2026-09-08T09:23:39.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61552_118438_2223.jpg",
-    "summary": "기아가 9월 15일부터 2026 하반기 집중 채용에 나선다고 8일 밝혔다. (기아) [오토헤럴드 정호인 기자] 기아가 미래 모빌리티 신사업을 이끌 핵심 인재를 확보하기 위해 대규모…",
-    "fetchedAt": "2026-09-08T02:11:09.455Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "K-컬처 타고 유럽으로... 현대차, 유럽 최초 프랑스에 ‘미래 모빌리티 학교’  도입",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61551",
-    "pubDate": "2026-09-08T09:07:34.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61551_118437_225.jpeg",
-    "summary": "프랑스한국교육원 정상명 원장(왼쪽에서 4번째)과 현대차그룹 성 김 전략기획담당 사장(왼쪽에서 5번째)이 기념촬영을 하고 있다. (현대차) [오토헤럴드 정호인 기자] 현대자동차의 대…",
-    "fetchedAt": "2026-09-08T00:18:09.574Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "아우디, 기아 EV3급 엔트리 레벨 전기차 ‘A2 e-트론’ 공개... 645km 주행",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61548",
-    "pubDate": "2026-09-08T08:07:34.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61548_118434_434.jpg",
-    "summary": "아우디 A2 e-트론 (아우디) [오토헤럴드 김흥식 기자] 프리미엄 브랜드 아우디가 무거운 배터리를 욱여넣고 덩치만 키우던 전기차 시장의 무의미한 스펙 경쟁에 제동을 걸고 나섰다.…",
-    "fetchedAt": "2026-09-08T00:18:09.574Z",
-    "sentiment": "neutral"
   }
 ]
