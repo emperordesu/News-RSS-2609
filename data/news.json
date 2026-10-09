@@ -277,7 +277,7 @@
     "image": "https://cdn.motor1.com/images/mgl/pb83LJ/s3/2027-hyundai-tucson.jpg",
     "summary": "Hyundai is getting ready to show off its latest Tucson in the US for the first time, and you can wat…",
     "fetchedAt": "2026-10-01T22:23:36.351Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Carscoops",
@@ -357,7 +357,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
     "summary": "The company is investing more than $26 billion into North American production. New investments have…",
     "fetchedAt": "2026-10-01T01:05:15.415Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -487,7 +487,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2027-Kia-K5-1024x578.jpg",
     "summary": "Kia has introduced the 2027 K5, which starts at $27,690. Pricing climbs by $200, but you get nothing…",
     "fetchedAt": "2026-09-23T18:14:13.342Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "Motor1",
@@ -517,7 +517,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-9-seat-recall-ac-1-1024x576.jpg",
     "summary": "The Ioniq 9 is being recalled for the same issue that killed a two-year-old. More than 5,300 Hyundai…",
     "fetchedAt": "2026-09-22T18:14:04.906Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -627,7 +627,7 @@
     "image": "https://cdn.motor1.com/images/mgl/kPWGB/s3/thief-stealing-car-during-day-time-on-street.jpg",
     "summary": "Ninth Circuit judges reopen insurer claims over immobilizer-free Kia and Hyundai models, raising fre…",
     "fetchedAt": "2026-09-17T12:14:44.793Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -657,7 +657,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Bayon-main-1024x576.jpg",
     "summary": "Official sketches reveal a boxier second-gen Hyundai Bayon. The interior borrows the digital cockpit…",
     "fetchedAt": "2026-09-17T00:14:26.652Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -677,7 +677,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Autonomous-Level-3-1024x576.jpg",
     "summary": "The system will use technology co-designed with Nvidia and include a Level 3 system. Hyundai will la…",
     "fetchedAt": "2026-09-16T20:11:57.556Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -897,16 +897,6 @@
     "image": "https://cdn.motor1.com/images/mgl/pbJVyo/s3/2027-hyundai-tucson.jpg",
     "summary": "It will allegedly feature a hybrid powertrain focused on power delivery.",
     "fetchedAt": "2026-09-10T00:15:23.814Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Motor1",
-    "title": "Hyundai Wants To XRT All The Things With Rugged Model Offensive",
-    "link": "https://www.motor1.com/news/807619/hyundai-more-rugged-models-planned/",
-    "pubDate": "2026-09-09T08:00:45.000Z",
-    "image": "https://cdn.motor1.com/images/mgl/pbJVyo/s3/2027-hyundai-tucson.jpg",
-    "summary": "Dedicated off-roaders could crown the lineup.",
-    "fetchedAt": "2026-09-09T08:12:24.174Z",
     "sentiment": "positive"
   }
 ]
