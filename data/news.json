@@ -1,5 +1,25 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "\"디자인으로 바뀐 기술\" 현대차, 신형 투싼에 담긴 차체 성형 기술의 진화",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61831",
+    "pubDate": "2026-10-09T09:00:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61831_119204_5230.jpg",
+    "summary": "현대자동차가 5세대 완전변경 '디 올 뉴 투싼'을 통해 과감한 디자인을 구현하기 위한 차체 성형 기술의 진화를 공개했다(오토헤럴드 김훈기 기자) [오토헤럴드 김훈기 기자] 현대자동…",
+    "fetchedAt": "2026-10-09T04:49:51.838Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "[시승기] 현대차, 신형 투싼 1.6 터보 \"부드러운 변속 아쉬운 실주행 연비\"",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61830",
+    "pubDate": "2026-10-09T09:00:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61830_119197_2245.jpg",
+    "summary": "현대자동차 5세대 '디 올 뉴 투싼' 1.6 터보 가솔린에서 가장 먼저 체감되는 변화는 출력보다 주행 질감이다(오토헤럴드 김훈기 기자) [오토헤럴드 김훈기 기자] 6년 만에 완전히…",
+    "fetchedAt": "2026-10-09T04:49:51.838Z",
+    "sentiment": "neutral"
+  },
+  {
     "source": "Carscoops",
     "title": "Hyundai Is Working On Both An Ioniq 4 And An Ioniq 7",
     "link": "https://www.carscoops.com/2026/10/hyundai-ioniq-4-ioniq-7/",
@@ -87,7 +107,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Line-review-a-1024x576.jpg",
     "summary": "PROS &rsaquo;&rsaquo; Stylish, efficient, strong performance CONS &rsaquo;&rsaquo; Expensive, heavy,…",
     "fetchedAt": "2026-10-06T22:23:37.118Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -177,7 +197,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61789_119078_2013.jpeg",
     "summary": "현대자동차 인도 법인이 공개한 신형 바이온 티저 이미지. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 인도 시장을 겨냥해 투입을 준비 중인 신형 소형 SUV ‘바이욘(Ba…",
     "fetchedAt": "2026-10-04T00:22:17.113Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -217,7 +237,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61776_119043_2546.jpg",
     "summary": "포티투닷 안젤로 코르사로 수석 연구위원 (포티투닷) [오토헤럴드 정호인 기자] 현대자동차그룹의 글로벌 소프트웨어센터 포티투닷(42dot)이 글로벌 IT 기업 출신의 리더급 핵심 인…",
     "fetchedAt": "2026-10-02T04:20:08.862Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -257,7 +277,7 @@
     "image": "https://cdn.motor1.com/images/mgl/pb83LJ/s3/2027-hyundai-tucson.jpg",
     "summary": "Hyundai is getting ready to show off its latest Tucson in the US for the first time, and you can wat…",
     "fetchedAt": "2026-10-01T22:23:36.351Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -337,7 +357,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
     "summary": "The company is investing more than $26 billion into North American production. New investments have…",
     "fetchedAt": "2026-10-01T01:05:15.415Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -437,7 +457,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Kia-PV5-Chassis-Cab-11-1024x576.jpg",
     "summary": "The Kia PV5 has a Chassis bodystyle variant next to the Cargo and Passenger. The EV is available wit…",
     "fetchedAt": "2026-09-27T15:02:09.314Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -467,7 +487,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2027-Kia-K5-1024x578.jpg",
     "summary": "Kia has introduced the 2027 K5, which starts at $27,690. Pricing climbs by $200, but you get nothing…",
     "fetchedAt": "2026-09-23T18:14:13.342Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -497,7 +517,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-9-seat-recall-ac-1-1024x576.jpg",
     "summary": "The Ioniq 9 is being recalled for the same issue that killed a two-year-old. More than 5,300 Hyundai…",
     "fetchedAt": "2026-09-22T18:14:04.906Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -888,55 +908,5 @@
     "summary": "Dedicated off-roaders could crown the lineup.",
     "fetchedAt": "2026-09-09T08:12:24.174Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차그룹, AfDB와 맞손 ‘금융+모빌리티’로 아프리카 14억 시장 정조준",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61569",
-    "pubDate": "2026-09-09T12:24:32.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61569_118484_1833.jpg",
-    "summary": "장재훈 현대차그룹 부회장(오른쪽)과 케빈 치카 우라마 아프리카개발은행 수석 이코노미스트 겸 부총재(왼쪽)가 지난 8일(화) 서울 서초구 현대차그룹 양재 본사에서 개최된 ‘아프리카의…",
-    "fetchedAt": "2026-09-09T04:11:18.702Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"깜찍 귀여운 외관 버린다\" 현대차 신형 코나, 듬직한 정통 SUV로 환골탈태",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61560",
-    "pubDate": "2026-09-09T10:11:39.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61560_118474_447.png",
-    "summary": "위장막 스파이샷, 해외 예상도 등을 참고해 기사의 이래를 돕기 위해 AI로 생성한 차세대 코나 예상도. (오토헤럴드) [오토헤럴드 김흥식 기자] 유선형의 날렵하고 깜찍한 도심형 크…",
-    "fetchedAt": "2026-09-09T02:11:05.140Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차, 1.9kg 초경량 무동력 착용 로봇 '엑스블 숄더' 국가유산 파수꾼 됐다",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61564",
-    "pubDate": "2026-09-09T09:40:20.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61564_118469_3035.jpg",
-    "summary": "현대자동차-국가유산청 '엑스블 숄더' 기증식 행사 기념 촬영 (왼쪽부터 전현철 현대차 사업개발&지속가능경영실장, 이길배 국가유산청 유산정책국장) (현대차) [오토헤럴드 정호인 기자…",
-    "fetchedAt": "2026-09-09T02:11:05.140Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차그룹, 추석 앞두고 협력사에 납품대금 2조 2562억 원 ‘통 큰 조기 지급’",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61563",
-    "pubDate": "2026-09-09T09:24:23.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61563_118467_211.jpg",
-    "summary": "현대차그룹이 추석 연휴에 앞서 협력사들에 납품 대금 2조 2,562억 원을 기존 지급일보다 최대 23일 앞당겨 지급할 계획이다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차…",
-    "fetchedAt": "2026-09-09T02:11:05.140Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "[르포] \"엠블럼 하나까지 로봇이 착착\" 기아 PBV 승부처 '화성 EVO 플랜트'",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61558",
-    "pubDate": "2026-09-09T08:30:58.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61558_118453_1353.jpg",
-    "summary": "기아는 오토랜드 화성에서 '기아 PBV 생산 허브 테크 데이'를 열고 PV5가 만들어지는 화성 EVO Plant의 생산 현장을 공개했다(기아) [오토헤럴드 김훈기 기자] 8일, 경…",
-    "fetchedAt": "2026-09-09T00:18:10.448Z",
-    "sentiment": "neutral"
   }
 ]
