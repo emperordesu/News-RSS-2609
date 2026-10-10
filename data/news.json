@@ -107,7 +107,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Line-review-a-1024x576.jpg",
     "summary": "PROS &rsaquo;&rsaquo; Stylish, efficient, strong performance CONS &rsaquo;&rsaquo; Expensive, heavy,…",
     "fetchedAt": "2026-10-06T22:23:37.118Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -517,7 +517,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-9-seat-recall-ac-1-1024x576.jpg",
     "summary": "The Ioniq 9 is being recalled for the same issue that killed a two-year-old. More than 5,300 Hyundai…",
     "fetchedAt": "2026-09-22T18:14:04.906Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -857,46 +857,6 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61588_118516_107.jpg",
     "summary": "현대차가 지난 8월 공개한 6세대 완전변경 '디 올 뉴 투싼(The all-new TUCSON)'. (현대자동차) [오토헤럴드 김흥식 기자] 현대차가 지난 8월 내외관 디자인 이미…",
     "fetchedAt": "2026-09-10T06:15:23.163Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차 소아암 캠페인 새 영상, 목소리 주인공은 '블랙 위도우' 스칼렛 요한슨",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61579",
-    "pubDate": "2026-09-10T09:19:16.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61579_118499_1222.jpg",
-    "summary": "현대차가 미국에서 벌이고 있는 소아암 퇴치 기구 ‘현대 호프 온 휠스(Hyundai Hope on Wheels)’의 신규 캠페인 ‘더 마크 오브 어 워리어(The Mark of a…",
-    "fetchedAt": "2026-09-10T02:11:22.192Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "기아, 대형 PBV 'PV7' 하노버 IAA서 최초 예고 \"유럽 전기 밴 공략 확대\"",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61576",
-    "pubDate": "2026-09-10T08:54:17.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61576_118496_5240.jpg",
-    "summary": "기아의 대형 전동화 PBV '더 기아 PV7(The Kia PV7)'이 독일 하노버 상용차 박람회에 첫 등장한다(기아) [오토헤럴드 김훈기 기자] 기아의 대형 전동화 PBV '더…",
-    "fetchedAt": "2026-09-10T00:15:23.814Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "할리우드 홀린 순찰차 액션... 나홍진 ‘호프’ 타고 부활한 현대차 스텔라",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61573",
-    "pubDate": "2026-09-10T07:53:55.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61573_118491_4822.jpg",
-    "summary": "나홍진 감독 영화 '호프'에서 경찰 순찰차로 등장한 현대차 스텔라. (현대자동차) [오토헤럴드 김흥식 기자] 나홍진 감독의 SF 액션 스릴러 ‘호프(HOPE)’가 9일(현지 시간)…",
-    "fetchedAt": "2026-09-10T00:15:23.814Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Motor1",
-    "title": "Hyundai Could Turn Its Best Seller Into A 350-HP Performance SUV",
-    "link": "https://www.motor1.com/news/807726/hyundai-tucson-n-hybrid-powertrain-rumor/",
-    "pubDate": "2026-09-09T23:00:00.000Z",
-    "image": "https://cdn.motor1.com/images/mgl/pbJVyo/s3/2027-hyundai-tucson.jpg",
-    "summary": "It will allegedly feature a hybrid powertrain focused on power delivery.",
-    "fetchedAt": "2026-09-10T00:15:23.814Z",
     "sentiment": "positive"
   }
 ]
