@@ -1,6 +1,16 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "경차 쌍트로 신화에서 크레타 돌풍까지... 현대차, 인도 ‘1000만 대 금자탑’ 눈앞",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61838",
+    "pubDate": "2026-10-11T09:28:37.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61838_119243_2733.jpg",
+    "summary": "현대자동차 인도 시장 라인업. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 세계 3대 자동차 격전지로 부상한 인도 시장 진출 30여 년 만에 누적 판매 1000만 대 돌파…",
+    "fetchedAt": "2026-10-11T00:41:50.584Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "\"디자인으로 바뀐 기술\" 현대차, 신형 투싼에 담긴 차체 성형 기술의 진화",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61831",
     "pubDate": "2026-10-09T09:00:00.000Z",
@@ -137,7 +147,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61792_119083_4544.jpg",
     "summary": "현대차 8세대 '디 올 뉴 아반떼'. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대차가 '아반떼(수출명 엘란트라)'의 플러그인 하이브리드(PHEV) 버전을 추측하게 하는 스파…",
     "fetchedAt": "2026-10-06T01:08:46.637Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -237,7 +247,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61776_119043_2546.jpg",
     "summary": "포티투닷 안젤로 코르사로 수석 연구위원 (포티투닷) [오토헤럴드 정호인 기자] 현대자동차그룹의 글로벌 소프트웨어센터 포티투닷(42dot)이 글로벌 IT 기업 출신의 리더급 핵심 인…",
     "fetchedAt": "2026-10-02T04:20:08.862Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "오토헤럴드",
@@ -827,16 +837,6 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61596_118543_446.jpg",
     "summary": "현대자동차그룹이 11일 경기도 성남시 포티투닷 본사에서 자율주행 AI '아트리아 AI(Atria AI)'의 실제 도로 주행 모습을 공개했다(현대차그룹) [오토헤럴드 김훈기 기자=성…",
     "fetchedAt": "2026-09-13T00:15:59.110Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "‘우체국 집배원 최적화된 맞춤형 PBV' 기아, 우정사업본부에 ‘PV5 카고’ 투입",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61590",
-    "pubDate": "2026-09-11T08:54:22.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61590_118535_4858.jpg",
-    "summary": "기아가 우정사업본부 집배 현장에 최적화된 맞춤형 PBV를 공급한다. (기아) [오토헤럴드 정호인 기자] 기아가 집배 현장의 업무 특성을 철저히 반영해 개발한 첫 맞춤형 목적 기반…",
-    "fetchedAt": "2026-09-11T00:16:20.824Z",
     "sentiment": "positive"
   }
 ]
