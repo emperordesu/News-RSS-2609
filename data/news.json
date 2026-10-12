@@ -1,5 +1,35 @@
 [
   {
+    "source": "Auto Car (UK)",
+    "title": "Hyundai pumps up Bayon for second generation",
+    "link": "https://www.autocar.co.uk/car-news/new-cars/hyundai-pumps-bayon-second-generation",
+    "pubDate": "2026-10-12T13:20:00.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/dsc_4849.jpg?itok=alu0O9kR",
+    "summary": "New version is longer, taller and wider than before - with a chunkier SUV look Hyundai has turned th…",
+    "fetchedAt": "2026-10-12T19:38:47.025Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Motor1",
+    "title": "2027 Hyundai Tucson N Line Adds Sporty Looks Without More Power",
+    "link": "https://www.motor1.com/news/811578/2027-hyundai-tucson-n-line/",
+    "pubDate": "2026-10-12T13:20:00.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/vx78z6/s3/hyundai-tucson-n-line-2027.jpg",
+    "summary": "The top trim adds cosmetic upgrades while keeping the regular Tucson's gasoline and hybrid drivetrai…",
+    "fetchedAt": "2026-10-12T19:38:47.025Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Motor1",
+    "title": "Hyundai's Smallest SUV In Europe Gets A Major Glow-Up For 2027",
+    "link": "https://www.motor1.com/news/811537/2027-hyundai-bayon-reveal/",
+    "pubDate": "2026-10-12T13:20:00.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/W8bKvj/s3/hyundai-bayon-2027.jpg",
+    "summary": "The Bayon features a sharper look, a tech-heavy cabin, and a hybrid option.",
+    "fetchedAt": "2026-10-12T19:38:47.025Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Carscoops",
     "title": "Police Say Two Stolen Hyundais May Connect to Nearly Two Dozen Nashville Thefts",
     "link": "https://www.carscoops.com/2026/10/stolen-hyundais-connect-nashville-car-thefts/",
@@ -577,7 +607,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Tucson-lead-v2-Sep21261-1024x576.jpg",
     "summary": "Hyundai has given the MY27, fifth-gen Tucson a full reveal in Korea. Longer, wider compact SUV gains…",
     "fetchedAt": "2026-09-21T12:13:48.674Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Motor1",
@@ -617,7 +647,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Logo-1024x576.jpg",
     "summary": "Hyundai’s CEO warns the US over Chinese cars disrupting the market. Munoz, Hyundai Motor’s CEO, poin…",
     "fetchedAt": "2026-09-20T00:15:32.395Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Motor1",
@@ -677,7 +707,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Bayon-main-1024x576.jpg",
     "summary": "Official sketches reveal a boxier second-gen Hyundai Bayon. The interior borrows the digital cockpit…",
     "fetchedAt": "2026-09-17T00:14:26.652Z",
-    "sentiment": "neutral"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
@@ -687,7 +717,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Group-B-Rally-Car-Khyzyl-Saleem-main-1024x576.jpg",
     "summary": "Khyzyl Saleem created a Group B-inspired Hyundai Ioniq 5 N. The concept ditches the EV powertrain fo…",
     "fetchedAt": "2026-09-16T20:11:57.556Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Carscoops",
