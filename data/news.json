@@ -1,5 +1,35 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "[2026 파리모터쇼] \"유럽 판매 80% 현지 생산\" 현대차, 신차·전동화·로보택시로 승부",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61854",
+    "pubDate": "2026-10-13T06:29:44.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61854_119277_2349.jpg",
+    "summary": "현대차는 현지시간으로 12일 프랑스 파리 엑스포 포르트 드 베르사유에서 개막한 '2026 파리모터쇼'를 통해 2세대 '바이욘'을 세계 최초 공개하고 신형 '투싼'의 유럽형 모델과…",
+    "fetchedAt": "2026-10-13T01:50:25.242Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "[2026 파리모터쇼] 기아, 신형 셀토스 하이브리드 유럽 공개 '전기차·HEV 동시 공략'",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61851",
+    "pubDate": "2026-10-13T06:04:56.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61851_119274_5943.jpg",
+    "summary": "기아는 현지시간으로 12일 프랑스 파리 엑스포 포르트 드 베르사유에서 개막한 '2026 파리모터쇼'를 통해 2세대 셀토스 하이브리드(HEV)를 유럽 최초로 공개했다(오토헤럴드 김훈…",
+    "fetchedAt": "2026-10-13T01:50:25.242Z",
+    "sentiment": "positive"
+  },
+  {
+    "source": "Carscoops",
+    "title": "Hyundai’s Bayon Has A Tough New Look And Hybrid Ambitions",
+    "link": "https://www.carscoops.com/2026/10/hyundai-bayon-tough-new-look-hybrid/",
+    "pubDate": "2026-10-12T23:50:00.000Z",
+    "image": "https://www.carscoops.com/wp-content/uploads/2026/10/Hyundai-Bayon-lead-Oct122611-1024x576.jpg",
+    "summary": "Hyundai’s new Bayon looks like a shrunken 2027 Tucson. A 1.6-liter hybrid engine is available for th…",
+    "fetchedAt": "2026-10-13T01:50:25.242Z",
+    "sentiment": "positive"
+  },
+  {
     "source": "Auto Car (UK)",
     "title": "Hyundai pumps up Bayon for second generation",
     "link": "https://www.autocar.co.uk/car-news/new-cars/hyundai-pumps-bayon-second-generation",
@@ -17,7 +47,7 @@
     "image": "https://cdn.motor1.com/images/mgl/vx78z6/s3/hyundai-tucson-n-line-2027.jpg",
     "summary": "The top trim adds cosmetic upgrades while keeping the regular Tucson's gasoline and hybrid drivetrai…",
     "fetchedAt": "2026-10-12T19:38:47.025Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -237,7 +267,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-09-UK-Highways-Agency-copy-1024x576.jpg",
     "summary": "The UK’s National Highways Traffic Officers are civilians, not police. The Ioniq 9s have been conver…",
     "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -257,7 +287,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61788_119074_479.jpg",
     "summary": "포드 F-150. 픽업 트럭을 앞 세운 포드가 미국 신차 시장 경쟁에서 2026년 3분기 3위 수성에 성공했지만 현대차그룹과의 격차가 수 천 여대 수준으로 크게 좁혀져 4분기 경쟁…",
     "fetchedAt": "2026-10-03T00:57:35.373Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -287,7 +317,7 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61776_119043_2546.jpg",
     "summary": "포티투닷 안젤로 코르사로 수석 연구위원 (포티투닷) [오토헤럴드 정호인 기자] 현대자동차그룹의 글로벌 소프트웨어센터 포티투닷(42dot)이 글로벌 IT 기업 출신의 리더급 핵심 인…",
     "fetchedAt": "2026-10-02T04:20:08.862Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "오토헤럴드",
@@ -327,7 +357,7 @@
     "image": "https://cdn.motor1.com/images/mgl/pb83LJ/s3/2027-hyundai-tucson.jpg",
     "summary": "Hyundai is getting ready to show off its latest Tucson in the US for the first time, and you can wat…",
     "fetchedAt": "2026-10-01T22:23:36.351Z",
-    "sentiment": "neutral"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -357,7 +387,7 @@
     "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/kia-ev4-gt-review-2026-001.jpg?itok=TSOAR9vM",
     "summary": "Kia's all-electric answer to the VW Golf R prioritises handling fluency with an involving powertrain…",
     "fetchedAt": "2026-10-01T16:54:09.338Z",
-    "sentiment": "positive"
+    "sentiment": "neutral"
   },
   {
     "source": "오토헤럴드",
@@ -537,7 +567,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2027-Kia-K5-1024x578.jpg",
     "summary": "Kia has introduced the 2027 K5, which starts at $27,690. Pricing climbs by $200, but you get nothing…",
     "fetchedAt": "2026-09-23T18:14:13.342Z",
-    "sentiment": "negative"
+    "sentiment": "neutral"
   },
   {
     "source": "Motor1",
@@ -647,7 +677,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Logo-1024x576.jpg",
     "summary": "Hyundai’s CEO warns the US over Chinese cars disrupting the market. Munoz, Hyundai Motor’s CEO, poin…",
     "fetchedAt": "2026-09-20T00:15:32.395Z",
-    "sentiment": "positive"
+    "sentiment": "negative"
   },
   {
     "source": "Motor1",
@@ -717,7 +747,7 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Group-B-Rally-Car-Khyzyl-Saleem-main-1024x576.jpg",
     "summary": "Khyzyl Saleem created a Group B-inspired Hyundai Ioniq 5 N. The concept ditches the EV powertrain fo…",
     "fetchedAt": "2026-09-16T20:11:57.556Z",
-    "sentiment": "negative"
+    "sentiment": "positive"
   },
   {
     "source": "Carscoops",
@@ -867,16 +897,6 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61600_118556_2556.jpg",
     "summary": "'포레스트런 2026 파이널런' 기념 촬영 (왼쪽부터 방송인 이수지, WFP 친선대사 배우 문소리, 현대차 국내사업본부장 윤효준 전무, WFP 정부공여국장 로라 터너) (현대차)…",
     "fetchedAt": "2026-09-13T02:11:16.220Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "[로포] \"자율주행 핵심은 학습 속도\" 현대차, '아트리아 AI'로 자체 승부",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61596",
-    "pubDate": "2026-09-13T09:00:00.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61596_118543_446.jpg",
-    "summary": "현대자동차그룹이 11일 경기도 성남시 포티투닷 본사에서 자율주행 AI '아트리아 AI(Atria AI)'의 실제 도로 주행 모습을 공개했다(현대차그룹) [오토헤럴드 김훈기 기자=성…",
-    "fetchedAt": "2026-09-13T00:15:59.110Z",
     "sentiment": "positive"
   }
 ]
