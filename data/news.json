@@ -1,6 +1,15 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "\"차체 썩는 차\" 국산이 수입산 3배...현대차 '부식 발생 부위' 가장 많아",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61887",
+    "pubDate": "2026-10-14T08:14:29.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61887_119357_1342.png",
+    "summary": "(컨슈머인사이트) [오토헤럴드 김흥식 기자] 새차를 사고 2년 이상 지난 국산차의 부식 발생 건수가 수입차의 세 배에 육박하며 여전히 부식 내구성에 취약한 것으로 나타났다. 국산…",
+    "fetchedAt": "2026-10-14T03:45:41.385Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "현대차·테이트 미술관, '현대 커미션: 타렉 아투이: Hold'展 개막",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61870",
     "pubDate": "2026-10-13T11:14:00.000Z",
@@ -887,16 +896,6 @@
     "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/pv7p_dsc_6582.jpg?itok=CTlQRrvG",
     "summary": "Korean brand's second electric van can carry up to 1200kg or 11 people Kia has revealed the PV7 as a…",
     "fetchedAt": "2026-09-14T10:11:36.769Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차그룹, 청년 인재 양성 'HINT' 2기 모집... AI·제조 지능화 실무 교육",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61607",
-    "pubDate": "2026-09-14T09:10:26.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61607_118568_823.png",
-    "summary": "현대자동차그룹이 청년 인재 육성을 위한 직무역량 강화 교육 프로그램 ‘HINT’ 2기 참가자를 모집한다. (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 청년들의 미래 모…",
-    "fetchedAt": "2026-09-14T00:16:34.070Z",
     "sentiment": "positive"
   }
 ]
