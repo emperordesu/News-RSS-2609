@@ -1,5 +1,14 @@
 [
   {
+    "source": "Motor1",
+    "title": "New Hyundai Elantra N Spied For The First Time",
+    "link": "https://www.motor1.com/news/812003/new-hyundai-elantra-n-spied/",
+    "pubDate": "2026-10-15T06:15:29.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/nA88El/s3/next-gen-hyundai-elantra-n-spy-photo.jpg",
+    "summary": "Here's an early look at the next-gen sports sedan, which could debut as early as 2027.",
+    "fetchedAt": "2026-10-15T08:54:45.712Z"
+  },
+  {
     "source": "오토헤럴드",
     "title": "납품사는 옛말, 현대차·기아 '기술 동반자’ 2026 R&D 협력사 테크 데이",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61888",
@@ -865,16 +874,6 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/2026-Kia-EV9-1024x578.jpg",
     "summary": "Some dealers are offering the Kia EV9 for $16,000 under sticker. One of the cheapest new models in A…",
     "fetchedAt": "2026-09-15T18:11:56.620Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Motor1",
-    "title": "Kia's New PV7 Electric Van Wants To Do It All",
-    "link": "https://www.motor1.com/news/808293/2027-kia-pv7-specs-photos/",
-    "pubDate": "2026-09-15T07:38:09.000Z",
-    "image": "https://cdn.motor1.com/images/mgl/P3VnGr/s3/2027-kia-pv7-passenger.jpg",
-    "summary": "With 23 variants planned, Kia’s new electric workhorse aims to have something for everyone.",
-    "fetchedAt": "2026-09-15T08:13:07.132Z",
     "sentiment": "positive"
   }
 ]
