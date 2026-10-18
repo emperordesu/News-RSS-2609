@@ -1,5 +1,14 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "[르포] '자동화 넘어 스스로 판단' 현대차·기아, AI·로봇 제조 혁신의 현장",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61909",
+    "pubDate": "2026-10-18T09:00:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61909_119432_3852.jpg",
+    "summary": "지난 16일 경기도 의왕연구소에선 '이포레스트 테크데이 2026(E-FOREST TECH DAY 2026)' 미디어 초청 행사가 열렸다(현대차그룹) [오토헤럴드 김훈기 기자] 자동…",
+    "fetchedAt": "2026-10-18T03:16:52.375Z"
+  },
+  {
     "source": "Motor1",
     "title": "2027 Kia Sorento Hybrid Gets Pricing, Adds New X-Line EX Trim",
     "link": "https://www.motor1.com/news/812181/2027-kia-sorento-hybrid-pricing/",
@@ -743,15 +752,5 @@
     "summary": "Jose Munoz argues Chinese brands could erode US margins like Europe unless tariffs and strict market…",
     "fetchedAt": "2026-09-18T10:11:33.421Z",
     "sentiment": "negative"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"해치백 벗고 정통 소형 SUV로 변신\" 현대차, 2세대 '바이욘' 예고",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61653",
-    "pubDate": "2026-09-18T07:45:00.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61653_118703_433.jpeg",
-    "summary": "현대자동차가 유럽 시장을 중심으로 판매해 온 소형 SUV '바이욘(Bayon)'의 2세대 모델을 선보인다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 유럽 시장을 중심으로 판매…",
-    "fetchedAt": "2026-09-18T00:15:15.141Z",
-    "sentiment": "positive"
   }
 ]
