@@ -1,5 +1,23 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "‘현대차 엠블럼 선명한 스타렉스’... 대북 제재 뚫고 북한길 달리는 국산차 정체",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61955",
+    "pubDate": "2026-10-21T10:44:09.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61955_119582_252.jpeg",
+    "summary": "북한을 소개하는 영상에서 발견된 현대차 스타렉스 구급차. 앞 번호판의 숫자 '60'은 북한 교통 규정상 ‘의료·보건 부문’ 관용차에 공식 부여되는 고유 부문 식별 번호다. [오토헤…",
+    "fetchedAt": "2026-10-21T03:32:07.668Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"상상이 현실 되는 앱 만든다\"... 현대차·기아, 차량용 앱 개발 공모전 개최",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61954",
+    "pubDate": "2026-10-21T10:03:14.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61954_119576_5926.jpg",
+    "summary": "현대자동차ㆍ기아가 대학(원)생과 일반 개발자, 스타트업을 대상으로 차량용 앱 개발 공모전을 개최한다. (현대차 기아) [오토헤럴드 정호인 기자] 현대자동차와 기아가 차량 데이터를…",
+    "fetchedAt": "2026-10-21T03:32:07.668Z"
+  },
+  {
     "source": "Car Watch (JP)",
     "title": "KiaのEV「PV5」で箱根を走る！ カーゴとパッセンジャーの両モデルに乗った印象は？",
     "link": "https://car.watch.impress.co.jp/docs/news/impression/2149438.html",
@@ -819,16 +837,6 @@
     "image": "https://cdn.motor1.com/images/mgl/eoWbq6/s3/2027-hyundai-tucson-xrt.jpg",
     "summary": "The compact crossover gets an off-road attitude, making the mall parking lot feel like the great out…",
     "fetchedAt": "2026-09-21T08:12:27.194Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차, 현대 모터스튜디오 12년 여정 담은 다큐 영화 '더 스튜디오' 공개",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61666",
-    "pubDate": "2026-09-21T09:12:00.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61666_118740_553.jpg",
-    "summary": "'더 스튜디오' 메인 포스터 (현대차) [오토헤럴드 정호인 기자] 현대자동차가 브랜드 체험 공간 ‘현대 모터스튜디오’의 지난 12년 여정을 기록한 장편 다큐멘터리 영화를 선보인다.…",
-    "fetchedAt": "2026-09-21T00:15:36.966Z",
     "sentiment": "positive"
   }
 ]
