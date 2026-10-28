@@ -1,6 +1,15 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "현대차, 글로벌 브랜드 가치 첫 20위권 진입... 자동차, 테슬라 제치고 4위 안착",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62026",
+    "pubDate": "2026-10-28T14:27:47.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62026_119758_2637.png",
+    "summary": "현대자동차 인터브랜드 ''2026 글로벌 100대 브랜드'에서 사상 처음 20위권에 진입했다. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 글로벌 브랜드 가치 250억 달…",
+    "fetchedAt": "2026-10-28T07:57:57.878Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "현대차그룹, ‘WHE 2026’ 출격... 수소 버스·트럭부터 무인 로봇 충전까지 공개",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62022",
     "pubDate": "2026-10-28T09:52:48.000Z",
@@ -770,16 +779,6 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61728_118932_4150.jpg",
     "summary": "트럼프 대통령이 연비 규제를 완화하면서 현대차그룹 등 미국 완성차 업체들이 천문학적 비용 부담을 덜게 될 것이라는 분석이 나왔다. 사진은 기아 조지아 공장 생산 라인. (기아) […",
     "fetchedAt": "2026-09-29T00:12:34.875Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"하나의 전기차로 팔색조 변신\" 기아 PV5 섀시, 英 시장 본격 투입",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61718",
-    "pubDate": "2026-09-28T10:24:53.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61718_118897_2320.jpeg",
-    "summary": "기아는 최근 차체 뒤쪽을 비워 사용 목적에 따라 냉동탑차와 푸드트럭, 캠핑카, 덤프 등으로 제작할 수 있는 'PV5 섀시 캡'을 영국 시장에 처음으로 투입됐다(기아) [오토헤럴드…",
-    "fetchedAt": "2026-09-28T03:58:04.074Z",
     "sentiment": "positive"
   }
 ]
