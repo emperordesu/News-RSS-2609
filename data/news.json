@@ -1,5 +1,14 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현대차 3Q 영업익 2조 6772억 ‘하이브리드'로 수익 방어... 연간 목표 축소",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62036",
+    "pubDate": "2026-10-29T15:00:33.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62036_119793_5917.jpg",
+    "summary": "현대자동차 양재동 본사 전경. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차가 글로벌 수요 위축과 생산 차질 등 안팎의 악재 속에서도 3분기 영업이익을 늘리며 견고한 수…",
+    "fetchedAt": "2026-10-29T08:05:22.481Z"
+  },
+  {
     "source": "Auto Car (UK)",
     "title": "New Hyundai Ioniq 6 driven: 423-mile saloon for hatchback money",
     "link": "https://www.autocar.co.uk/car-news/new-cars/new-hyundai-ioniq-6-driven-423-mile-saloon-hatchback-money",
@@ -758,35 +767,5 @@
     "summary": "Hyundai may tune its simulated gears to provide realistic engine braking. Models like the Hyundai Io…",
     "fetchedAt": "2026-09-29T14:41:19.143Z",
     "sentiment": "negative"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차 '전고체 배터리' 탑재한 고성능 헤일로 카, 2031년 이전 출시 예고",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61734",
-    "pubDate": "2026-09-29T10:30:22.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61734_118949_2845.jpeg",
-    "summary": "제네시스 '마그마(Magma)'. 현대차가 5년 이내에 전고체 배터리를 탑재한 고성능 모델 출시를 예고했다. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차가 ‘꿈의 배터…",
-    "fetchedAt": "2026-09-29T07:55:59.382Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차그룹, 드림팀 美 실리콘밸리 출격 'HMG 테크 탤런트 포럼' 첫 개최",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61732",
-    "pubDate": "2026-09-29T09:29:21.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61732_118941_1738.jpg",
-    "summary": "HMG 테크 탤런트 포럼 참석자들이 전시 공간에서 교류하는 모습 (현대차그룹) [오토헤럴드 정호인 기자] 현대차그룹이 미국 실리콘밸리 한복판에서 글로벌 테크 인재들과 미래 모빌리티…",
-    "fetchedAt": "2026-09-29T07:55:59.382Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"중·소형 SUV, 위·아래 모두 채운다\"... 현대차, 아이오닉 4·7 출격 준비",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61730",
-    "pubDate": "2026-09-29T09:28:22.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61730_118942_2619.jpg",
-    "summary": "현대차는 향후 12~18개월 동안 아이오닉 브랜드에 2종의 전기 SUV를 추가로 투입할 예정이다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 전기차 시장의 핵심으로 떠오른 소형…",
-    "fetchedAt": "2026-09-29T07:55:59.382Z",
-    "sentiment": "positive"
   }
 ]
