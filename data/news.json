@@ -1,5 +1,14 @@
 [
   {
+    "source": "Auto Car (UK)",
+    "title": "New Hyundai Ioniq 6 driven: 423-mile saloon for hatchback money",
+    "link": "https://www.autocar.co.uk/car-news/new-cars/new-hyundai-ioniq-6-driven-423-mile-saloon-hatchback-money",
+    "pubDate": "2026-10-29T00:01:23.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/01-hyundai-ioniq-6-facelift-review-front-driving.jpg?itok=O6erUVB_",
+    "summary": "Hyundai has updated its aero EV and, with grant now secured, cut the price to £33k. Still want that…",
+    "fetchedAt": "2026-10-29T01:35:03.902Z"
+  },
+  {
     "source": "Motor1",
     "title": "2027 Kia EV9 Pricing Revealed, With More Torque And Standard Upgrades",
     "link": "https://www.motor1.com/news/813545/2027-kia-ev9-pricing-torque/",
@@ -778,16 +787,6 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202609/61730_118942_2619.jpg",
     "summary": "현대차는 향후 12~18개월 동안 아이오닉 브랜드에 2종의 전기 SUV를 추가로 투입할 예정이다(현대차) [오토헤럴드 김훈기 기자] 현대자동차가 전기차 시장의 핵심으로 떠오른 소형…",
     "fetchedAt": "2026-09-29T07:55:59.382Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "트럼프 규제 완화에 美 완성차 업계 '횡재'... 현대차그룹 7조 비용 절감 기대",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61728",
-    "pubDate": "2026-09-29T08:43:36.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61728_118932_4150.jpg",
-    "summary": "트럼프 대통령이 연비 규제를 완화하면서 현대차그룹 등 미국 완성차 업체들이 천문학적 비용 부담을 덜게 될 것이라는 분석이 나왔다. 사진은 기아 조지아 공장 생산 라인. (기아) […",
-    "fetchedAt": "2026-09-29T00:12:34.875Z",
     "sentiment": "positive"
   }
 ]
