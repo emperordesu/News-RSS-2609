@@ -1,6 +1,33 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "9조 원 새만금 AI 밸리 속도, 현대차그룹 AI 데이터센터 2027년 착공",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62046",
+    "pubDate": "2026-10-30T11:40:46.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62046_119828_3741.jpg",
+    "summary": "현대자동차그룹이 피지컬 AI 역량 고도화의 핵심인 AI 데이터센터 건립에 본격 착수하며 약 9조 원 규모 새만금 AI 밸리 투자의 속도를 높인다(현대차그룹) [오토헤럴드 김훈기 기…",
+    "fetchedAt": "2026-10-30T04:37:54.018Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, “월패드 호출 3분 만에 출차”... 일상 파고든 ‘아파트 주차로봇’",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62043",
+    "pubDate": "2026-10-30T09:23:55.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62043_119813_1651.jpg",
+    "summary": "지난 29일 경기도 시흥시 힐스테이트 더웨이브시티 현장에서 열린 '국토교통부 공동주택 주차로봇 실증사업 시연회'에서 주요 참석자들이 기념 촬영을 하고 있다. (현대차그룹) [오토헤…",
+    "fetchedAt": "2026-10-30T04:37:54.018Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차, 美 앨라배마 공장 6000억 추가 투자... 신형 투싼 생산 라인 구축",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62037",
+    "pubDate": "2026-10-30T08:01:26.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62037_119795_5910.jpg",
+    "summary": "현대차가 앨라배마주 몽고메리 생산 공장(HMMA)에 신형 투싼과 EREV 파워트레인 현지 생산을 구축하기 위한 추가 투자 계획을 발표했다. (현대자동차) [오토헤럴드 김흥식 기자]…",
+    "fetchedAt": "2026-10-30T04:37:54.018Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "현대차 3Q 영업익 2조 6772억 ‘하이브리드'로 수익 방어... 연간 목표 축소",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62036",
     "pubDate": "2026-10-29T15:00:33.000Z",
@@ -726,36 +753,6 @@
     "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-USA-Metaplant-11-1024x576.jpg",
     "summary": "The company is investing more than $26 billion into North American production. New investments have…",
     "fetchedAt": "2026-10-01T01:05:15.415Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"가장 치열한 미국서 최다\" 현대차 투싼, 국산 SUV 최초 1000만 대 돌파",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61745",
-    "pubDate": "2026-09-30T09:46:39.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61745_118971_4337.jpg",
-    "summary": "글로벌 누적 판매량 1000만 대를 돌파한 현대차 SUV 투싼. (오토헤럴드 DB) [오토헤럴드 김흥식 기자] 현대자동차의 간판 준중형 SUV ‘투싼(Tucson)’이 출시 22년…",
-    "fetchedAt": "2026-09-30T01:06:43.471Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차, 美 판매 '투싼 하이브리드' 앨라배마로 생산 이전... 5억 달러 투자",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61742",
-    "pubDate": "2026-09-30T08:22:25.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61742_118966_2110.jpg",
-    "summary": "현대자동차 미국 앨라배마주 몽고메리 생산 공장(HMMA). (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 미국 앨라배마주 몽고메리 생산 공장(HMMA)에 약 5억 달러(한화…",
-    "fetchedAt": "2026-09-30T01:06:43.471Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"사전 계약보다 더 내린 가격\" 현대차 '아이오닉 V' 1800만 원대 공식 출시",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61741",
-    "pubDate": "2026-09-30T07:57:49.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202609/61741_118963_535.jpg",
-    "summary": "아이오닉 V. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 중국 전동화 시장을 공략할 전략형 순수 전기차 ‘아이오닉 V(Ioniq V)’를 공식 출시하고 본격적인 판매에…",
-    "fetchedAt": "2026-09-30T01:06:43.471Z",
     "sentiment": "positive"
   }
 ]
