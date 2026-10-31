@@ -702,25 +702,5 @@
     "summary": "Hyundai has announced pure-combustion, hybrid, and plug-in hybrid models. The fifth-generation Tucso…",
     "fetchedAt": "2026-10-01T22:23:36.351Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "꽂기만 하면 충전기 알아서 소통... 현대차그룹 ‘국가 PnC’ 첫 공개",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61771",
-    "pubDate": "2026-10-01T18:00:04.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61771_119029_5759.jpg",
-    "summary": "1일 경기 안산시 소재 한국전기연구원 안산분원에서 개최된 국가 PnC 현장 시연회에서 제네시스 플래그십 전동화 SUV ‘GV90’를 활용한 시연이 진행되는 가운데, 박종명 현대자동…",
-    "fetchedAt": "2026-10-01T16:54:09.338Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Auto Car (UK)",
-    "title": "Kia EV4 GT tested: Could less be more in an electric hot hatch?",
-    "link": "https://www.autocar.co.uk/car-review/kia/ev4-gt",
-    "pubDate": "2026-10-01T11:00:00.000Z",
-    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/kia-ev4-gt-review-2026-001.jpg?itok=TSOAR9vM",
-    "summary": "Kia's all-electric answer to the VW Golf R prioritises handling fluency with an involving powertrain…",
-    "fetchedAt": "2026-10-01T16:54:09.338Z",
-    "sentiment": "positive"
   }
 ]
