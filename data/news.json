@@ -1,5 +1,14 @@
 [
   {
+    "source": "Auto Car (UK)",
+    "title": "A game-changing EV for sub-£20k? How to bag a Hyundai Ioniq 5",
+    "link": "https://www.autocar.co.uk/car-news/used-cars-used-car-buying-guides/game-changing-ev-sub-%C2%A320k-how-bag-hyundai-ioniq-5",
+    "pubDate": "2026-10-31T11:00:00.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/hyundai-ioniq-5-n-line-04993.jpg?itok=v84ji-QJ",
+    "summary": "Hyundai's Ioniq 5 makes a smart daily EV and, in performance N guise, is a smile fest When it arrive…",
+    "fetchedAt": "2026-10-31T11:45:51.574Z"
+  },
+  {
     "source": "오토헤럴드",
     "title": "기아 3분기 영업익 1조 8183억, 24.3% 상승... 전동화 비중 36% 돌파",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62049",
@@ -712,16 +721,6 @@
     "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/kia-ev4-gt-review-2026-001.jpg?itok=TSOAR9vM",
     "summary": "Kia's all-electric answer to the VW Golf R prioritises handling fluency with an involving powertrain…",
     "fetchedAt": "2026-10-01T16:54:09.338Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차·기아, 특화 버스·관제 플랫폼 투입 레벨4 자율주행 대중교통 상용화",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61770",
-    "pubDate": "2026-10-01T15:28:36.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61770_119022_2554.jpg",
-    "summary": "협약식에서 기념촬영을 하는 모습, 좌측부터 현대차·기아 AVP본부장 박민우 사장, 서울특별시 오세훈 시장, 서울특별시버스운송사업조합 김정환 이사장 (현대차기아) [오토헤럴드 정호인…",
-    "fetchedAt": "2026-10-01T08:22:27.197Z",
     "sentiment": "positive"
   }
 ]
