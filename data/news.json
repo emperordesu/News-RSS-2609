@@ -1,5 +1,32 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "수입차 텃세 넘는다... 기아, ‘택시 명가’ MK 홀딩스 잡고 日 PBV 영토 확장",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62075",
+    "pubDate": "2026-11-03T09:08:55.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62075_119895_5815.jpg",
+    "summary": "(왼쪽부터) MK 홀딩스 아오키 노부아키 사장과 기아 PBV비즈니스사업부장 김상대 부사장이 업무협약식에서 기념 촬영을 하고 있는 모습 (기아) [오토헤럴드 정호인 기자] 기아가 일…",
+    "fetchedAt": "2026-11-03T02:11:07.439Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "기아, 클레이코트 황제 '흙신, 라파엘 나달'을 위한 헌정판 ‘EV4 GT’ 공개",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62071",
+    "pubDate": "2026-11-03T08:26:39.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62071_119886_2234.jpg",
+    "summary": "기아가 '클레이코트의 제왕' 라파엘 나달을 위해 제작한 세상에 단 한 대뿐인 원오프 모델 'EV4 GT' 클레이 콘셉트의 전면부. 나달이 통산 63회 우승을 달성한 실제 코트의 흙…",
+    "fetchedAt": "2026-11-03T02:11:07.439Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"전기차 날개 달았네\" 10월 내수 5대 중 1대... 기아, 시장 점유율 65.2%",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62070",
+    "pubDate": "2026-11-03T08:06:27.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62070_119884_46.png",
+    "summary": "2026년 10월 판매 및 1월~10월 순수 전기차 누적 판매 대수 현황. 현대차와 기아의 순수 전기차 판매가 전년 대비 크게 증가한 것으로 나타났다. (오토헤럴드) [오토헤럴드…",
+    "fetchedAt": "2026-11-03T02:11:07.439Z"
+  },
+  {
     "source": "Motor1",
     "title": "Hyundai Says The Biggest Challenge For Hydrogen Cars Is Finding Customers",
     "link": "https://www.motor1.com/news/814012/hyundai-hydrogen-cars-finding-buyers-challenge/",
@@ -656,15 +683,5 @@
     "summary": "The UK’s National Highways Traffic Officers are civilians, not police. The Ioniq 9s have been conver…",
     "fetchedAt": "2026-10-05T19:04:54.696Z",
     "sentiment": "neutral"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"티저 한 장에 들썩\" 현대차, 신형 바이욘 '낮게 깔린 테일램프' 후측면 공개",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61789",
-    "pubDate": "2026-10-04T08:28:36.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61789_119078_2013.jpeg",
-    "summary": "현대자동차 인도 법인이 공개한 신형 바이온 티저 이미지. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 인도 시장을 겨냥해 투입을 준비 중인 신형 소형 SUV ‘바이욘(Ba…",
-    "fetchedAt": "2026-10-04T00:22:17.113Z",
-    "sentiment": "positive"
   }
 ]
