@@ -1,5 +1,14 @@
 [
   {
+    "source": "Carscoops",
+    "title": "This Kia EV4 GT Is Made Of Actual Tennis Court Clay",
+    "link": "https://www.carscoops.com/2307082/kia-ev4-rafael-nadal-clay-tribute-car/",
+    "pubDate": "2026-11-04T20:01:32.000Z",
+    "image": "https://www.carscoops.com/img/gallery/this-kia-ev4-gt-is-made-of-actual-tennis-court-clay/l-intro-1793822367.jpg",
+    "summary": "Using clay from actual tennis courts, Kia has created a unique clay version of its EV4 GT as a tribu…",
+    "fetchedAt": "2026-11-04T23:16:27.358Z"
+  },
+  {
     "source": "오토헤럴드",
     "title": "현대차그룹, 로봇 플랫폼 끝판왕 모베드... ‘2026 로보월드’서 시선 싹쓸이",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62098",
@@ -689,35 +698,5 @@
     "summary": "The new Kia Sportage will be slightly larger than the outgoing model. Like the new Tucson, Kia will…",
     "fetchedAt": "2026-10-06T01:08:46.637Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "Auto Car (UK)",
-    "title": "Hyundai Ioniq 3 undercuts key rivals with £18k starting price",
-    "link": "https://www.autocar.co.uk/car-news/electric-cars/hyundai-ioniq-3-undercuts-key-rivals-%C2%A318k-starting-price",
-    "pubDate": "2026-10-05T10:09:35.000Z",
-    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/hyundai-ioniq-3-0.jpg?itok=N4oCIdlw",
-    "summary": "Small EV offers up to 308 miles of range and features 441 litres of boot space Hyundai's new Ioniq 3…",
-    "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Kia’s Affordable EV3 Hit By Massive Markups At Greedy Dealerships",
-    "link": "https://www.carscoops.com/2026/10/kia-ev3-dealer-markups/",
-    "pubDate": "2026-10-05T14:30:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/10/Kia-EV3-Markup-1024x578.jpg",
-    "summary": "The Kia EV3 is arriving at dealerships, but some are adding huge markups. One California dealer has…",
-    "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "negative"
-  },
-  {
-    "source": "Carscoops",
-    "title": "British Traffic Officers Testing Hyundai Ioniq 9 EV For Highway Duty",
-    "link": "https://www.carscoops.com/2026/10/british-traffic-officers-testing-ioniq-9-ev/",
-    "pubDate": "2026-10-05T10:00:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-09-UK-Highways-Agency-copy-1024x576.jpg",
-    "summary": "The UK’s National Highways Traffic Officers are civilians, not police. The Ioniq 9s have been conver…",
-    "fetchedAt": "2026-10-05T19:04:54.696Z",
-    "sentiment": "neutral"
   }
 ]
