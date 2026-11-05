@@ -1,6 +1,24 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "[김흥식 칼럼] 美 공화당 참패에 현대차 '웃참'... 전기차 보조금 두 배 부활?",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62115",
+    "pubDate": "2026-11-05T15:06:41.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62115_120001_026.png",
+    "summary": "미국 중간선거에서 상원과 하원 모두 과반수 의석을 처지한 민주당은 전기차 신규 구매 보조금을 최대 1만 5000달러까지 지원하는 법안을 발의했다. (오토헤럴드 DB) [오토헤럴드…",
+    "fetchedAt": "2026-11-05T14:05:09.093Z"
+  },
+  {
+    "source": "Motor1",
+    "title": "Forget The Sprinter. Someone Made A Cute New Kia Electric Camper Van",
+    "link": "https://www.motor1.com/news/814476/kia-pv5-weekender-camper-van/",
+    "pubDate": "2026-11-05T08:30:51.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/P3VNBK/s3/kia-pv5-weekender-camper-van-by-kombi-life.jpg",
+    "summary": "Kia's electric van morphs into a compact camper with a double bed, an induction cooktop, and all-ter…",
+    "fetchedAt": "2026-11-05T14:05:09.093Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "\"수소 패권 가를 생태계\"... 현대차그룹, 주도권 잡을 정책 지원 '절실'",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62114",
     "pubDate": "2026-11-05T14:09:51.000Z",
@@ -684,15 +702,5 @@
     "summary": "PROS &rsaquo;&rsaquo; Stylish, efficient, strong performance CONS &rsaquo;&rsaquo; Expensive, heavy,…",
     "fetchedAt": "2026-10-06T22:23:37.118Z",
     "sentiment": "negative"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "'미리 만나는 2032년 GBC 과학관' 현대차그룹, 체험형 과학 전시 개최",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61799",
-    "pubDate": "2026-10-06T13:00:00.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61799_119105_3511.jpg",
-    "summary": "현대자동차그룹이 2032년 글로벌 비즈니스 콤플렉스(GBC)에 들어설 체험형 과학관의 콘텐츠를 미리 경험할 수 있는 팝업 전시를 선보인다(오토헤럴드 김훈기 기자) [오토헤럴드 김훈…",
-    "fetchedAt": "2026-10-06T08:37:15.007Z",
-    "sentiment": "positive"
   }
 ]
