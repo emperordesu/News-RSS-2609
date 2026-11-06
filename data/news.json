@@ -1,5 +1,32 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현대차 '벨로스터 N·코나 EV' 에어백 소프트웨어 오류 3만 7900여 대 리콜",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62124",
+    "pubDate": "2026-11-06T10:21:43.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62124_120031_215.jpg",
+    "summary": "현대자동차 코나 N [오토헤럴드 정호인 기자] 현대자동차가 에어백 제어 장치(ACU) 소프트웨어 오류로 인해 총 3만 7901대 규모의 리콜을 실시한다고 밝혔다. 미국 도로교통안전…",
+    "fetchedAt": "2026-11-06T01:59:57.288Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"달리면 닫힌다\" 현대차, 휠 공기저항 쥐어짜는 '가변형 블레이드' 특허",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62123",
+    "pubDate": "2026-11-06T10:10:06.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62123_120029_713.jpg",
+    "summary": "미국 특허상표청(USPTO) [오토헤럴드 김흥식 기자] 주행 중 스스로 휠 안쪽 날개를 여닫아 공기 저항을 극한까지 줄여주는 혁신적인 기술이 등장했다. 현대차와 기아가 고속 주행…",
+    "fetchedAt": "2026-11-06T01:59:57.288Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "중국 가랑비에 '폭싹' 현대차, 6위 →12위 추락... 기아도 안심 못할 영국",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62117",
+    "pubDate": "2026-11-06T09:20:27.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62117_120012_26.jpg",
+    "summary": "영국 신차 시장 10월 및 1월~10월 누적 모델별 판대 순위.(SMMT) [오토헤럴드 김흥식 기자] 영국 신차 시장에서 중국 브랜드와 전기차 돌풍이 지난 9월에 이어 10월에도…",
+    "fetchedAt": "2026-11-06T01:59:57.288Z"
+  },
+  {
     "source": "Carscoops",
     "title": "Hyundai's Record October Would Have Been A Decline Without The Santa Fe",
     "link": "https://www.carscoops.com/2308473/hyundai-sales-record-october-santa-fe/",
@@ -719,15 +746,5 @@
     "summary": "Hyundai's entry-level electric hatchback arrives with head-turning style and a jaw-dropping price ta…",
     "fetchedAt": "2026-10-07T04:36:03.863Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "Carscoops",
-    "title": "Despite All The Pros, The Hyundai Ioniq 5 Falters On Price | Review",
-    "link": "https://www.carscoops.com/2026/10/hyundai-ioniq-5-review-falters-on-price/",
-    "pubDate": "2026-10-06T21:00:00.000Z",
-    "image": "https://www.carscoops.com/wp-content/uploads/2026/09/Hyundai-Ioniq-5-N-Line-review-a-1024x576.jpg",
-    "summary": "PROS &rsaquo;&rsaquo; Stylish, efficient, strong performance CONS &rsaquo;&rsaquo; Expensive, heavy,…",
-    "fetchedAt": "2026-10-06T22:23:37.118Z",
-    "sentiment": "negative"
   }
 ]
