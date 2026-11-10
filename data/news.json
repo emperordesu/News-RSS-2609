@@ -1,5 +1,23 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현대차그룹, \"고맙고 감사합니다\" 소방관 치료·재활 다큐 ‘리부트’ 공개",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62149",
+    "pubDate": "2026-11-10T09:42:00.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62149_120102_353.jpg",
+    "summary": "충북 음성군 국립소방병원 전경 (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 소방의 날을 맞아 국민의 생명과 안전을 지키는 소방관들의 헌신에 감사를 표하고 이들의 일상…",
+    "fetchedAt": "2026-11-10T07:01:51.525Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차그룹-삼성, 경쟁 대신 '원팀' 결속... 미래 모빌리티·피지컬 AI 선점",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62148",
+    "pubDate": "2026-11-10T09:11:03.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62148_120096_249.jpg",
+    "summary": "현대자동차그룹 주요 경영진들이 삼성이 9일 삼성전자 서천연수원에서 개최한 HMG Appreciation Day에 참석했다. (삼성전자) [오토헤럴드 정호인 기자] 대한민국 대표 산…",
+    "fetchedAt": "2026-11-10T07:01:51.525Z"
+  },
+  {
     "source": "Motor1",
     "title": "Kia Gave Rafael Nadal A Full-Size EV4 GT Sculpted From Tennis Court Clay",
     "link": "https://www.motor1.com/news/814791/kia-ev4-gt-clay-tribute/",
@@ -690,15 +708,5 @@
     "summary": "Detectives followed a stolen Elantra that emerged from a garage with a stolen Sonata. Police say one…",
     "fetchedAt": "2026-10-11T21:33:53.017Z",
     "sentiment": "negative"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "경차 쌍트로 신화에서 크레타 돌풍까지... 현대차, 인도 ‘1000만 대 금자탑’ 눈앞",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61838",
-    "pubDate": "2026-10-11T09:28:37.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61838_119243_2733.jpg",
-    "summary": "현대자동차 인도 시장 라인업. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 세계 3대 자동차 격전지로 부상한 인도 시장 진출 30여 년 만에 누적 판매 1000만 대 돌파…",
-    "fetchedAt": "2026-10-11T00:41:50.584Z",
-    "sentiment": "positive"
   }
 ]
