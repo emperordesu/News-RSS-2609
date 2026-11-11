@@ -686,35 +686,5 @@
     "summary": "Hyundai’s new Bayon looks like a shrunken 2027 Tucson. A 1.6-liter hybrid engine is available for th…",
     "fetchedAt": "2026-10-13T01:50:25.242Z",
     "sentiment": "positive"
-  },
-  {
-    "source": "Auto Car (UK)",
-    "title": "Hyundai pumps up Bayon for second generation",
-    "link": "https://www.autocar.co.uk/car-news/new-cars/hyundai-pumps-bayon-second-generation",
-    "pubDate": "2026-10-12T13:20:00.000Z",
-    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/dsc_4849.jpg?itok=alu0O9kR",
-    "summary": "New version is longer, taller and wider than before - with a chunkier SUV look Hyundai has turned th…",
-    "fetchedAt": "2026-10-12T19:38:47.025Z",
-    "sentiment": "positive"
-  },
-  {
-    "source": "Motor1",
-    "title": "2027 Hyundai Tucson N Line Adds Sporty Looks Without More Power",
-    "link": "https://www.motor1.com/news/811578/2027-hyundai-tucson-n-line/",
-    "pubDate": "2026-10-12T13:20:00.000Z",
-    "image": "https://cdn.motor1.com/images/mgl/vx78z6/s3/hyundai-tucson-n-line-2027.jpg",
-    "summary": "The top trim adds cosmetic upgrades while keeping the regular Tucson's gasoline and hybrid drivetrai…",
-    "fetchedAt": "2026-10-12T19:38:47.025Z",
-    "sentiment": "neutral"
-  },
-  {
-    "source": "Motor1",
-    "title": "Hyundai's Smallest SUV In Europe Gets A Major Glow-Up For 2027",
-    "link": "https://www.motor1.com/news/811537/2027-hyundai-bayon-reveal/",
-    "pubDate": "2026-10-12T13:20:00.000Z",
-    "image": "https://cdn.motor1.com/images/mgl/W8bKvj/s3/hyundai-bayon-2027.jpg",
-    "summary": "The Bayon features a sharper look, a tech-heavy cabin, and a hybrid option.",
-    "fetchedAt": "2026-10-12T19:38:47.025Z",
-    "sentiment": "positive"
   }
 ]
