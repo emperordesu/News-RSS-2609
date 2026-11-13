@@ -1,6 +1,24 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "'출력 높이고 27인치 화면까지' 실체를 드러낸 기아 EV5 부분변경",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62186",
+    "pubDate": "2026-11-13T12:49:43.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62186_120228_4817.jpg",
+    "summary": "기아가 준중형 전기 SUV 'EV5'의 부분변경 모델을 준비 중인 가운데 최근 호주 자동차 인증자료를 통해 신차 디자인과 출력 변화 가능성이 확인됐다.(Australian ROVE…",
+    "fetchedAt": "2026-11-13T11:53:29.655Z"
+  },
+  {
+    "source": "Motor1",
+    "title": "BMW Once Called Hyundai's Fake EV Gears A 'Funny Gimmick.' Now It's Doing Them Too",
+    "link": "https://www.motor1.com/news/815339/bmw-changes-mind-adds-fake-ev-gears/",
+    "pubDate": "2026-11-13T07:22:25.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/jl8wA7/s3/2027-bmw-i3-m60.jpg",
+    "summary": "After dismissing Hyundai's simulated gear changes as unnecessary, BMW has developed its own setup.",
+    "fetchedAt": "2026-11-13T11:53:29.655Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "기아, '골든 스티어링 휠’ 아우디·폭스바겐 제치고 비유럽 브랜드 최초 3관왕",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62160",
     "pubDate": "2026-11-11T09:57:14.000Z",
@@ -628,23 +646,5 @@
     "image": "https://cdn.motor1.com/images/mgl/nA88El/s3/next-gen-hyundai-elantra-n-spy-photo.jpg",
     "summary": "Here's an early look at the next-gen sports sedan, which could debut as early as 2027.",
     "fetchedAt": "2026-10-15T08:54:45.712Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "납품사는 옛말, 현대차·기아 '기술 동반자’ 2026 R&D 협력사 테크 데이",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61888",
-    "pubDate": "2026-10-14T13:42:17.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61888_119360_3436.jpg",
-    "summary": "현대차·기아 R&D본부장 만프레드 하러 사장이 인사말을 전하는 모습 (현대차 기아) [오토헤럴드 정호인 기자] 현대자동차·기아가 협력사와의 R&D 상생 협력을 바탕으로 미래 모빌리…",
-    "fetchedAt": "2026-10-14T09:19:05.213Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"차체 썩는 차\" 국산이 수입산 3배...현대차 '부식 발생 부위' 가장 많아",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61887",
-    "pubDate": "2026-10-14T08:14:29.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61887_119357_1342.png",
-    "summary": "(컨슈머인사이트) [오토헤럴드 김흥식 기자] 새차를 사고 2년 이상 지난 국산차의 부식 발생 건수가 수입차의 세 배에 육박하며 여전히 부식 내구성에 취약한 것으로 나타났다. 국산…",
-    "fetchedAt": "2026-10-14T03:45:41.385Z"
   }
 ]
