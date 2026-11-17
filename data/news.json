@@ -1,5 +1,23 @@
 [
   {
+    "source": "Motor1",
+    "title": "Hyundai Confirms Next-Generation Elantra Is Coming To The US",
+    "link": "https://www.motor1.com/news/815742/2027-hyundai-elantra-us-debut/",
+    "pubDate": "2026-11-17T12:57:21.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/E6Nngo/s3/2027-hyundai-avante-south-korea.jpg",
+    "summary": "Sharpened styling and Pleos Connect tech highlight Hyundai's compact sedan push in Los Angeles.",
+    "fetchedAt": "2026-11-17T17:24:30.730Z"
+  },
+  {
+    "source": "Motor1",
+    "title": "This Kia Stinger V6 Filled With Metal After 100,000 Miles",
+    "link": "https://www.motor1.com/news/815720/kia-stinger-engine-failure/",
+    "pubDate": "2026-11-17T10:54:55.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/y21A2k/s3/kia-stinger-lambda-v6-teardown---timing-chains.jpg",
+    "summary": "A 2019 Kia Stinger’s 3.3-liter twin-turbo V6 spun four rod bearings after extended oil intervals and…",
+    "fetchedAt": "2026-11-17T17:24:30.730Z"
+  },
+  {
     "source": "오토헤럴드",
     "title": "'계기판 사라지고 대형 화면' 현대차 아이오닉 5, 차세대 SDV 실내로 변화",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62210",
@@ -646,14 +664,5 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61922_119475_1851.jpg",
     "summary": "현대차가 ‘2026 현대 모빌리티 플레이그라운드 시즌2’를 성공적으로 마쳤다. (현대차) [오토헤럴드 정호인 기자] 현대자동차가 지난 17일부터 18일까지 이틀간 경기도 화성시 한…",
     "fetchedAt": "2026-10-19T03:50:50.087Z"
-  },
-  {
-    "source": "Auto Car (UK)",
-    "title": "Inside Kia's GT division: Why its cars are fun, not fearsome",
-    "link": "https://www.autocar.co.uk/car-news/new-cars/inside-kias-gt-division-why-its-cars-are-fun-not-fearsome",
-    "pubDate": "2026-10-18T05:00:00.000Z",
-    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/untitled-3kia.jpg?itok=HTMEJf5a",
-    "summary": "Kia's electric GT models tote bucket seats and acid-green details, but have they been pulling punche…",
-    "fetchedAt": "2026-10-18T08:35:17.795Z"
   }
 ]
