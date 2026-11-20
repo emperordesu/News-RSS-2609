@@ -1,5 +1,32 @@
 [
   {
+    "source": "Car Watch (JP)",
+    "title": "Kia、乗用にも商用にも使えるバッテリEV「PV5」2027年モデル発表",
+    "link": "https://car.watch.impress.co.jp/docs/news/2158106.html",
+    "pubDate": "2026-11-20T02:37:13.000Z",
+    "image": null,
+    "summary": "Kia PBVジャパンは11月20日、バッテリEVバン「PV5」 の2027年モデルを発表し、新たに2つの新モデルと、新たなオプションパッケージを公表した。",
+    "fetchedAt": "2026-11-20T09:43:49.465Z"
+  },
+  {
+    "source": "Auto Car (UK)",
+    "title": "Kia EV4 GT",
+    "link": "https://www.autocar.co.uk/car-review/kia/ev4-gt",
+    "pubDate": "2026-11-20T08:00:00.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/kia-gt-road-test.jpg?itok=GVnsXxjO",
+    "summary": "The latest GT car is here to advance the cause of the electric hot hatch Understatement remains a ra…",
+    "fetchedAt": "2026-11-20T09:43:49.465Z"
+  },
+  {
+    "source": "ベストカー",
+    "title": "Kiaが日本のミニバン＆商用バン市場を本気で食いにくる!?　7人乗りPV5登場にカーゴは新エントリーグレードも追加!!",
+    "link": "https://bestcarweb.jp/news/1679996",
+    "pubDate": "2026-11-20T07:00:00.000Z",
+    "image": "https://img.bestcarweb.jp/wp-content/uploads/2026/11/20112640/Kia-PV5_Passenger_01_1.jpg?v=1795141601",
+    "summary": "2026年に日本再上陸を果たしたことで、話題のKiaの多目的EV「PV5」が、2027年モデルでさらに使い勝手を拡大すると発表！ これまでの乗用仕様だけでなく、ファミリーユースやビジネスで欲しかった新…",
+    "fetchedAt": "2026-11-20T09:43:49.465Z"
+  },
+  {
     "source": "오토헤럴드",
     "title": "현대차, LA 뒤흔든 국민 세단 아반떼 환골탈태... 85mm 쭉 늘려 중형급 덩치",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62251",
@@ -664,32 +691,5 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61971_119624_370.jpg",
     "summary": "기아 EV6 GT가 페라리 푸로산게(Purosangue)를 상대로 벌인 드래그 레이스에서 압도적인 승리를 거두는 모습. (카와우) [오토헤럴드 김흥식 기자] 기아 ‘EV6 GT’가…",
     "fetchedAt": "2026-10-22T03:31:36.424Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "기아, ‘2026 국제치안산업대전’ 참가... PV5·EV5 순찰차 콘셉트카 첫선",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61962",
-    "pubDate": "2026-10-21T15:44:13.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61962_119595_4041.jpg",
-    "summary": "‘2026 국제치안산업대전’ 기아관 부스 전경 (기아) [오토헤럴드 정호인 기자] 기아가 21일부터 24일까지 나흘간 인천 송도컨벤시아에서 개최되는 '2026 국제치안산업대전(KP…",
-    "fetchedAt": "2026-10-21T09:09:04.901Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "‘현대차 엠블럼 선명한 스타렉스’... 대북 제재 뚫고 북한길 달리는 국산차 정체",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61955",
-    "pubDate": "2026-10-21T10:44:09.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61955_119582_252.jpeg",
-    "summary": "북한을 소개하는 영상에서 발견된 현대차 스타렉스 구급차. 앞 번호판의 숫자 '60'은 북한 교통 규정상 ‘의료·보건 부문’ 관용차에 공식 부여되는 고유 부문 식별 번호다. [오토헤…",
-    "fetchedAt": "2026-10-21T03:32:07.668Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "\"상상이 현실 되는 앱 만든다\"... 현대차·기아, 차량용 앱 개발 공모전 개최",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=61954",
-    "pubDate": "2026-10-21T10:03:14.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/61954_119576_5926.jpg",
-    "summary": "현대자동차ㆍ기아가 대학(원)생과 일반 개발자, 스타트업을 대상으로 차량용 앱 개발 공모전을 개최한다. (현대차 기아) [오토헤럴드 정호인 기자] 현대자동차와 기아가 차량 데이터를…",
-    "fetchedAt": "2026-10-21T03:32:07.668Z"
   }
 ]
