@@ -1,5 +1,41 @@
 [
   {
+    "source": "오토헤럴드",
+    "title": "현대차, LA 뒤흔든 국민 세단 아반떼 환골탈태... 85mm 쭉 늘려 중형급 덩치",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62251",
+    "pubDate": "2026-11-20T10:14:29.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62251_120374_525.jpg",
+    "summary": "2026 LA오토쇼 현대자동차 '디 올 뉴 아반떼(북미명 : 엘란트라)' 공개(왼쪽부터 올라비시 보일 현대차 북미법인 상품기획 및 모빌리티 전략 부문 전무, 현대차 대표이사 호세…",
+    "fetchedAt": "2026-11-20T01:40:09.205Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "\"고성능 전기차 돌풍\" 현대차그룹 6개, 2027 북미 올해의 차 후보 최다 선정",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62249",
+    "pubDate": "2026-11-20T08:56:04.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62249_120361_4936.png",
+    "summary": "현대차그룹의 핵심 볼륨 모델들이 2027년 ‘북미 올해의 차(NACTOY)’ 후보에 대거 선정됐다. (NACTOY) [오토헤럴드 김흥식 기자] 현대차그룹이 2027년 ‘북미 올해의…",
+    "fetchedAt": "2026-11-20T01:40:09.205Z"
+  },
+  {
+    "source": "Auto Car (UK)",
+    "title": "Striking new Hyundai Elantra chases 3 Series with petrol power",
+    "link": "https://www.autocar.co.uk/car-news/new-cars/striking-new-hyundai-elantra-chases-3-series-petrol-power",
+    "pubDate": "2026-11-19T23:10:44.000Z",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/styles/car_review_image_190/public/images/car-reviews/first-drives/legacy/img_5780.jpg?itok=rLjWlBCr",
+    "summary": "New Elantra adopts 'Art of Steel' design principles and comes with a choice of petrol or hybrid Hyun…",
+    "fetchedAt": "2026-11-20T01:40:09.205Z"
+  },
+  {
+    "source": "Motor1",
+    "title": "New Elantra N When? Hyundai Won't Move Away From Its 'Successful Formula'",
+    "link": "https://www.motor1.com/news/816161/hyundai-elantra-n-should-return/",
+    "pubDate": "2026-11-19T22:00:00.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/E6N0ro/s3/new-hyundai-elantra-n-rendering-by-motor1.jpg",
+    "summary": "Hyundai won't share any timing, but execs suggest it’d be silly to move away from its N hot compact.",
+    "fetchedAt": "2026-11-20T01:40:09.205Z"
+  },
+  {
     "source": "Motor1",
     "title": "2027 Hyundai Elantra Is Bigger, More Powerful, And Gets Up To 53 MPG",
     "link": "https://www.motor1.com/news/816136/2027-hyundai-elantra-revealed-details-specs-mpg/",
@@ -655,14 +691,5 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/61954_119576_5926.jpg",
     "summary": "현대자동차ㆍ기아가 대학(원)생과 일반 개발자, 스타트업을 대상으로 차량용 앱 개발 공모전을 개최한다. (현대차 기아) [오토헤럴드 정호인 기자] 현대자동차와 기아가 차량 데이터를…",
     "fetchedAt": "2026-10-21T03:32:07.668Z"
-  },
-  {
-    "source": "Car Watch (JP)",
-    "title": "KiaのEV「PV5」で箱根を走る！ カーゴとパッセンジャーの両モデルに乗った印象は？",
-    "link": "https://car.watch.impress.co.jp/docs/news/impression/2149438.html",
-    "pubDate": "2026-10-20T22:00:00.000Z",
-    "image": null,
-    "summary": "日本で唯一の普通サイズ商用BEVがKia「PV5」だ。韓国を中心に欧州でも注目される理由は、本格的なBEV商用車として初めて何から何まで新規に開発されたことにある。特にモジュール化されたプラットフォー…",
-    "fetchedAt": "2026-10-20T22:56:34.919Z"
   }
 ]
