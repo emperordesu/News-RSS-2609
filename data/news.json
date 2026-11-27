@@ -1,6 +1,51 @@
 [
   {
     "source": "오토헤럴드",
+    "title": "[광저우 모터쇼] \"수성에서 얻은 소형 전기 SUV\" 현대차, 머큐리 콘셉트 공개",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62317",
+    "pubDate": "2026-11-27T11:34:24.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62317_120565_3240.jpg",
+    "summary": "현대차 머큐리 콘셉트. (오토헤럴드 김흥식 기자) [광저우=오토헤럴드 김흥식 기자] 현대자동차가 중국 고객의 일상적인 도심 이동에 초점을 맞춘 소형 전기 스포츠유틸리티차량(SUV)…",
+    "fetchedAt": "2026-11-27T06:58:02.756Z"
+  },
+  {
+    "source": "오토헤럴드",
+    "title": "현대차 복귀, 광저우국제모터쇼 개막... 신에너지차 비중 63.9% 역대 최대",
+    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62301",
+    "pubDate": "2026-11-27T10:35:51.000Z",
+    "image": "https://cdn.autoherald.co.kr/news/photo/202611/62301_120551_3411.jpg",
+    "summary": "2026 광저우모터쇼. (오토헤럴드 김흥식 기자) [광저우= 오토헤럴드 김흥식 기자] 중국 자동차 산업의 한 해를 결산하고 내년 시장 흐름을 가늠하는 제24회 광저우국제모터쇼가 2…",
+    "fetchedAt": "2026-11-27T06:58:02.756Z"
+  },
+  {
+    "source": "Motor1",
+    "title": "The Hyundai Mercury Is A Battery-Swapping EV For China",
+    "link": "https://www.motor1.com/news/816946/hyundai-mercury-details-photos/",
+    "pubDate": "2026-11-27T06:46:15.000Z",
+    "image": "https://cdn.motor1.com/images/mgl/rK69v1/s3/hyundai-mercury-concept.jpg",
+    "summary": "The Mercury name is back, but don't expect an American luxury sedan. Hyundai has other plans for it.",
+    "fetchedAt": "2026-11-27T06:58:02.756Z"
+  },
+  {
+    "source": "Carscoops",
+    "title": "The Hyundai Mercury Is The Brand's Next China-Only EV",
+    "link": "https://www.carscoops.com/2329320/hyundai-mercury-concept-china/",
+    "pubDate": "2026-11-27T02:58:29.000Z",
+    "image": "https://www.carscoops.com/img/gallery/the-hyundai-mercury-is-the-brands-next-china-only-ev/l-intro-1795748166.jpg",
+    "summary": "The Hyundai Mercury Concept will spawn a B-segment battery-electric SUV in China, tipped to be dubbe…",
+    "fetchedAt": "2026-11-27T06:58:02.756Z"
+  },
+  {
+    "source": "Carscoops",
+    "title": "America's Hyundai Tucson XRT Pro Is A 233 HP Hybrid",
+    "link": "https://www.carscoops.com/2329315/hyundai-tucson-xrt-pro-hybrid-america/",
+    "pubDate": "2026-11-27T01:53:15.000Z",
+    "image": "https://www.carscoops.com/img/gallery/americas-hyundai-tucson-xrt-pro-is-a-233-hp-hybrid/l-intro-1795744209.jpg",
+    "summary": "The all-new Hyundai Tucson has big shoes and has landed on U.S. shores with a dramatic exterior desi…",
+    "fetchedAt": "2026-11-27T06:58:02.756Z"
+  },
+  {
+    "source": "오토헤럴드",
     "title": "완성차 경영 연속성 유지·핵심 계열사 수장 교체, 현대차그룹 사장단 인사 단행",
     "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62303",
     "pubDate": "2026-11-26T12:24:08.000Z",
@@ -781,14 +826,5 @@
     "image": "https://cdn.autoherald.co.kr/news/photo/202610/62026_119758_2637.png",
     "summary": "현대자동차 인터브랜드 ''2026 글로벌 100대 브랜드'에서 사상 처음 20위권에 진입했다. (현대자동차) [오토헤럴드 김흥식 기자] 현대자동차가 글로벌 브랜드 가치 250억 달…",
     "fetchedAt": "2026-10-28T07:57:57.878Z"
-  },
-  {
-    "source": "오토헤럴드",
-    "title": "현대차그룹, ‘WHE 2026’ 출격... 수소 버스·트럭부터 무인 로봇 충전까지 공개",
-    "link": "http://www.autoherald.co.kr/news/articleView.html?idxno=62022",
-    "pubDate": "2026-10-28T09:52:48.000Z",
-    "image": "https://cdn.autoherald.co.kr/news/photo/202610/62022_119749_4812.jpg",
-    "summary": "현대자동차 더 뉴 엑시언트 수소전기트럭 (현대차그룹) [오토헤럴드 정호인 기자] 현대자동차그룹이 글로벌 수소 산업 박람회에서 차세대 수소 상용 모빌리티 기술력을 대거 선보인다. 현…",
-    "fetchedAt": "2026-10-28T00:59:33.549Z"
   }
 ]
